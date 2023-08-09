@@ -1,7 +1,6 @@
 import { Colors } from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text } from 'react-native';
 
 
@@ -12,8 +11,7 @@ interface IHeading5 {
 
 // Size is 16
 const H5 = ({ style, text }: IHeading5) => {
-  const { t } = useTranslation(['common']);
-  return <Text style={[styles.text, style]}>{t(text)}</Text>;
+  return <Text style={[styles.text, style]}>{text}</Text>;
 };
 
 export default H5;

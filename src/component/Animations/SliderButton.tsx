@@ -1,10 +1,9 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
-import {SlideIconRight, WhiteSlideIcon} from '@Asset/logo';
-import {Colors, Fonts} from '@Theme/index';
+import { SlideIconRight, WhiteSlideIcon } from '@Asset/logo';
+import { Colors, Fonts } from '@Theme/index';
 import SwipeButton from 'rn-swipe-button';
-import {useTranslation} from 'react-i18next';
 import Metrics from '@Utility/Metrics';
 
 interface ISliderButton {
@@ -20,7 +19,6 @@ const SliderButton = ({
   thumbBgColor = Colors.Colors.YELLOW,
   isLightIcon = false,
 }: ISliderButton) => {
-  const {t} = useTranslation(['common']);
   return (
     <SwipeButton
       railBackgroundColor={Colors.Colors.MEDIUM_GRAY}
@@ -34,12 +32,12 @@ const SliderButton = ({
       thumbIconBackgroundColor={thumbBgColor}
       thumbIconBorderColor={'transparent'}
       thumbIconImageSource={isLightIcon ? WhiteSlideIcon : SlideIconRight}
-      title={t(`${text}`)}
+      title={text}
       titleStyles={{
         ...Fonts.SemiBold(Fonts.Size.normal, Colors.Colors.DARK_BLACK),
         paddingLeft: Metrics.scale(40),
       }}
-      containerStyles={{backgroundColor: 'red', elevation: 5}}
+      containerStyles={{ backgroundColor: 'red', elevation: 5 }}
     />
   );
 };

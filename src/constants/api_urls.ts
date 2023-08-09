@@ -4,7 +4,7 @@ const common = 'common';
 const driver = 'driver';
 export const SERVICE_CONFIG_URLS = {
   AUTH: {
-    LOGIN: `${authController}/login`,
+    LOGIN: `${student}/authorize`,
     ME: `${authController}/me`,
     REQUEST_OTP: `${driver}/tokens/request-otp`,
     VERIFY_OTP: `${driver}/tokens/verify-otp`,

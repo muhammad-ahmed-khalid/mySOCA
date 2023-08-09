@@ -1,10 +1,10 @@
 import LottieWrapper from '@Component/LottieWrapper';
 import Spinner from '@Component/Spinner/Spinner';
-import {toastConfig} from '@Constants/toastUtils';
-import {Colors} from '@Theme/Colors';
+import { toastConfig } from '@Constants/toastUtils';
+import { Colors } from '@Theme/Colors';
 import Utils from '@Utility/Utils';
 import * as React from 'react';
-import {StatusBar, StyleSheet} from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import KeyboardManager from 'react-native-keyboard-manager';
 import Toast from 'react-native-toast-message';
 import ApiClientProvider from './APIServices/Client';
@@ -61,7 +61,6 @@ export default function App() {
     }
   };
 
-  console.log('222222222222222222222222');
   return (
     <ErrorBoundary>
       <ApiClientProvider>
@@ -71,7 +70,11 @@ export default function App() {
           barStyle="dark-content"
         />
         <LoginProvider>
-          <AuthNavigator />
+          {!isAnimationFinished ? (
+            <LottieWrapper handleSubmit={handleSubmit} />
+          ) : (
+            <AuthNavigator />
+          )}
         </LoginProvider>
         <Toast config={toastConfig} />
         {isConnected ? (

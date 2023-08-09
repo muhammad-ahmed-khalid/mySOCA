@@ -1,18 +1,16 @@
 import ButtonView from '@Component/ButtonView';
 import Fonts from '@Theme/Fonts';
-import {Colors} from '@Theme/index';
+import { Colors } from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import * as React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import PhoneInput from 'react-native-phone-number-input';
-import {CancelIcon} from '@Asset/logo';
-import {useTranslation} from 'react-i18next';
+import { CancelIcon } from '@Asset/logo';
 
 export default React.forwardRef((props: any, ref) => {
-  const {t} = useTranslation(['errors']);
   const phoneInput = React.useRef<PhoneInput>(null);
   const input = React.useRef<PhoneInput>(null);
-  const {style, setIsValidPhoneNumber} = props;
+  const { style, setIsValidPhoneNumber } = props;
 
   const [state, setState] = React.useState({
     isErr: false,
@@ -50,13 +48,13 @@ export default React.forwardRef((props: any, ref) => {
     setState(s => ({
       ...s,
       value: text,
-      err: !validNumber ? t('loginPhoneNumberError') : null,
+      err: !validNumber ? 'Login Phone number error' : null,
       isErr: !validNumber,
     }));
   };
 
   const clearPhoneInput = () => {
-    phoneInput.current?.setState({number: ''});
+    phoneInput.current?.setState({ number: '' });
     setState(s => ({
       ...s,
       value: '',
@@ -85,7 +83,7 @@ export default React.forwardRef((props: any, ref) => {
           containerStyle={styles.phoneInputContainerStyle}
           textInputProps={{
             ref: input,
-            placeholder: t('phoneNumber'),
+            placeholder: 'Phone Number',
             placeholderTextColor: Colors.Colors.PLACEHOLDER_COLOR,
             maxLength: 14,
             style: {

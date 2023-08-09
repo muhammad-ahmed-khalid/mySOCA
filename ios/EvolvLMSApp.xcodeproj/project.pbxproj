@@ -9,11 +9,32 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* EvolvLMSAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EvolvLMSAppTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-EvolvLMSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-EvolvLMSApp.a */; };
+		0D320423258E46B3BD78069D /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287BEB5F644A49A6B7169399 /* PlusJakartaSans-Bold.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		18EA96AC91DC465A867D592F /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29A01C38DA01485592127485 /* Montserrat-Medium.ttf */; };
+		2F403C46AF7242B4BF9BF580 /* PlusJakartaSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A899078E5B3E4BE6B0F4B024 /* PlusJakartaSans-Italic.ttf */; };
+		2FD4FBF6034F4D96B01DA7B0 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1084B2EEC4E4558AE3F6538 /* Montserrat-Bold.ttf */; };
+		38D6BABE5BE3422FBCE8D4B4 /* PlusJakartaSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 805E5A451CCC453A90116A0E /* PlusJakartaSans-ExtraBoldItalic.ttf */; };
+		4128F36F3797451AB8365844 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 330422A2902C4BE7BAB3BF75 /* Montserrat-Light.ttf */; };
+		59A2414E149F4FE8A13FF945 /* PlusJakartaSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12653F59050341B1923D1991 /* PlusJakartaSans-MediumItalic.ttf */; };
+		5BED86E01615466C86BDC006 /* PlusJakartaSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A122CFBAC75A4080A6A3E284 /* PlusJakartaSans-LightItalic.ttf */; };
+		5CA6483E3DAA405F8BE16796 /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5F0CCF3E47C42768111C267 /* PlusJakartaSans-Medium.ttf */; };
+		62245D8B19E6443A88B80D8F /* PlusJakartaSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 949D13AC17C54980A82159BE /* PlusJakartaSans-ExtraLight.ttf */; };
+		63FC4B3D1EC44B91B4441A37 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 853DF4C533E54DA388F1DE91 /* Montserrat-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-EvolvLMSApp-EvolvLMSAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-EvolvLMSApp-EvolvLMSAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		89CA805AAA1749F0935ED6E4 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C781FC7AA3914B15A9CBD367 /* Montserrat-ExtraLight.ttf */; };
+		AC84126BFF5E46E9BC039688 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10750AEE0F5C43AB8B092420 /* PlusJakartaSans-Regular.ttf */; };
+		ADF306FF49E94011A5333D06 /* PlusJakartaSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21460EAC29DB4023B1D2DDFA /* PlusJakartaSans-SemiBoldItalic.ttf */; };
+		C50023B285974ED7A209FE83 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0F1B9E8A0954F9D8734BE72 /* Montserrat-Thin.ttf */; };
+		D995E881006742BFBDB60A7C /* PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B07049A7F16458EB94DF3F0 /* PlusJakartaSans-SemiBold.ttf */; };
+		DDA3B139262D4EE3ADF4F2F3 /* PlusJakartaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8D1B83C11EF4F83812B745A /* PlusJakartaSans-Light.ttf */; };
+		E7251202400F454AA64954C1 /* PlusJakartaSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67CDA3CFDAD9481A803B6534 /* PlusJakartaSans-BoldItalic.ttf */; };
+		F3052125787B44FA935BEC0F /* PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AC98C18BAA7424DA7223916 /* PlusJakartaSans-ExtraBold.ttf */; };
+		F6CF210A9FE84721900E66C7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B921167E2124BFD867D6A52 /* Montserrat-SemiBold.ttf */; };
+		FB260B8D32D04A6BA2A45386 /* PlusJakartaSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21A0FF18DB964E918A442B2B /* PlusJakartaSans-ExtraLightItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +51,8 @@
 		00E356EE1AD99517003FC87E /* EvolvLMSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EvolvLMSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* EvolvLMSAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvolvLMSAppTests.m; sourceTree = "<group>"; };
+		10750AEE0F5C43AB8B092420 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-Regular.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
+		12653F59050341B1923D1991 /* PlusJakartaSans-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-MediumItalic.ttf"; path = "../src/assets/fonts/PlusJakartaSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* EvolvLMSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvolvLMSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = EvolvLMSApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = EvolvLMSApp/AppDelegate.mm; sourceTree = "<group>"; };
@@ -37,13 +60,32 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = EvolvLMSApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = EvolvLMSApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-EvolvLMSApp-EvolvLMSAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EvolvLMSApp-EvolvLMSAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21460EAC29DB4023B1D2DDFA /* PlusJakartaSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-SemiBoldItalic.ttf"; path = "../src/assets/fonts/PlusJakartaSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		21A0FF18DB964E918A442B2B /* PlusJakartaSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-ExtraLightItalic.ttf"; path = "../src/assets/fonts/PlusJakartaSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		287BEB5F644A49A6B7169399 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-Bold.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
+		29A01C38DA01485592127485 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Medium.ttf"; path = "../src/assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		330422A2902C4BE7BAB3BF75 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../src/assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-EvolvLMSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvolvLMSApp.debug.xcconfig"; path = "Target Support Files/Pods-EvolvLMSApp/Pods-EvolvLMSApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4B07049A7F16458EB94DF3F0 /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-SemiBold.ttf"; path = "../src/assets/fonts/PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-EvolvLMSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvolvLMSApp.release.xcconfig"; path = "Target Support Files/Pods-EvolvLMSApp/Pods-EvolvLMSApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-EvolvLMSApp-EvolvLMSAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvolvLMSApp-EvolvLMSAppTests.debug.xcconfig"; path = "Target Support Files/Pods-EvolvLMSApp-EvolvLMSAppTests/Pods-EvolvLMSApp-EvolvLMSAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5B921167E2124BFD867D6A52 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-EvolvLMSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EvolvLMSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		67CDA3CFDAD9481A803B6534 /* PlusJakartaSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-BoldItalic.ttf"; path = "../src/assets/fonts/PlusJakartaSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		805E5A451CCC453A90116A0E /* PlusJakartaSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/PlusJakartaSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = EvolvLMSApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		853DF4C533E54DA388F1DE91 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-EvolvLMSApp-EvolvLMSAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvolvLMSApp-EvolvLMSAppTests.release.xcconfig"; path = "Target Support Files/Pods-EvolvLMSApp-EvolvLMSAppTests/Pods-EvolvLMSApp-EvolvLMSAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		949D13AC17C54980A82159BE /* PlusJakartaSans-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-ExtraLight.ttf"; path = "../src/assets/fonts/PlusJakartaSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		9AC98C18BAA7424DA7223916 /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-ExtraBold.ttf"; path = "../src/assets/fonts/PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A122CFBAC75A4080A6A3E284 /* PlusJakartaSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-LightItalic.ttf"; path = "../src/assets/fonts/PlusJakartaSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		A899078E5B3E4BE6B0F4B024 /* PlusJakartaSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-Italic.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Italic.ttf"; sourceTree = "<group>"; };
+		B5F0CCF3E47C42768111C267 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-Medium.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
+		C781FC7AA3914B15A9CBD367 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLight.ttf"; path = "../src/assets/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C8D1B83C11EF4F83812B745A /* PlusJakartaSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlusJakartaSans-Light.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Light.ttf"; sourceTree = "<group>"; };
+		D1084B2EEC4E4558AE3F6538 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F0F1B9E8A0954F9D8734BE72 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../src/assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +148,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		423FC0AC05A147A3B06055C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D1084B2EEC4E4558AE3F6538 /* Montserrat-Bold.ttf */,
+				C781FC7AA3914B15A9CBD367 /* Montserrat-ExtraLight.ttf */,
+				330422A2902C4BE7BAB3BF75 /* Montserrat-Light.ttf */,
+				29A01C38DA01485592127485 /* Montserrat-Medium.ttf */,
+				853DF4C533E54DA388F1DE91 /* Montserrat-Regular.ttf */,
+				5B921167E2124BFD867D6A52 /* Montserrat-SemiBold.ttf */,
+				F0F1B9E8A0954F9D8734BE72 /* Montserrat-Thin.ttf */,
+				287BEB5F644A49A6B7169399 /* PlusJakartaSans-Bold.ttf */,
+				67CDA3CFDAD9481A803B6534 /* PlusJakartaSans-BoldItalic.ttf */,
+				9AC98C18BAA7424DA7223916 /* PlusJakartaSans-ExtraBold.ttf */,
+				805E5A451CCC453A90116A0E /* PlusJakartaSans-ExtraBoldItalic.ttf */,
+				949D13AC17C54980A82159BE /* PlusJakartaSans-ExtraLight.ttf */,
+				21A0FF18DB964E918A442B2B /* PlusJakartaSans-ExtraLightItalic.ttf */,
+				A899078E5B3E4BE6B0F4B024 /* PlusJakartaSans-Italic.ttf */,
+				C8D1B83C11EF4F83812B745A /* PlusJakartaSans-Light.ttf */,
+				A122CFBAC75A4080A6A3E284 /* PlusJakartaSans-LightItalic.ttf */,
+				B5F0CCF3E47C42768111C267 /* PlusJakartaSans-Medium.ttf */,
+				12653F59050341B1923D1991 /* PlusJakartaSans-MediumItalic.ttf */,
+				10750AEE0F5C43AB8B092420 /* PlusJakartaSans-Regular.ttf */,
+				4B07049A7F16458EB94DF3F0 /* PlusJakartaSans-SemiBold.ttf */,
+				21460EAC29DB4023B1D2DDFA /* PlusJakartaSans-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +193,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				423FC0AC05A147A3B06055C1 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -200,7 +272,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -244,6 +316,27 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				2FD4FBF6034F4D96B01DA7B0 /* Montserrat-Bold.ttf in Resources */,
+				89CA805AAA1749F0935ED6E4 /* Montserrat-ExtraLight.ttf in Resources */,
+				4128F36F3797451AB8365844 /* Montserrat-Light.ttf in Resources */,
+				18EA96AC91DC465A867D592F /* Montserrat-Medium.ttf in Resources */,
+				63FC4B3D1EC44B91B4441A37 /* Montserrat-Regular.ttf in Resources */,
+				F6CF210A9FE84721900E66C7 /* Montserrat-SemiBold.ttf in Resources */,
+				C50023B285974ED7A209FE83 /* Montserrat-Thin.ttf in Resources */,
+				0D320423258E46B3BD78069D /* PlusJakartaSans-Bold.ttf in Resources */,
+				E7251202400F454AA64954C1 /* PlusJakartaSans-BoldItalic.ttf in Resources */,
+				F3052125787B44FA935BEC0F /* PlusJakartaSans-ExtraBold.ttf in Resources */,
+				38D6BABE5BE3422FBCE8D4B4 /* PlusJakartaSans-ExtraBoldItalic.ttf in Resources */,
+				62245D8B19E6443A88B80D8F /* PlusJakartaSans-ExtraLight.ttf in Resources */,
+				FB260B8D32D04A6BA2A45386 /* PlusJakartaSans-ExtraLightItalic.ttf in Resources */,
+				2F403C46AF7242B4BF9BF580 /* PlusJakartaSans-Italic.ttf in Resources */,
+				DDA3B139262D4EE3ADF4F2F3 /* PlusJakartaSans-Light.ttf in Resources */,
+				5BED86E01615466C86BDC006 /* PlusJakartaSans-LightItalic.ttf in Resources */,
+				5CA6483E3DAA405F8BE16796 /* PlusJakartaSans-Medium.ttf in Resources */,
+				59A2414E149F4FE8A13FF945 /* PlusJakartaSans-MediumItalic.ttf in Resources */,
+				AC84126BFF5E46E9BC039688 /* PlusJakartaSans-Regular.ttf in Resources */,
+				D995E881006742BFBDB60A7C /* PlusJakartaSans-SemiBold.ttf in Resources */,
+				ADF306FF49E94011A5333D06 /* PlusJakartaSans-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-EvolvLMSApp-EvolvLMSAppTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -459,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-EvolvLMSApp-EvolvLMSAppTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = EvolvLMSAppTests/Info.plist;
@@ -486,6 +581,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KAKDNBDBY6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EvolvLMSApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -513,6 +609,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KAKDNBDBY6;
 				INFOPLIST_FILE = EvolvLMSApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -564,7 +661,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -598,6 +695,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -635,7 +733,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -661,6 +759,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

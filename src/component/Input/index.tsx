@@ -85,7 +85,7 @@ const Input = forwardRef((props: InputProps, ref) => {
       value: txt,
     }));
   };
-
+  console.log(state.err, "state.errstate.err")
   return (
     <View>
       <View style={styles.innerWrapper}>
@@ -138,7 +138,7 @@ const Input = forwardRef((props: InputProps, ref) => {
           </ButtonView>
         )}
       </View>
-      {state.isErr && <Text style={styles.err}>{t(state.err)}</Text>}
+      {state.isErr && <Text style={styles.err}>{state.err}</Text>}
     </View>
   );
 });

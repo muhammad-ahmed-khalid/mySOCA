@@ -1,10 +1,10 @@
 import Utils from '../utility/Utils';
-import {getItem} from './storageService';
+import { getItem } from './storageService';
 
-import {ApiResponse, ApisauceConfig, create} from 'apisauce';
-import {queryClient} from '../APIServices/Client';
-import {API_CONFIG, CONTENT_TYPE, HTTP_STATUS} from '../constants/api';
-import {STORAGE_KEYS} from '@Constants/queryKeys';
+import { ApiResponse, ApisauceConfig, create } from 'apisauce';
+import { queryClient } from '../APIServices/Client';
+import { API_CONFIG, CONTENT_TYPE, HTTP_STATUS } from '../constants/api';
+import { STORAGE_KEYS } from '@Constants/queryKeys';
 
 export const BASE_URL = API_CONFIG.BASE_URL_DEV;
 
@@ -63,7 +63,7 @@ function handleResponse(response: ApiResponse<any>) {
     };
   }
   if (response.ok) {
-    return {...mutatedResponse, data};
+    return { ...mutatedResponse, data };
   } else {
     return {
       ...mutatedResponse,

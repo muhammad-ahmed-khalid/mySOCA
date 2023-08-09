@@ -1,11 +1,10 @@
 import ButtonView from '@Component/ButtonView';
 import H7 from '@Component/Headings/H7';
 import Fonts from '@Theme/Fonts';
-import {Colors} from '@Theme/index';
+import { Colors } from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 interface IAuthDefaultBottom {
   text?: string;
@@ -13,12 +12,11 @@ interface IAuthDefaultBottom {
   action: Function;
 }
 
-const AuthDefaultBottom = ({text, btnText, action}: IAuthDefaultBottom) => {
-  const {t} = useTranslation(['common']);
+const AuthDefaultBottom = ({ text, btnText, action }: IAuthDefaultBottom) => {
   return (
     <View style={styles.wrapper}>
       <Text style={styles.text}>
-        {t(text)}
+        {text}
         <ButtonView onPress={action}>
           <H7 style={styles.btnTxt} text={btnText} />
         </ButtonView>

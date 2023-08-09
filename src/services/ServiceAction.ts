@@ -1,4 +1,4 @@
-import {_hideSpinner, _showSpinner} from '@Component/Spinner/Spinner';
+import { _hideSpinner, _showSpinner } from '@Component/Spinner/Spinner';
 import apiService from '@Service/apiService';
 import Toast from 'react-native-toast-message';
 
@@ -34,7 +34,7 @@ export async function apiRequest({
       Toast.show({
         type: 'success',
         text1: 'Success',
-        text2: response?.data?.message?.message || response?.message,
+        text2: response?.data?.apiMessage || response?.apiMessage,
       });
     }
 
@@ -44,7 +44,7 @@ export async function apiRequest({
       Toast.show({
         type: 'error',
         text1: 'Error',
-        text2: response?.data?.message?.message,
+        text2: response?.data?.apiMessage,
       });
     throw response?.data;
   }

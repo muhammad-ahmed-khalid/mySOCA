@@ -1,21 +1,14 @@
 import AppHeader from '@Component/Header/AppHeader';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Colors} from '@Theme/Colors';
-import {useTranslation} from 'react-i18next';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Colors } from '@Theme/Colors';
 import NavigationRoutes from './NavigationRoutes';
 
 const Stack = createNativeStackNavigator();
 
-type AppStackProps = {
-  initialRouteName: string;
-};
-
-export default function AppStack(props: AppStackProps) {
-  const {initialRouteName} = props;
-  const {t} = useTranslation(['pageTitles']);
+export default function AppStack() {
   return (
     <Stack.Navigator
-      initialRouteName={initialRouteName}
+      initialRouteName={NavigationRoutes.APP_STACK.BOTTOM_TABS}
       screenOptions={{
         header: props => {
           let state = props.navigation.getState();
@@ -34,14 +27,21 @@ export default function AppStack(props: AppStackProps) {
         },
       }}>
       <Stack.Screen
-        options={{title: t('HOME'), headerShown: false}}
+        options={{ title: 'Bottom Tabs', headerShown: false }}
+        name={NavigationRoutes.APP_STACK.BOTTOM_TABS}
+        getComponent={() =>
+          require('@Navigator/BottomStack').default
+        }
+      />
+      <Stack.Screen
+        options={{ title: 'HOME', headerShown: false }}
         name={NavigationRoutes.APP_STACK.HOME}
         getComponent={() =>
           require('@Container/AppContainer/Home/HomeScreen').default
         }
       />
       <Stack.Screen
-        options={{title: t('Profile')}}
+        options={{ title: 'Profile' }}
         name={NavigationRoutes.APP_STACK.PROFILE}
         getComponent={() =>
           require('@Container/AppContainer/Profile/Profile').default

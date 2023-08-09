@@ -1,11 +1,10 @@
 import H1 from '@Component/Headings/H1';
 import H7 from '@Component/Headings/H7';
 
-import {Colors, Fonts} from '@Theme/index';
+import { Colors, Fonts } from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 interface IAuthDefaultHeading {
   title?: string;
@@ -18,13 +17,12 @@ const AuthDefaultHeading = ({
   desc,
   isOtp = false,
 }: IAuthDefaultHeading) => {
-  const {t} = useTranslation(['common']);
   return (
     <View style={styles.root}>
-      <H1 style={styles.textCenter} text={t(title)} />
+      <H1 style={styles.textCenter} text={title} />
       {desc && (
         <H7
-          style={[styles.desc, isOtp ? {width: Metrics.scale(180)} : null]}
+          style={[styles.desc, isOtp ? { width: Metrics.scale(180) } : null]}
           text={desc}
         />
       )}

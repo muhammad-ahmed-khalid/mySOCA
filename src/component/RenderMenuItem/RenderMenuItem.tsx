@@ -1,13 +1,13 @@
-import {ChevronSvg, DriverRating, RightArrowSmall} from '@Asset/logo';
+import { ChevronSvg, DriverRating, RightArrowSmall } from '@Asset/logo';
 import ButtonView from '@Component/ButtonView';
 import H6 from '@Component/Headings/H6';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
-import {navigate} from '@Service/navigationService';
+import { navigate } from '@Service/navigationService';
 import Fonts from '@Theme/Fonts';
-import {Colors} from '@Theme/index';
+import { Colors } from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 interface IRenderMenuItem {
   icon?: any;
@@ -21,7 +21,7 @@ interface IRenderMenuItem {
   requestEmailOtpMutation?: any;
   isEditable?: boolean;
   mainTextStyle?: any;
-  isRating?:  boolean;
+  isRating?: boolean;
 }
 
 const RenderMenuItem = ({
@@ -36,7 +36,7 @@ const RenderMenuItem = ({
   requestEmailOtpMutation,
   isEditable = true,
   mainTextStyle,
-  isRating= false,
+  isRating = false,
 }: IRenderMenuItem) => {
   const handlePressVerifyEmail = () => {
     const payload = {
@@ -78,12 +78,11 @@ const RenderMenuItem = ({
         return null;
     }
   };
-  console.log(isRating, "isRatingisRating")
   return (
     <View>
       <ButtonView
         enableClick={!isEditable}
-        style={[styles.root, !isEditable ? {opacity: 0.5} : {opacity: 1}]}
+        style={[styles.root, !isEditable ? { opacity: 0.5 } : { opacity: 1 }]}
         onPress={() => action()}
         activeOpacity={1}>
         <View style={styles.container}>
@@ -91,10 +90,10 @@ const RenderMenuItem = ({
           <View style={styles.textWrapper}>
             <H6 style={[styles.mainText, mainTextStyle]} text={text} />
             {optionalText && (
-            <>
-              <H6 style={styles.optionalText} text={optionalText} /> 
-             {isRating && <DriverRating />} 
-            </>
+              <>
+                <H6 style={styles.optionalText} text={optionalText} />
+                {isRating && <DriverRating />}
+              </>
             )}
           </View>
         </View>
