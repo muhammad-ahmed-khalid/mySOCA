@@ -1,18 +1,28 @@
 import ButtonView from '@Component/ButtonView';
 import H7 from '@Component/Headings/H7';
 import Fonts from '@Theme/Fonts';
-import { Colors } from '@Theme/index';
+import {Colors} from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 interface IAuthDefaultBottom {
   text?: string;
   btnText?: string;
   action: Function;
+  btnText2?: string;
+  actionBtn?: Function;
+  text2?: string;
 }
 
-const AuthDefaultBottom = ({ text, btnText, action }: IAuthDefaultBottom) => {
+const AuthDefaultBottom = ({
+  text,
+  btnText,
+  action,
+  btnText2,
+  actionBtn,
+  text2,
+}: IAuthDefaultBottom) => {
   return (
     <View style={styles.wrapper}>
       <Text style={styles.text}>
@@ -46,7 +56,8 @@ const styles = StyleSheet.create({
     includeFontPadding: false,
     lineHeight: Metrics.verticalScale(20),
     position: 'relative',
-    top: Metrics.scale(0),
+    top: Metrics.scale(2.5),
     left: Metrics.scale(3),
   },
+  texts: {},
 });

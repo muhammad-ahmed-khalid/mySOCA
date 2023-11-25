@@ -1,11 +1,11 @@
-import { RightArrowLarge } from '@Asset/logo';
+import {RightArrowLarge} from '@Asset/logo';
 import AddSvg from '@Asset/logo/AddSvg.svg';
 import ButtonView from '@Component/ButtonView';
 import H5 from '@Component/Headings/H5';
-import { Colors } from '@Theme/Colors';
+import {Colors} from '@Theme/Colors';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native';
+import {Image, ImageSourcePropType, StyleSheet, View} from 'react-native';
 
 interface IAppButton {
   title: string;
@@ -36,9 +36,9 @@ const AppButton = ({
     <ButtonView
       style={[
         styles.button,
-        { paddingVertical },
+        {paddingVertical},
         style,
-        isDisabled && { backgroundColor: Colors.DISABLED_BTN_BG },
+        isDisabled && {backgroundColor: Colors.DISABLED_BTN_BG},
       ]}
       enableClick={isDisabled}
       {...rest}>
@@ -51,7 +51,7 @@ const AppButton = ({
       )}
       <View style={styles.svg}>{!svg ? svg : <AddSvg />}</View>
       <H5
-        style={[textStyle, isDisabled && { color: Colors.DISABLED_BTN_COLOR }]}
+        style={[textStyle, isDisabled && {color: Colors.DISABLED_BTN_COLOR}]}
         text={title}
       />
       {imageSource && iconAfterText && (
@@ -65,7 +65,7 @@ const AppButton = ({
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: Colors.YELLOW,
+    backgroundColor: Colors.DARKISH,
     borderRadius: Metrics.verticalScale(50),
     flexDirection: 'row',
     justifyContent: 'center',
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     marginLeft: Metrics.scale(5),
     marginBottom: Metrics.verticalScale(3),
   },
-  svg: { marginHorizontal: Metrics.scale(5) },
+  svg: {marginHorizontal: Metrics.scale(5)},
   iconRightStyle: {
     marginHorizontal: 10,
   },

@@ -7,6 +7,7 @@ import {
   LoginProvider as LoginProviderType,
 } from './types';
 import {STORAGE_KEYS} from '@Constants/queryKeys';
+import {queryClient} from '@Api/Client';
 
 export default function LoginProvider(props: LoginProviderType) {
   const {children} = props;
@@ -31,6 +32,7 @@ export default function LoginProvider(props: LoginProviderType) {
 
   const setUserAuthentication = (data: any) => {
     const {token} = data || {};
+
     Boolean(data) && setItem(STORAGE_KEYS.GET_USER, data || {});
     Boolean(token) && setItem(STORAGE_KEYS.TOKEN, token || '');
     setAuthUser(data);
@@ -41,6 +43,7 @@ export default function LoginProvider(props: LoginProviderType) {
     setIsAuth(false);
     removeItem(STORAGE_KEYS.TOKEN);
     removeItem(STORAGE_KEYS.GET_USER);
+    queryClient.removeQueries();
   };
 
   const providerValues: LoginContextType = {

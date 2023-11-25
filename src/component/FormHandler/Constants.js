@@ -47,15 +47,13 @@ const SCHEMAS = (refCollector, onSubmitEditing, validate) => ({
   },
   password: (id = 'password') => {
     const schema = yup.object().shape({
-      [id]: yup
-        .string()
-        .required('Password is required.')
-        .matches(
-          REGEX.PASSWORD_VALIDATOR,
-          'Password must contain atleast 1 uppercase, digit, lowercase and a special character',
-        )
-        .min(6, 'Password must be longer than or equal to 6 characters')
-        .max(10, 'Password must not be longer than 10 characters'),
+      [id]: yup.string().required('Password is required.'),
+      // .matches(
+      //   REGEX.PASSWORD_VALIDATOR,
+      //   'Password must contain atleast 1 uppercase, digit, lowercase and a special character',
+      // )
+      // .min(6, 'Password must be longer than or equal to 6 characters')
+      // .max(10, 'Password must not be longer than 10 characters'),
     });
     return {
       schema,
@@ -71,7 +69,7 @@ const SCHEMAS = (refCollector, onSubmitEditing, validate) => ({
     const schema = yup.object().shape({
       [id]: yup
         .string()
-        .required('Please re-enter your password')
+        .required('Passwords must match')
         .oneOf([yup.ref('password'), null], 'Passwords must match'),
     });
     return {
@@ -128,7 +126,11 @@ const SCHEMAS = (refCollector, onSubmitEditing, validate) => ({
   },
   text: (id = 'text') => {
     const schema = yup.object().shape({
-      [id]: yup.string().required(`${id} is required`),
+      [id]: yup.string().required(
+        `${id.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
+          return str.toUpperCase();
+        })} is required`,
+      ),
     });
 
     return {

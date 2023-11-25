@@ -1,4 +1,6 @@
-import {AppLogo} from '@Asset/logo';
+import {AppLogo, SOCAPng, SOCASvg, SocaLogo} from '@Asset/logo';
+import H1 from '@Component/Headings/H1';
+import {Colors} from '@Theme/Colors';
 import Metrics from '@Utility/Metrics';
 import * as React from 'react';
 import {
@@ -8,23 +10,36 @@ import {
   StyleSheet,
   View,
   ViewStyle,
+  Image,
 } from 'react-native';
 
 interface IAuthWrapper {
   wrapperStyle?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
+  scrollEnabled?: Boolean;
 }
 
-export default function AuthWrapper({wrapperStyle, children}: IAuthWrapper) {
+export default function AuthWrapper({
+  wrapperStyle,
+  children,
+  scrollEnabled = false,
+}: IAuthWrapper) {
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{minHeight: '100%'}}
+      contentContainerStyle={[
+        scrollEnabled ? {minHeight: '100%'} : {minHeight: '125%'},
+      ]} // Remove height: '100%'
       alwaysBounceVertical={false}
       bounces={false}
-      style={{width: '100%'}}>
+      style={{
+        width: '100%',
+        backgroundColor: '#374051',
+        // marginBottom: 20,
+      }}>
       <SafeAreaView style={styles.container}>
-        <AppLogo />
+        <Image source={SOCAPng} style={{height: 250, width: 250}} />
+        <H1 text="MySOCA" style={{color: Colors.WHITE}} />
 
         <View style={wrapperStyle}>{children}</View>
       </SafeAreaView>
@@ -34,9 +49,9 @@ export default function AuthWrapper({wrapperStyle, children}: IAuthWrapper) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Metrics.verticalScale(140),
+    marginTop: Metrics.verticalScale(60),
     alignItems: 'center',
     flex: 1,
-    marginHorizontal: Metrics.scale(20),
+    // marginHorizontal: Metrics.scale(20),
   },
 });

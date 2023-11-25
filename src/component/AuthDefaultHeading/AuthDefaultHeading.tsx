@@ -1,10 +1,10 @@
 import H1 from '@Component/Headings/H1';
 import H7 from '@Component/Headings/H7';
 
-import { Colors, Fonts } from '@Theme/index';
+import {Colors, Fonts} from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 interface IAuthDefaultHeading {
   title?: string;
@@ -22,7 +22,7 @@ const AuthDefaultHeading = ({
       <H1 style={styles.textCenter} text={title} />
       {desc && (
         <H7
-          style={[styles.desc, isOtp ? { width: Metrics.scale(180) } : null]}
+          style={[styles.desc, isOtp ? {width: Metrics.scale(180)} : null]}
           text={desc}
         />
       )}
@@ -34,20 +34,20 @@ export default AuthDefaultHeading;
 
 const styles = StyleSheet.create({
   root: {
-    marginTop: Metrics.verticalScale(50),
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginHorizontal: 20,
+    // alignItems: 'center',
+    // justifyContent: 'center',
     width: '100%',
-    alignSelf: 'center',
+    // alignSelf: 'center',
   },
   textCenter: {
-    textAlign: 'center',
-    marginBottom: Metrics.verticalScale(20),
-    ...Fonts.SemiBold(Fonts.Size.xxLarge, Colors.Colors.DARK_BLACK),
+    // textAlign: 'center',
+    // marginBottom: Metrics.verticalScale(20),
+    ...Fonts.SemiBold(Fonts.Size.large, Colors.Colors.DARK_BLACK),
     marginHorizontal: 20,
   },
   desc: {
-    textAlign: 'center',
+    // textAlign: 'center',
     color: Colors.Colors.GREY,
     lineHeight: Metrics.verticalScale(20),
   },

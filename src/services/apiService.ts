@@ -74,6 +74,7 @@ function handleResponse(response: ApiResponse<any>) {
 
 apiSauceInstance.addRequestTransform(request => {
   const token = getItem(STORAGE_KEYS.TOKEN);
+  
   if (token) {
     request.headers.AUTHORIZATION = `Bearer ${token}`;
   }

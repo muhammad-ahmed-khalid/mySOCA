@@ -1,25 +1,30 @@
-import { logout } from '@Api/Auth';
+import {logout} from '@Api/Auth';
 
-import { useMutation } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import {useMutation} from '@tanstack/react-query';
+import React, {useContext} from 'react';
 import useHomeScreenContainer from '../Home/HomeScreenContainer';
 import loginContext from '@Context/loginContext';
-import { CalendarIcon, EmailIcon, GenderIcon, PhoneNumberIcon, UserIconProfile } from '@Asset/logo';
+import {
+  CalendarIcon,
+  EmailIcon,
+  GenderIcon,
+  PhoneNumberIcon,
+  UserIconProfile,
+} from '@Asset/logo';
 
 export default function useProfileContainer() {
-  const { getAllUserDetails } = useHomeScreenContainer();
-  const { name } = getAllUserDetails || {};
+  // const { getAllUserDetails } = useHomeScreenContainer();
+  // const { name } = getAllUserDetails || {};
   const [isDeleteAccountVisible, setisDeleteAccountVisible] =
     React.useState(false);
-  const { handleLogoutUser } = useContext(loginContext);
+  const {handleLogoutUser} = useContext(loginContext);
 
   const changeDeleteModalVisible = isLogout => {
     if (isLogout == true) {
       setisDeleteAccountVisible(!isDeleteAccountVisible);
-      handleLogoutUser()
+      handleLogoutUser();
     } else {
       setisDeleteAccountVisible(!isDeleteAccountVisible);
-
     }
   };
   const menuProfileSettingList = [
@@ -47,7 +52,6 @@ export default function useProfileContainer() {
     {
       icon: <CalendarIcon />,
       text: 'Banking Information',
-
     },
     {
       icon: <CalendarIcon />,
@@ -58,8 +62,6 @@ export default function useProfileContainer() {
     setisDeleteAccountVisible,
     changeDeleteModalVisible,
     isDeleteAccountVisible,
-    menuProfileSettingList
+    menuProfileSettingList,
   };
 }
-
-

@@ -1,18 +1,19 @@
+import {LogoSvg, LogoutSvg} from '@Asset/logo';
 import ButtonView from '@Component/ButtonView';
 import H2 from '@Component/Headings/H2';
 import H4 from '@Component/Headings/H4';
-import { Colors } from '@Theme/Colors';
+import {Colors} from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import ReactNativeModal from 'react-native-modal';
 
 interface ICustomModal {
   title?: string;
   desc?: string;
   changeDeleteModalVisible: Function;
-  setisDeleteAccountVisible: Function;
+  setIsDeleteAccountVisible: Function;
   isDeleteAccountVisible: boolean;
   isShowDesc?: boolean;
   isNetConnection?: boolean;
@@ -21,7 +22,7 @@ interface ICustomModal {
 
 const CustomModal = ({
   changeDeleteModalVisible,
-  setisDeleteAccountVisible,
+  setIsDeleteAccountVisible,
   isDeleteAccountVisible,
   title = 'title',
   desc = 'desc',
@@ -34,7 +35,7 @@ const CustomModal = ({
   };
 
   const handleBackDrop = (bool: boolean) => {
-    setisDeleteAccountVisible(bool);
+    setIsDeleteAccountVisible(bool);
   };
   return (
     <ReactNativeModal

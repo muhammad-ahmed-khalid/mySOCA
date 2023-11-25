@@ -1,6 +1,6 @@
 import AppHeader from '@Component/Header/AppHeader';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Colors } from '@Theme/Colors';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Colors} from '@Theme/Colors';
 import * as React from 'react';
 import NavigationRoutes from './NavigationRoutes';
 
@@ -28,10 +28,25 @@ export default function AuthStack() {
         },
       }}>
       <Stack.Screen
-        options={{ title: 'Auth Login', headerShown: false }}
+        options={{title: 'Auth Login', headerShown: false}}
         name={NavigationRoutes.AUTH_STACK.LOGIN}
         getComponent={() =>
           require('@Container/AuthContainer/AuthLogin/AuthLogin').default
+        }
+      />
+      <Stack.Screen
+        options={{title: 'Auth Signup', headerShown: false}}
+        name={NavigationRoutes.AUTH_STACK.SIGNUP}
+        getComponent={() =>
+          require('@Container/AuthContainer/AuthSignup/AuthSignup').default
+        }
+      />
+      <Stack.Screen
+        options={{title: 'Auth Player Selection', headerShown: false}}
+        name={NavigationRoutes.AUTH_STACK.PLAYER_SELECTION}
+        getComponent={() =>
+          require('@Container/AuthContainer/AuthPlayerSelection/AuthPlayerSelectionScreen')
+            .default
         }
       />
     </Stack.Navigator>

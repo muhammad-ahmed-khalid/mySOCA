@@ -14,6 +14,28 @@ export const login = async (params: any) => {
   return data;
 };
 
+
+export const signup = async (params: any) => {
+  const { data } = await apiRequest({
+    url: SERVICE_CONFIG_URLS.AUTH.SIGNUP,
+    method: API_CONFIG.POST,
+    params
+  });
+  return data;
+};
+
+
+export const getPlayerSelection = async (params: any) => {
+  
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_PLAYER_SELECTION}${params.parentId}`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
 export const getUser = async () => {
   const payload: getUserType = {
     version: versionService.getVersionNumber(),

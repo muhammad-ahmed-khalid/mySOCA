@@ -1,5 +1,5 @@
 {
-  "name": "EvolvLMSApp",
+  "name": "mysoca",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -33,6 +33,7 @@
     "react": "18.2.0",
     "react-hook-form": "^7.43.5",
     "react-native": "0.71.4",
+    "react-native-circular-progress-indicator": "^4.4.2",
     "react-native-confirmation-code-field": "^7.3.1",
     "react-native-dashed-border": "^2.1.1",
     "react-native-device-info": "^10.6.0",
@@ -51,6 +52,7 @@
     "react-native-pager-view": "^6.1.4",
     "react-native-phone-number-input": "^2.1.0",
     "react-native-reanimated": "^3.4.2",
+    "react-native-rename": "^3.2.13",
     "react-native-safe-area-context": "^4.7.1",
     "react-native-screens": "^3.24.0",
     "react-native-size-matters": "^0.4.0",

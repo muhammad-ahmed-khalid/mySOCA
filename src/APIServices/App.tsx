@@ -4,7 +4,47 @@ import {SERVICE_CONFIG_URLS} from '../constants/api_urls';
 
 export const getUserDetails = async (params: any) => {
   const {data} = await apiRequest({
-    url: SERVICE_CONFIG_URLS.STUDENT.USER_DETAILS,
+    url: SERVICE_CONFIG_URLS.PLAYER.USER_DETAILS,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getPlayer = async (params: any) => {
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_PLAYER}${params.playerId}/profile`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getTier = async (params: any) => {
+  const {data} = await apiRequest({
+    url: SERVICE_CONFIG_URLS.PLAYER.GET_TIER,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getRedeem = async (params: any) => {
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_REDEEM}${params.playerId}`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getActivity = async (params: any) => {
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_ACTIVITY}${params.playerId}`,
     method: API_CONFIG.GET,
     params,
     showLoader: false,

@@ -116,6 +116,7 @@ import DashboardIcon from './DashboardIcon.svg';
 import DisconnectStripe from './DisconnectStripe.svg';
 import UpdateProfileUserImage from './UpdateProfileUserImage.png';
 import BellNotification from './BellNotification.svg';
+import LogoutSvg from './LogoutSvg.svg';
 
 import Visa from './Visa.png';
 import Jcb from './Jcb.jpg';
@@ -129,8 +130,20 @@ import Card6 from './Card6.png';
 import Card7 from './Card7.png';
 import cancelPng from './cancel.png';
 
-import DriverRating from './DriverRating.svg'
-
+import DriverRating from './DriverRating.svg';
+import SocaLogo from './SocaLogo.png';
+import HomeIconBot from './HomeIconBot.png';
+import RewardIcon from './RewardIcon.png';
+import TiersIcon from './TiersIcon.png';
+import FaqsIcon from './FaqsIcon.svg';
+import FaqsIcon2 from './FaqsIcon2.svg';
+import SOCASvg from './SOCASvg.jpeg';
+import SOCAPng from './SOCAPng.png';
+import account from './account.png';
+import PerformanceSvg from './PerformanceSvg.svg';
+import AwardSvg from './AwardSvg.svg';
+import ViaCard from './ViaCard.svg';
+import MalePng from './MalePng.png';
 
 export {
   MyLocation,
@@ -261,5 +274,19 @@ export {
   Jcb,
   cancelPng,
   BellNotification,
-  DriverRating
+  DriverRating,
+  SocaLogo,
+  HomeIconBot,
+  RewardIcon,
+  TiersIcon,
+  FaqsIcon,
+  FaqsIcon2,
+  LogoutSvg,
+  SOCASvg,
+  SOCAPng,
+  account,
+  PerformanceSvg,
+  AwardSvg,
+  ViaCard,
+  MalePng,
 };

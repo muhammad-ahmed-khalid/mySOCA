@@ -6,7 +6,7 @@ export const API_CONFIG = {
   BASE_URL_QA: '',
   DELETE: 'delete',
   BASE_URL_REL: '',
-  BASE_URL_DEV: 'https://evolvlmsdev.azurewebsites.net/api',
+  BASE_URL_DEV: 'https://be-service.shehzadahmed.tech',
   BASE_URL_PROD: '',
 };
 

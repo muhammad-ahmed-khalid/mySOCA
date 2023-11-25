@@ -1,4 +1,5 @@
 export type AuthLoginResponse = {
-  email: any;
+  parentId: any;
   password: any;
+  token: any;
 };

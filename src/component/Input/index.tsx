@@ -1,10 +1,10 @@
 import ButtonView from '@Component/ButtonView';
 import H5 from '@Component/Headings/H5';
 import H6 from '@Component/Headings/H6';
-import { Colors } from '@Theme/Colors';
+import {Colors} from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import Metrics from '@Utility/Metrics';
-import { t } from 'i18next';
+import {t} from 'i18next';
 import {
   forwardRef,
   useEffect,
@@ -12,9 +12,9 @@ import {
   useRef,
   useState,
 } from 'react';
-import { Platform, StyleSheet, Text, TextInput, View } from 'react-native';
+import {Platform, StyleSheet, Text, TextInput, View} from 'react-native';
 
-import { InputProps } from './types';
+import {InputProps} from './types';
 
 const Input = forwardRef((props: InputProps, ref) => {
   const {
@@ -68,8 +68,8 @@ const Input = forwardRef((props: InputProps, ref) => {
     focus: () => refInput?.current?.focus(),
     setText: txt => onChangeText(txt),
     setObj: obj => {
-      setState(s => ({ ...s, obj, value: obj.name }));
-      props.validate(props.schema, { [props.id]: obj });
+      setState(s => ({...s, obj, value: obj.name}));
+      props.validate(props.schema, {[props.id]: obj});
     },
   }));
 
@@ -79,13 +79,13 @@ const Input = forwardRef((props: InputProps, ref) => {
     props?.id &&
       props?.schema &&
       props?.validate &&
-      props.validate(props.schema, { [props.id]: txt });
+      props.validate(props.schema, {[props.id]: txt});
     setState(s => ({
       ...s,
       value: txt,
     }));
   };
-  console.log(state.err, "state.errstate.err")
+  console.log(state.err, 'state.errstate.err');
   return (
     <View>
       <View style={styles.innerWrapper}>
@@ -100,22 +100,22 @@ const Input = forwardRef((props: InputProps, ref) => {
           style={[
             styles.input,
             style,
-            isPaddingRight && { paddingRight: 100 },
+            isPaddingRight && {paddingRight: 100},
             isDisabled
               ? {
-                backgroundColor: Colors.DISABLED_INPUT_BG,
-                color: 'rgba(0, 0, 0, 0.5)',
-              }
+                  backgroundColor: Colors.DISABLED_INPUT_BG,
+                  color: 'rgba(0, 0, 0, 0.5)',
+                }
               : null,
             leftIcon
               ? {
-                paddingLeft: Metrics.scale(40),
-              }
+                  paddingLeft: Metrics.scale(40),
+                }
               : null,
             rightIcon
               ? {
-                paddingRight: Metrics.scale(50),
-              }
+                  paddingRight: Metrics.scale(50),
+                }
               : null,
           ]}
           {...props}
@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
     marginVertical: Metrics.verticalScale(10),
     paddingVertical: Metrics.scale(10),
     paddingHorizontal: Metrics.scale(15),
+
     color: Colors.BLACK,
     ...Fonts.Medium(Fonts.Size.xSmall, Colors.DARK_BLACK),
     width: '100%',
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Metrics.scale(4),
   },
   labelText: {
-    ...Fonts.Medium(Fonts.Size.xxxSmall, Colors.MEDIUM_GRAY),
+    ...Fonts.Medium(Fonts.Size.xxxSmall, Colors.DARKISH),
   },
   rightIconWrapper: {
     position: 'absolute',

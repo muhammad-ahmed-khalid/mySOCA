@@ -1,52 +1,102 @@
-import { RightArrowLarge } from '@Asset/logo';
+import {RightArrowLarge} from '@Asset/logo';
 import AuthWrapper from '@Component/AuthWrapper/AuthWrapper';
 import AppButton from '@Component/Buttons/AppButton';
 import FormHandler from '@Component/FormHandler';
-import { Colors } from '@Theme/Colors';
+import {Colors} from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import { Platform, StyleSheet, View, Keyboard } from 'react-native';
+import {Platform, StyleSheet, View, Keyboard} from 'react-native';
 import useAuthLoginContainer from './AuthLoginContainer';
 import Input from '@Component/Input';
+import AuthDefaultHeading from '@Component/AuthDefaultHeading/AuthDefaultHeading';
+import AuthDefaultBottom from '@Component/AuthDefaultBottom/AuthDefaultBottom';
+import {navigate} from '@Service/navigationService';
+import NavigationRoutes from '@Navigator/NavigationRoutes';
+import H7 from '@Component/Headings/H7';
 
 const AuthLogin = () => {
-  const { refForm, onSubmitForm } = useAuthLoginContainer();
+  const {refForm, onSubmitForm} = useAuthLoginContainer();
   return (
     <>
-      <AuthWrapper wrapperStyle={{ flex: 1, width: '100%' }}>
-        <View style={{ flex: 1, marginTop: Metrics.verticalScale(40), marginHorizontal: Metrics.scale(20) }}>
+      {/* <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : null}
+      style={{flex: 1}}
+    ></KeyboardAvoidingView> */}
+      <AuthWrapper wrapperStyle={{flex: 1, width: '100%'}} scrollEnabled={true}>
+        <View
+          style={{
+            flex: 1,
+            marginTop: Metrics.verticalScale(20),
+            // marginHorizontal: Metrics.scale(20),
+            width: '100%',
+            backgroundColor: 'white',
+            borderTopLeftRadius: Metrics.doubleBaseMargin,
+            borderTopRightRadius: Metrics.doubleBaseMargin,
+            shadowColor: Colors.BLACK,
+            shadowOffset: {
+              width: 0,
+              height: 3,
+            },
+            shadowOpacity: 0.29,
+            shadowRadius: 4.65,
+            elevation: 1,
+          }}>
           <FormHandler ref={refForm} validateOnChange>
             {SCHEMAS => {
               return (
-                <>
-                  <View style={styles.inputWrapperWidth}>
-                    <Input
-                      {...SCHEMAS.email('Email')}
-                      placeholder="Enter your email"
-                      returnKeyType={'next'}
-                    />
+                <View style={{marginTop: Metrics.doubleBaseMargin}}>
+                  <AuthDefaultHeading title="Login To Your Account" />
+                  <View style={{marginTop: Metrics.baseMargin}}>
+                    <View style={styles.inputWrapperWidth}>
+                      <Input
+                        {...SCHEMAS.text('parentId')}
+                        placeholder="Enter your ID"
+                        label="Parent Id"
+                        returnKeyType={'next'}
+                      />
+                    </View>
+                    <View style={styles.inputWrapperWidth}>
+                      <Input
+                        {...SCHEMAS.password('password')}
+                        placeholder="Enter your password"
+                        label="Password"
+                        returnKeyType={'done'}
+                        secureTextEntry={true}
+                      />
+                    </View>
                   </View>
-                  <View style={styles.inputWrapperWidth}>
-                    <Input
-                      {...SCHEMAS.password('Password')}
-                      placeholder="Enter your password"
-                      returnKeyType={'done'}
-                      secureTextEntry={true}
-
-                    />
-                  </View>
-                </>
+                </View>
               );
             }}
           </FormHandler>
           <View style={styles.bottomWrapper}>
             <AppButton
-              title={'next'}
-              imageSource={RightArrowLarge}
-              iconAfterText={true}
+              title={'Login'}
+              // imageSource={RightArrowLarge}
+              // iconAfterText={true}
               onPress={() => onSubmitForm()}
+              textStyle={{color: Colors.WHITE}}
+              style={{opacity: 0.9}}
             />
+            <View style={{marginTop: Metrics.baseMargin, alignItems: 'center'}}>
+              <AuthDefaultBottom
+                text={"Don't have an account?"}
+                btnText={'SignUp'}
+                action={() => {
+                  navigate(NavigationRoutes.AUTH_STACK.SIGNUP);
+                }}
+              />
+              <H7
+                text="Copyright ©️ 2023 SOCA"
+                style={{
+                  marginTop: -5,
+                  width: '100%',
+                  textAlign: 'center',
+                  ...Fonts.Medium(Fonts.Size.xxxSmall, Colors.GREY),
+                }}
+              />
+            </View>
           </View>
         </View>
       </AuthWrapper>
@@ -63,10 +113,16 @@ const styles = StyleSheet.create({
   underLineBTnStyle: {
     ...Fonts.SemiBold(Fonts.Size.medium, Colors.BLUE_LINK),
   },
-  inputWrapperWidth: { width: '100%' },
+  inputWrapperWidth: {
+    width: '80%',
+    alignSelf: 'center',
+    marginTop: Metrics.smallMargin,
+  },
   bottomWrapper: {
     position: 'absolute',
-    bottom: 10,
-    left: 0, right: 0
-  }
+    bottom: 20,
+    top: 260,
+    width: '80%',
+    alignSelf: 'center',
+  },
 });

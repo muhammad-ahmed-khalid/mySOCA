@@ -1,22 +1,34 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Card1, Card2 } from '../assets/logo';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React, {useState} from 'react';
+import {Image, Platform, StyleSheet, View} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {
+  Card1,
+  Card2,
+  HomeIconBot,
+  MalePng,
+  RewardIcon,
+  TiersIcon,
+  account,
+} from '../assets/logo';
 
 import NavigationRoutes from './NavigationRoutes';
 import Profile from '@Container/AppContainer/Profile/Profile';
 import HomeScreen from '@Container/AppContainer/Home/HomeScreen';
+import {Colors} from '@Theme/Colors';
+import TierScreen from '@Container/AppContainer/Tiers/TierScreen';
+import RewardScreen from '@Container/AppContainer/Rewards/RewardScreen';
+import AccountScreen from '@Container/AppContainer/Accounts/AccountScreen';
 const Tab = createBottomTabNavigator();
 
-const RenderTabBarIcon = ({ source, color, focused }) => {
+const RenderTabBarIcon = ({source, color, focused}) => {
   return (
     <View style={styles.tabBarIconWrapper}>
       {focused && (
         <View
           style={[
             styles.tabBarShape,
-            { top: Platform.OS === 'android' ? -12 : -19 },
+            {top: Platform.OS === 'android' ? -12 : -19},
           ]}
         />
       )}
@@ -39,28 +51,56 @@ const tabRoutes = [
     name: NavigationRoutes.APP_STACK.HOME,
     component: HomeScreen,
     options: {
-      tabBarIcon: ({ color, focused }) => (
-        <RenderTabBarIcon source={Card1} color={color} focused={focused} />
+      tabBarIcon: ({color, focused}) => (
+        <RenderTabBarIcon
+          source={HomeIconBot}
+          color={color}
+          focused={focused}
+        />
       ),
       title: 'Home',
     },
   },
-
+  {
+    name: NavigationRoutes.APP_STACK.TIERS,
+    component: TierScreen,
+    options: {
+      tabBarIcon: ({color, focused}) => (
+        <RenderTabBarIcon source={TiersIcon} color={color} focused={focused} />
+      ),
+      title: 'Tiers',
+    },
+  },
 
   {
-    name: NavigationRoutes.APP_STACK.PROFILE,
-    component: Profile,
+    name: NavigationRoutes.APP_STACK.REWARDS,
+    component: RewardScreen,
     options: {
-      tabBarIcon: ({ color, focused }) => (
-        <RenderTabBarIcon source={Card2} color={color} focused={focused} />
+      tabBarIcon: ({color, focused}) => (
+        <RenderTabBarIcon source={RewardIcon} color={color} focused={focused} />
       ),
-      title: 'Settings',
+      title: 'Rewards',
     },
-  }
-
+  },
+  {
+    name: NavigationRoutes.APP_STACK.ACCOUNTS,
+    component: AccountScreen,
+    options: {
+      tabBarIcon: ({color, focused}) => (
+        <RenderTabBarIcon source={MalePng} color={color} focused={focused} />
+      ),
+      title: 'Account',
+    },
+  },
 ];
 
 const BottomTabs = props => {
+  console.log(props, 'This is the props');
+  console.log(
+    props?.route?.params?.PlayerID,
+    'props?.params?.PlayerIDprops?.params?.PlayerIDprops?.params?.PlayerID',
+  );
+
   const insets = useSafeAreaInsets();
   return (
     <Tab.Navigator
@@ -68,9 +108,19 @@ const BottomTabs = props => {
         headerShown: false,
 
         tabBarStyle: {
-          backgroundColor: '#fff',
-          elevation: 15,
-          width: '100%',
+          backgroundColor: Colors.DARKISH,
+          alignSelf: 'center',
+          marginBottom: 10,
+          borderRadius: 30,
+          shadowColor: Colors.BLACK,
+          shadowOffset: {
+            width: 0,
+            height: 3,
+          },
+          shadowOpacity: 0.29,
+          shadowRadius: 4.65,
+          elevation: 8,
+          width: '90%',
           height:
             Platform.OS === 'android'
               ? 65
@@ -93,19 +143,20 @@ const BottomTabs = props => {
           paddingHorizontal: 0,
         },
         tabBarAllowFontScaling: false,
-        tabBarActiveTintColor: '#000',
-        tabBarInactiveTintColor: '#ADADAD',
+        tabBarActiveTintColor: Colors.WHITE,
+        tabBarInactiveTintColor: '#ADB0C2',
       }}
       sceneContainerStyle={{
         backgroundColor: '#F7F7F7',
       }}
       initialRouteName={NavigationRoutes.APP_STACK.HOME}>
-      {tabRoutes.map(({ name, component, options }) => (
+      {tabRoutes.map(({name, component, options}) => (
         <Tab.Screen
           key={name}
           name={name}
           component={component}
           options={options}
+          initialParams={{item: props?.route?.params?.item}}
         />
       ))}
     </Tab.Navigator>
@@ -116,13 +167,13 @@ export default BottomTabs;
 const styles = StyleSheet.create({
   tabBarIconWrapper: {
     width: 30,
-    height: 18,
+    height: 20,
   },
   tabBarShape: {
     width: '100%',
     height: 5,
     position: 'absolute',
-    backgroundColor: '#000',
+    // backgroundColor: '#000',
     top: -19,
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
