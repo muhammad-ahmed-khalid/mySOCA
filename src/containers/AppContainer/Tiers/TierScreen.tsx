@@ -13,7 +13,15 @@ import FlatListHandler from '@Component/FlatlistHandler';
 import {FaqsList} from '@Constants/dummyData';
 import Fonts from '@Theme/Fonts';
 import {Colors} from '@Theme/Colors';
-import {AwardSvg, FaqsIcon, FaqsIcon2, RewardIcon} from '@Asset/logo';
+import {
+  AwardGoldSvg,
+  AwardPlatinumSvg,
+  AwardSilverSvg,
+  AwardSvg,
+  FaqsIcon,
+  FaqsIcon2,
+  RewardIcon,
+} from '@Asset/logo';
 import H6 from '@Component/Headings/H6';
 import H7 from '@Component/Headings/H7';
 import ButtonView from '@Component/ButtonView';
@@ -52,6 +60,19 @@ const TierScreen = () => {
     const isDetails = isOpenArray[index]; // Get the open/close state for this FAQ item
     console.log(item, 'This is item');
     const {Benefits, Requirement, Tier} = item || {};
+
+    let tierSvg;
+
+    // Conditionally set the SVG component based on the tier
+    if (Tier === 'Gold') {
+      tierSvg = <AwardGoldSvg style={{height: 20, width: 20}} />;
+    } else if (Tier === 'Platinum') {
+      tierSvg = <AwardPlatinumSvg style={{height: 20, width: 20}} />;
+    } else if (Tier === 'Silver') {
+      tierSvg = <AwardSilverSvg style={{height: 20, width: 20}} />;
+    } else if (Tier === 'Member') {
+      tierSvg = <AwardSvg style={{height: 20, width: 20}} />;
+    }
     return (
       <View
         style={{
@@ -80,7 +101,7 @@ const TierScreen = () => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <AwardSvg style={{height: 20, width: 20}} />
+            {tierSvg}
             <H5
               text={Tier}
               style={{color: 'white', marginHorizontal: Metrics.smallMargin}}

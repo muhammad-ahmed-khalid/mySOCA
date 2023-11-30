@@ -144,6 +144,9 @@ import PerformanceSvg from './PerformanceSvg.svg';
 import AwardSvg from './AwardSvg.svg';
 import ViaCard from './ViaCard.svg';
 import MalePng from './MalePng.png';
+import AwardGoldSvg from './AwardGoldSvg.svg';
+import AwardPlatinumSvg from './AwardPlatinumSvg.svg';
+import AwardSilverSvg from './AwardSilverSvg.svg';
 
 export {
   MyLocation,
@@ -289,4 +292,7 @@ export {
   AwardSvg,
   ViaCard,
   MalePng,
+  AwardGoldSvg,
+  AwardPlatinumSvg,
+  AwardSilverSvg,
 };

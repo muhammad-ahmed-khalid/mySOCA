@@ -13,12 +13,24 @@ import H6 from '@Component/Headings/H6';
 import moment from 'moment';
 import {DATE_FORMATS} from '@Utility/DateUtils';
 import CustomFlatListSeperator from '@Component/CustomFlatListSeperator/CustomFlatListSeperator';
+import LinearGradient from 'react-native-linear-gradient';
 
 const ActivityScreen = ({route}) => {
-  const {PlayerID} = route?.params;
+  const {PlayerID, RewardPoints, Months} = route?.params;
   const {getActivityData} = useActivityContainer(PlayerID);
   console.log(getActivityData, 'getActivityDatagetActivityDatagetActivityData');
+  const playerData =
+    getActivityData && getActivityData.data?.length > 0
+      ? getActivityData?.data[0]
+      : {};
 
+  console.log(playerData, 'playerDataplayerData');
+
+  // Transform the data into an array of objects with "month" and "value" keys
+  const transformedData = Object.keys(playerData).map(month => ({
+    month,
+    value: playerData[month],
+  }));
   const renderTransaction = ({item}) => {
     const {
       Amount,
@@ -69,6 +81,21 @@ const ActivityScreen = ({route}) => {
   };
   return (
     <SafeAreaView>
+      <LinearGradient
+        colors={['#09203F', '#537895']}
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 0}}
+        style={{
+          backgroundColor: '#374051',
+          // alignItems: 'center',
+          // paddingBottom: Metrics.scale(60),
+          // paddingTop: Metrics.verticalScale(50),
+          // height: '75%',
+          // borderBottomLeftRadius: Metrics.scale(20),
+          // borderBottomRightRadius: Metrics.scale(20),
+        }}>
+        <H1 text="Hello World" />
+      </LinearGradient>
       <ScrollView>
         <View
           style={{
@@ -82,12 +109,22 @@ const ActivityScreen = ({route}) => {
               justifyContent: 'space-between',
               marginTop: Metrics.baseMargin,
             }}>
-            <H6 text="Transaction" />
+            <H6 text="Mont" />
             <H6 text="Reward Pts/Amount" />
           </View>
           <FlatListHandler
-            renderItem={renderTransaction}
-            data={getActivityData?.data}
+            renderItem={({item}) => (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginVertical: Metrics.baseMargin,
+                }}>
+                <H5 text={item.month} />
+                <H5 text={item.value} />
+              </View>
+            )}
+            data={transformedData}
             keyExtractor={item => item?.id}
             ItemSeparatorComponent={() => {
               return <CustomFlatListSeperator />;

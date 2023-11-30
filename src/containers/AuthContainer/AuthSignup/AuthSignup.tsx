@@ -47,7 +47,7 @@ const AuthSignup = () => {
             {SCHEMAS => {
               return (
                 <View style={{marginTop: Metrics.doubleBaseMargin}}>
-                  <AuthDefaultHeading title="Login To Your Account" />
+                  <AuthDefaultHeading title="Signup To Your Account" />
                   <View style={{marginTop: Metrics.baseMargin}}>
                     <View style={styles.inputWrapperWidth}>
                       <Input

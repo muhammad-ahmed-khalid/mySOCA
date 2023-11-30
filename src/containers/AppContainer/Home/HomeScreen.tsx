@@ -1,4 +1,10 @@
-import {AwardSvg, ChevronSvg, LogoutSvg, SOCAPng} from '@Asset/logo';
+import {
+  AwardSvg,
+  ChevronSvg,
+  LogoutSvg,
+  RightArrowLarge,
+  SOCAPng,
+} from '@Asset/logo';
 import ButtonView from '@Component/ButtonView';
 import FlatListHandler from '@Component/FlatlistHandler';
 import H4 from '@Component/Headings/H4';
@@ -13,6 +19,7 @@ import React, {useContext} from 'react';
 import {Text, View, StyleSheet, ScrollView, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {Svg, Circle} from 'react-native-svg';
 
 import useHomeScreenContainer from './HomeScreenContainer';
 import H2 from '@Component/Headings/H2';
@@ -20,6 +27,8 @@ import NavigationRoutes from '@Navigator/NavigationRoutes';
 import {navigate} from '@Service/navigationService';
 import H1 from '@Component/Headings/H1';
 import CircularProgress from 'react-native-circular-progress-indicator';
+import SemiCircleProgress from '@Component/SemiCircleProgress/SemiCircleProgress';
+import H3 from '@Component/Headings/H3';
 
 const HomeScreen = ({route}) => {
   console.log(route, 'routerouterouteroute');
@@ -205,8 +214,8 @@ const HomeScreen = ({route}) => {
             marginBottom: Metrics.verticalScale(5),
           }}
         />
-        <H1
-          text={`Hi,\n${Name}`}
+        <H2
+          text={`${Name}`}
           style={{
             // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
             alignSelf: 'flex-start',
@@ -215,13 +224,90 @@ const HomeScreen = ({route}) => {
             marginTop: Metrics.verticalScale(40),
           }}
         />
+        <H1
+          text={`${Tier}`}
+          style={{
+            // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+            alignSelf: 'flex-start',
+            color: Colors.WHITE,
+            marginHorizontal: Metrics.scale(20),
+          }}
+        />
+
         <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: Metrics.verticalScale(30),
+          }}>
+          <SemiCircleProgress progress={Months} strokeWidth={5} radius={100} />
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignSelf: 'flex-start',
+            // alignItems: 'center',
+            marginTop: Metrics.verticalScale(50),
+            justifyContent: 'space-between',
+            marginHorizontal: Metrics.scale(20),
+            width: '94%',
+          }}>
+          <View>
+            <H4
+              text={`TOTAL POINTS`}
+              style={{
+                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+                // alignSelf: 'flex-start',
+                color: 'white',
+                // marginHorizontal: Metrics.scale(20),
+              }}
+            />
+
+            <H1
+              text={`${RewardPoints}`}
+              style={{
+                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+                // alignSelf: 'flex-start',
+                color: Colors.WHITE,
+                // paddingHorizontal: 10,
+                // marginHorizontal: Metrics.scale(20),
+              }}
+            />
+          </View>
+          <ButtonView
+            onPress={() =>
+              navigate(NavigationRoutes.APP_STACK.ACTIVITY, {
+                PlayerID,
+                RewardPoints,
+                Months,
+              })
+            }
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              alignSelf: 'flex-start',
+            }}>
+            <H5
+              text={`Account Activity`}
+              style={{
+                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+                // alignSelf: 'flex-start',
+                color: 'white',
+                // marginHorizontal: Metrics.scale(20),
+                // marginTop: Metrics.verticalScale(40),
+              }}
+            />
+            <ChevronSvg style={{marginHorizontal: Metrics.baseMargin}} />
+          </ButtonView>
+        </View>
+
+        {/* <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             marginTop: Metrics.doubleBaseMargin,
-          }}>
-          <View style={styles.buttonWrapper}>
+          }}> */}
+        {/* <View style={styles.buttonWrapper}>
             <H4
               text="Attendence"
               style={{
@@ -249,8 +335,8 @@ const HomeScreen = ({route}) => {
                 fontSize: 20,
               }}
             />
-          </View>
-          <View style={styles.buttonWrapper}>
+          </View> */}
+        {/* <View style={styles.buttonWrapper}>
             <View style={{flexDirection: 'row'}}>
               <H4
                 text={Tier}
@@ -276,8 +362,8 @@ const HomeScreen = ({route}) => {
                 marginTop: Metrics.baseMargin,
               }}
             />
-          </View>
-        </View>
+          </View> */}
+        {/* </View> */}
         {/* <View
           style={{
             flexDirection: 'row',
@@ -291,7 +377,7 @@ const HomeScreen = ({route}) => {
         </View> */}
       </LinearGradient>
 
-      <LinearGradient
+      {/* <LinearGradient
         colors={['#A1C4FD', '#C2E9FB']}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
@@ -319,7 +405,7 @@ const HomeScreen = ({route}) => {
           />
           <ChevronSvg />
         </ButtonView>
-      </LinearGradient>
+      </LinearGradient> */}
 
       {/* <View>
           <H4
