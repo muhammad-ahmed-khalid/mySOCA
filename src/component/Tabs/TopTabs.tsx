@@ -17,19 +17,22 @@ interface ITopTabs {
   data?: any;
   isTrip?: boolean;
   handleClose?: any;
+  PlayerID?:any
 }
 
-const TopTabs = ({component, data, isTrip = false, handleClose}: ITopTabs) => {
+const TopTabs = ({component, data, isTrip = false, handleClose,PlayerID}: ITopTabs) => {
+  console.log(PlayerID,'PlayerIDPlayerIDPlayerID');
+  
   const tabBarOptions = React.useMemo(() => {
     return {
       tabBarStyle: styles.tabBarStyle,
       tabBarLabelStyle: {
         ...styles.tabBarLabelStyle,
-        color: isTrip ? Colors.VIA_COLOR : Colors.DARK_BLACK,
+        color: isTrip ? Colors.VIA_COLOR : Colors.WHITE,
       },
       tabBarIndicatorStyle: {
         ...styles.tabBarIndicatorStyle,
-        backgroundColor: isTrip ? Colors.VIA_COLOR : Colors.DARK_BLACK,
+        backgroundColor: isTrip ? Colors.VIA_COLOR : Colors.WHITE,
       },
       tabBarAndroidRipple: {borderless: false},
     };
@@ -60,7 +63,7 @@ const TopTabs = ({component, data, isTrip = false, handleClose}: ITopTabs) => {
               key={`${index}+${name}`}
               name={name}
               component={component}
-              initialParams={initialParams}
+              initialParams={PlayerID}
             />
           );
         },

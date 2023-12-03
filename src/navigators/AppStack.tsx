@@ -74,6 +74,13 @@ export default function AppStack() {
           require('@Container/AppContainer/Activity/ActivityScreen').default
         }
       />
+        <Stack.Screen
+        options={{title: 'Performance', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.PERFORMANCE}
+        getComponent={() =>
+          require('@Container/AppContainer/Performance/Performance').default
+        }
+      />
     </Stack.Navigator>
   );
 }

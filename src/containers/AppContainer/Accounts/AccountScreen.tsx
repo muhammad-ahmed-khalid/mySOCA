@@ -12,11 +12,19 @@ import React, {useContext} from 'react';
 import CustomFlatListSeperator from '@Component/CustomFlatListSeperator/CustomFlatListSeperator';
 import CustomModal from '@Component/CustomModal/CustomModal';
 import {Colors} from '@Theme/Colors';
+import NavigationRoutes from '@Navigator/NavigationRoutes';
+import { navigate } from '@Service/navigationService';
 
-const AccountScreen = () => {
+const AccountScreen = ({route}) => {
+  console.log(route, 'routerouterouteroute');
+
+  const {PlayerID} = route?.params?.item;
   const {handleLogoutUser} = useContext(loginContext) as LoginContext;
   const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
     React.useState(false);
+
+    console.log(PlayerID,"this is player Id from accounts");
+    
 
   const changeDeleteModalVisible = isDelete => {
     if (isDelete == true) {
@@ -43,13 +51,13 @@ const AccountScreen = () => {
               alignItems: 'center',
               marginTop: Metrics.doubleBaseMargin,
             }}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <ButtonView style={{flexDirection: 'row', alignItems: 'center'}} onPress={()=>{navigate(NavigationRoutes.APP_STACK.PERFORMANCE,{PlayerID})}}>
               <PerformanceSvg />
               <H5
                 text="Performance"
                 style={{marginHorizontal: Metrics.baseMargin}}
               />
-            </View>
+            </ButtonView>
             <ChevronSvg />
           </ButtonView>
 

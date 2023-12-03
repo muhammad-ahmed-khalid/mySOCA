@@ -15,7 +15,7 @@ import {TransactionList} from '@Constants/dummyData';
 import {Colors} from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import Metrics from '@Utility/Metrics';
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Text, View, StyleSheet, ScrollView, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -29,40 +29,22 @@ import H1 from '@Component/Headings/H1';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import SemiCircleProgress from '@Component/SemiCircleProgress/SemiCircleProgress';
 import H3 from '@Component/Headings/H3';
+import { getItem, setItem } from '@Service/storageService';
+import { STORAGE_KEYS } from '@Constants/queryKeys';
 
 const HomeScreen = ({route}) => {
-  console.log(route, 'routerouterouteroute');
 
   const {PlayerID, Name} = route?.params?.item;
 
-  console.log(PlayerID, 'PlayerIDPlayerIDPlayerID');
   const {playerData, playerLoading} = useHomeScreenContainer(PlayerID);
-  console.log(playerData, 'playerDataplayerDataplayerData');
+
+
+ 
+  
   const {Tier, RewardPoints, Months, Attendance, Amount} =
     playerData?.data || {};
-  console.log(playerLoading, 'playerLoadingplayerLoadingplayerLoading');
 
-  // const renderTransaction = ({item}) => {
-  //   return (
-  //     <View
-  //       style={{
-  //         flexDirection: 'row',
-  //         justifyContent: 'space-between',
-  //         marginVertical: Metrics.baseMargin,
-  //       }}>
-  //       <View>
-  //         <H5 text={item?.label} />
-  //         <H7
-  //           text={item?.date}
-  //           style={{...Fonts.Medium(Fonts.Size.xxxSmall, Colors.DATE_COLOR)}}
-  //         />
-  //       </View>
-  //       <View>
-  //         <H5 text={item?.pts} />
-  //       </View>
-  //     </View>
-  //   );
-  // };
+ 
 
   return (
     <SafeAreaView>
@@ -200,11 +182,11 @@ const HomeScreen = ({route}) => {
         style={{
           backgroundColor: '#374051',
           alignItems: 'center',
-          paddingBottom: Metrics.scale(60),
+          // paddingBottom: Metrics.scale(20),
           paddingTop: Metrics.verticalScale(50),
           // height: '75%',
-          // borderBottomLeftRadius: Metrics.scale(20),
-          // borderBottomRightRadius: Metrics.scale(20),
+          borderBottomLeftRadius: Metrics.scale(30),
+          borderBottomRightRadius: Metrics.scale(30),
         }}>
         <Image
           source={SOCAPng}
@@ -242,17 +224,27 @@ const HomeScreen = ({route}) => {
           }}>
           <SemiCircleProgress progress={Months} strokeWidth={5} radius={100} />
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignSelf: 'flex-start',
-            // alignItems: 'center',
-            marginTop: Metrics.verticalScale(50),
-            justifyContent: 'space-between',
-            marginHorizontal: Metrics.scale(20),
-            width: '94%',
-          }}>
-          <View>
+
+
+
+        <LinearGradient
+        colors={['#A1C4FD', '#C2E9FB']}
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 0}}
+        style={{
+          flexDirection: 'row',
+          // alignSelf: 'flex-start',
+          // alignItems: 'center',
+          marginTop: Metrics.verticalScale(50),
+          justifyContent: 'space-between',
+          // marginHorizontal: Metrics.scale(20),
+          paddingHorizontal:15,
+          paddingVertical:10,
+          borderBottomLeftRadius: Metrics.scale(25),
+          borderBottomRightRadius: Metrics.scale(25),
+          width: '100%',}}
+        >
+    <View>
             <H4
               text={`TOTAL POINTS`}
               style={{
@@ -299,7 +291,21 @@ const HomeScreen = ({route}) => {
             />
             <ChevronSvg style={{marginHorizontal: Metrics.baseMargin}} />
           </ButtonView>
-        </View>
+        </LinearGradient>
+
+
+        {/* <View
+          style={{
+            flexDirection: 'row',
+            alignSelf: 'flex-start',
+            // alignItems: 'center',
+            marginTop: Metrics.verticalScale(50),
+            justifyContent: 'space-between',
+            marginHorizontal: Metrics.scale(20),
+            width: '94%',
+          }}>
+      
+        </View> */}
 
         {/* <View
           style={{

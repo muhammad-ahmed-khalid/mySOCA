@@ -51,3 +51,13 @@ export const getActivity = async (params: any) => {
   });
   return data;
 };
+
+export const getPerformance = async (params: any) => {
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_PLAYER}${params.playerId}/performance`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};

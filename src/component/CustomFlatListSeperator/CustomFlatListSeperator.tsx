@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 1,
     position: 'absolute',
-    backgroundColor: Colors.Colors.GREY,
+    backgroundColor: Colors.Colors.INPUT_BORDER_COLOR,
     bottom: 0,
     marginRight: 'auto',
   },

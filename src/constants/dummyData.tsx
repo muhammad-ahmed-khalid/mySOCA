@@ -1,3 +1,8 @@
+import Batting from "@Container/AppContainer/Performance/Batting";
+import Bowling from "@Container/AppContainer/Performance/Bowling";
+import Fielding from "@Container/AppContainer/Performance/Fielding";
+import TotalGames from "@Container/AppContainer/Performance/TotalGames";
+
 export const TransactionList = [
   {
     id: 0,
@@ -40,5 +45,28 @@ export const FaqsList = [
     id: 2,
     label: 'Platinum',
     desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+  },
+];
+
+export const performanceTabs = [
+  {
+    name: 'Total Games',
+    title: 'Total Games',
+    component: TotalGames,
+  },
+  {
+    name: 'Batting',
+    title: 'Batting',
+    component: Batting,
+  },
+  {
+    name: 'Bowling',
+    title: 'Bowling',
+    component: Bowling,
+  },
+  {
+    name: 'Fielding',
+    title: 'Fielding',
+    component: Fielding,
   },
 ];

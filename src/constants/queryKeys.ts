@@ -6,5 +6,8 @@ export const STORAGE_KEYS = {
   PARENTID:'getParentId',
   GET_TIER:'getTier',
   GET_REDEEM:'getRedeem',
-  GET_ACTIVITY:'getActivity'
+  GET_ACTIVITY:'getActivity',
+  GET_PERFORMANCE:'getPerformance',
+  GET_PERFORMANCE_DATA:'getPerformanceData',
+  GET_PLAYER_ID:'getPlayerId'
 };

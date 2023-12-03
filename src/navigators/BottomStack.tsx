@@ -95,11 +95,7 @@ const tabRoutes = [
 ];
 
 const BottomTabs = props => {
-  console.log(props, 'This is the props');
-  console.log(
-    props?.route?.params?.PlayerID,
-    'props?.params?.PlayerIDprops?.params?.PlayerIDprops?.params?.PlayerID',
-  );
+
 
   const insets = useSafeAreaInsets();
   return (
