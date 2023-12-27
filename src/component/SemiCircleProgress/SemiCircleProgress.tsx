@@ -35,16 +35,16 @@ const SemiCircleProgress = ({progress, strokeWidth, radius}) => {
         style={{
           textAlign: 'center',
           position: 'absolute',
-          top: 45,
+          top: 55,
           bottom: 0,
           left: 0,
           right: 0,
-          fontSize: 50,
+          fontSize: 40,
           color: 'white',
         }}>{`${progress}`}</Text>
       <H5
         text="Months this year"
-        style={{color: 'white', marginTop: Metrics.verticalScale(15)}}
+        style={{color: 'white', marginTop: Metrics.verticalScale(5)}}
       />
     </View>
   );

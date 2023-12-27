@@ -29,9 +29,10 @@ import H5 from '@Component/Headings/H5';
 import useTierContainer from './TierContainer';
 import H1 from '@Component/Headings/H1';
 import LinearGradient from 'react-native-linear-gradient';
+import SpinnerLoader from '@Component/SmallLoader';
 
 const TierScreen = () => {
-  const {getTierData} = useTierContainer();
+  const {getTierData, isLoading} = useTierContainer();
   // Create an array of boolean values to represent the open/close state for each FAQ item
   const [isOpenArray, setIsOpenArray] = React.useState(
     Array(FaqsList.length).fill(false),
@@ -138,8 +139,8 @@ const TierScreen = () => {
     );
   };
   return (
-    <SafeAreaView>
-          <LinearGradient
+    <>
+      <LinearGradient
         colors={['#09203F', '#537895']}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
@@ -152,34 +153,41 @@ const TierScreen = () => {
           borderBottomLeftRadius: Metrics.scale(20),
           borderBottomRightRadius: Metrics.scale(20),
         }}>
-               <View
+        <View
           style={{
             marginHorizontal: 20,
             marginTop: Metrics.verticalScale(50),
           }}>
-
-     <H1 text="Tiers" style={{color:'white'}}/>
-     <H5 text="Overview" style={{color:'white',marginTop:Metrics.baseMargin}}/>
-     <H7 style={{ color:Colors.WHITE_THREE,marginTop:Metrics.smallMargin}} text="A rich rewards program enabling athletes to keep training with passion. SOCA believes that training regularly keeps the athletes focused and help realize their goals.SOCA Rewards Program rewards athletes for commitment to training, fitness, and playing tournaments for SOCA teams."/>
-          </View>
-      </LinearGradient>
-      <ScrollView>
-        <View
-          style={{
-            marginHorizontal: 20,
-            marginTop: Metrics.verticalScale(20),
-          }}>
-        
-          <View style={{marginTop: Metrics.doubleBaseMargin}}>
-            <FlatListHandler
-              data={getTierData?.message}
-              keyExtractor={item => item?.id}
-              renderItem={renderItem}
-            />
-          </View>
+          <H1 text="Tiers" style={{color: 'white'}} />
+          <H5
+            text="Overview"
+            style={{color: 'white', marginTop: Metrics.baseMargin}}
+          />
+          <H6
+            style={{color: Colors.WHITE_THREE, marginTop: Metrics.smallMargin}}
+            text={`A rich rewards program enabling athletes to keep training with passion. SOCA believes that training regularly keeps the athletes focused and help realize their goals.\nSOCA Rewards Program rewards athletes for commitment to training, fitness, and playing tournaments for SOCA teams.`}
+          />
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </LinearGradient>
+      {isLoading ? (
+        <SpinnerLoader size={'large'} color={'#09203F'} />
+      ) : (
+        <ScrollView>
+          <View
+            style={{
+              marginHorizontal: 20,
+            }}>
+            <View style={{marginTop: Metrics.doubleBaseMargin}}>
+              <FlatListHandler
+                data={getTierData?.message}
+                keyExtractor={item => item?.id}
+                renderItem={renderItem}
+              />
+            </View>
+          </View>
+        </ScrollView>
+      )}
+    </>
   );
 };
 

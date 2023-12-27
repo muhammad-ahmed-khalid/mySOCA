@@ -1,4 +1,9 @@
-import {RightArrowLarge} from '@Asset/logo';
+import {
+  HidePassword,
+  MapHome,
+  RightArrowLarge,
+  ShowPassword,
+} from '@Asset/logo';
 import AuthWrapper from '@Component/AuthWrapper/AuthWrapper';
 import AppButton from '@Component/Buttons/AppButton';
 import FormHandler from '@Component/FormHandler';
@@ -6,7 +11,14 @@ import {Colors} from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import {Platform, StyleSheet, View, Keyboard, ScrollView} from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  View,
+  Keyboard,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import Input from '@Component/Input';
 import AuthDefaultHeading from '@Component/AuthDefaultHeading/AuthDefaultHeading';
 import AuthDefaultBottom from '@Component/AuthDefaultBottom/AuthDefaultBottom';
@@ -17,6 +29,15 @@ import H7 from '@Component/Headings/H7';
 
 const AuthSignup = () => {
   const {onSubmitForm, refForm} = useAuthSignupContainer();
+  const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
+  const [isPassVisible, setIsPassVisible] = React.useState(false);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(prev => !prev);
+  };
+  const togglePassVisibility = () => {
+    setIsPassVisible(prev => !prev);
+  };
   return (
     <>
       {/* <KeyboardAvoidingView
@@ -52,27 +73,36 @@ const AuthSignup = () => {
                     <View style={styles.inputWrapperWidth}>
                       <Input
                         {...SCHEMAS.text('parentId')}
-                        placeholder="Enter your ID"
+                        placeholder="Enter Your Parent ID"
                         label="Parent Id"
                         returnKeyType={'next'}
                       />
                     </View>
-                    <View style={styles.inputWrapperWidth}>
+                    {/* <View style={styles.inputWrapperWidth}>
                       <Input
                         {...SCHEMAS.text('parentName')}
-                        placeholder="Enter your ID"
+                        placeholder="Enter Parent Name"
                         label="Parent Name"
                         returnKeyType={'next'}
                       />
-                    </View>
+                    </View> */}
                     <View style={styles.inputWrapperWidth}>
                       <Input
                         {...SCHEMAS.password('password')}
                         placeholder="Enter your password"
                         label="Password"
                         returnKeyType={'next'}
-                        secureTextEntry={false}
+                        secureTextEntry={isPasswordVisible ? false : true}
                       />
+                      <TouchableOpacity
+                        onPress={togglePasswordVisibility}
+                        style={styles.iconContainer}>
+                        {isPasswordVisible ? (
+                          <ShowPassword />
+                        ) : (
+                          <HidePassword />
+                        )}
+                      </TouchableOpacity>
                     </View>
                     <View style={styles.inputWrapperWidth}>
                       <Input
@@ -80,8 +110,13 @@ const AuthSignup = () => {
                         placeholder="Enter your confirm password"
                         label="Confirm Password"
                         returnKeyType={'done'}
-                        secureTextEntry={false}
+                        secureTextEntry={isPassVisible ? false : true}
                       />
+                      <TouchableOpacity
+                        onPress={togglePassVisibility}
+                        style={styles.iconContainer}>
+                        {isPassVisible ? <ShowPassword /> : <HidePassword />}
+                      </TouchableOpacity>
                     </View>
                   </View>
                 </View>
@@ -141,8 +176,16 @@ const styles = StyleSheet.create({
   bottomWrapper: {
     position: 'absolute',
     // bottom: 20,
-    top: 420,
+    top: 320,
     width: '80%',
     alignSelf: 'center',
+  },
+  iconContainer: {
+    // padding: 10,
+    position: 'absolute',
+    left: 265,
+    right: 0,
+    top: 20,
+    bottom: 0,
   },
 });

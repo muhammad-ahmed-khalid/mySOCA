@@ -23,7 +23,7 @@ export default function usePlayerSelectionContainer(parentId) {
   //     },
   //   });
 
-  const {data: selectionPlayerData} = useQuery(
+  const {data: selectionPlayerData, isLoading} = useQuery(
     [STORAGE_KEYS.GET_ALL_PLAYERS_DATA],
     () => getPlayerSelection({parentId}),
     {
@@ -36,5 +36,6 @@ export default function usePlayerSelectionContainer(parentId) {
   return {
     refForm,
     selectionPlayerData,
+    isLoading,
   };
 }

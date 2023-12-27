@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, ScrollView, SafeAreaView} from 'react-native';
 import Metrics from '@Utility/Metrics';
 import H2 from '@Component/Headings/H2';
 import H1 from '@Component/Headings/H1';
-import {ChevronSvg, LogoutSvg, PerformanceSvg} from '@Asset/logo';
+import {ChevronSvg, LogoutSvg, PaymentsSvg, PerformanceSvg} from '@Asset/logo';
 import H6 from '@Component/Headings/H6';
 import H5 from '@Component/Headings/H5';
 import ButtonView from '@Component/ButtonView';
@@ -13,18 +13,17 @@ import CustomFlatListSeperator from '@Component/CustomFlatListSeperator/CustomFl
 import CustomModal from '@Component/CustomModal/CustomModal';
 import {Colors} from '@Theme/Colors';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
-import { navigate } from '@Service/navigationService';
+import {navigate} from '@Service/navigationService';
 
 const AccountScreen = ({route}) => {
   console.log(route, 'routerouterouteroute');
 
-  const {PlayerID} = route?.params?.item;
+  const {player_reg_no: PlayerID, Player_Name} = route?.params?.item;
   const {handleLogoutUser} = useContext(loginContext) as LoginContext;
   const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
     React.useState(false);
 
-    console.log(PlayerID,"this is player Id from accounts");
-    
+  console.log(PlayerID, 'this is player Id from accounts');
 
   const changeDeleteModalVisible = isDelete => {
     if (isDelete == true) {
@@ -51,7 +50,14 @@ const AccountScreen = ({route}) => {
               alignItems: 'center',
               marginTop: Metrics.doubleBaseMargin,
             }}>
-            <ButtonView style={{flexDirection: 'row', alignItems: 'center'}} onPress={()=>{navigate(NavigationRoutes.APP_STACK.PERFORMANCE,{PlayerID})}}>
+            <ButtonView
+              style={{flexDirection: 'row', alignItems: 'center'}}
+              onPress={() => {
+                navigate(NavigationRoutes.APP_STACK.PERFORMANCE, {
+                  PlayerID,
+                  Player_Name,
+                });
+              }}>
               <PerformanceSvg />
               <H5
                 text="Performance"
@@ -60,6 +66,32 @@ const AccountScreen = ({route}) => {
             </ButtonView>
             <ChevronSvg />
           </ButtonView>
+
+          {/* <View style={styles.bottomLine} /> */}
+
+          {/* <ButtonView
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: Metrics.doubleBaseMargin,
+            }}>
+            <ButtonView
+              style={{flexDirection: 'row', alignItems: 'center'}}
+              onPress={() => {
+                navigate(NavigationRoutes.APP_STACK.PAYMENT, {
+                  PlayerID,
+                  Player_Name,
+                });
+              }}>
+              <PaymentsSvg />
+              <H5
+                text="Payment"
+                style={{marginHorizontal: Metrics.baseMargin}}
+              />
+            </ButtonView>
+            <ChevronSvg />
+          </ButtonView> */}
 
           <View style={styles.bottomLine} />
           <ButtonView

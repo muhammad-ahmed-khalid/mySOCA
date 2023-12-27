@@ -2,8 +2,8 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Colors} from '@Theme/index';
 
-const CustomFlatListSeperator = () => {
-  return <View style={styles.bottomLine} />;
+const CustomFlatListSeperator = ({customStyle}: any) => {
+  return <View style={[styles.bottomLine, customStyle]} />;
 };
 
 export default CustomFlatListSeperator;

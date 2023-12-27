@@ -1,4 +1,6 @@
-import { _hideSpinner, _showSpinner } from '@Component/Spinner/Spinner';
+// import { toastService } from "../services/ToastService";
+// import {_hideSpinner, _showSpinner} from "../component/Loader/Spinner";
+// import {showSpinner, hideSpinner} from 'react-native-globalspinner';
 import apiService from '@Service/apiService';
 import Toast from 'react-native-toast-message';
 
@@ -23,20 +25,20 @@ export async function apiRequest({
   showToast = true,
   showSuccessToast = false,
   formData = false,
-}: TRequestProps) {
-  showLoader && _showSpinner();
+}: TRequestProps,cb?:Function) {
 
   const response =
     (await apiService[method]?.(url, params, config, formData)) || {};
-  setTimeout(_hideSpinner, 100);
+
   if (response.ok) {
     if (showSuccessToast) {
       Toast.show({
         type: 'success',
         text1: 'Success',
-        text2: response?.data?.apiMessage || response?.apiMessage,
+        text2: response?.data?.message || response?.message,
       });
     }
+    cb && cb(response?.message)
 
     return response;
   } else {
@@ -44,7 +46,7 @@ export async function apiRequest({
       Toast.show({
         type: 'error',
         text1: 'Error',
-        text2: response?.data?.apiMessage,
+        text2: response?.data?.message,
       });
     throw response?.data;
   }

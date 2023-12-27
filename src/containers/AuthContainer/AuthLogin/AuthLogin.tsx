@@ -1,4 +1,4 @@
-import {RightArrowLarge} from '@Asset/logo';
+import {HidePassword, RightArrowLarge, ShowPassword} from '@Asset/logo';
 import AuthWrapper from '@Component/AuthWrapper/AuthWrapper';
 import AppButton from '@Component/Buttons/AppButton';
 import FormHandler from '@Component/FormHandler';
@@ -6,7 +6,13 @@ import {Colors} from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import Metrics from '@Utility/Metrics';
 import React from 'react';
-import {Platform, StyleSheet, View, Keyboard} from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  View,
+  Keyboard,
+  TouchableOpacity,
+} from 'react-native';
 import useAuthLoginContainer from './AuthLoginContainer';
 import Input from '@Component/Input';
 import AuthDefaultHeading from '@Component/AuthDefaultHeading/AuthDefaultHeading';
@@ -17,6 +23,11 @@ import H7 from '@Component/Headings/H7';
 
 const AuthLogin = () => {
   const {refForm, onSubmitForm} = useAuthLoginContainer();
+  const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(prev => !prev);
+  };
   return (
     <>
       {/* <KeyboardAvoidingView
@@ -62,8 +73,17 @@ const AuthLogin = () => {
                         placeholder="Enter your password"
                         label="Password"
                         returnKeyType={'done'}
-                        secureTextEntry={true}
+                        secureTextEntry={isPasswordVisible ? false : true}
                       />
+                      <TouchableOpacity
+                        onPress={togglePasswordVisibility}
+                        style={styles.iconContainer}>
+                        {isPasswordVisible ? (
+                          <ShowPassword />
+                        ) : (
+                          <HidePassword />
+                        )}
+                      </TouchableOpacity>
                     </View>
                   </View>
                 </View>
@@ -124,5 +144,13 @@ const styles = StyleSheet.create({
     top: 260,
     width: '80%',
     alignSelf: 'center',
+  },
+  iconContainer: {
+    // padding: 10,
+    position: 'absolute',
+    left: 265,
+    right: 0,
+    top: 20,
+    bottom: 0,
   },
 });

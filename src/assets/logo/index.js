@@ -147,6 +147,10 @@ import MalePng from './MalePng.png';
 import AwardGoldSvg from './AwardGoldSvg.svg';
 import AwardPlatinumSvg from './AwardPlatinumSvg.svg';
 import AwardSilverSvg from './AwardSilverSvg.svg';
+import ShowPassword from './ShowPassword.svg';
+import HidePassword from './HidePassword.svg';
+import PaymentsSvg from './PaymentsSvg.svg';
+import HomeJpeg from './HomeScreen.jpeg';
 
 export {
   MyLocation,
@@ -295,4 +299,8 @@ export {
   AwardGoldSvg,
   AwardPlatinumSvg,
   AwardSilverSvg,
+  ShowPassword,
+  HidePassword,
+  PaymentsSvg,
+  HomeJpeg,
 };

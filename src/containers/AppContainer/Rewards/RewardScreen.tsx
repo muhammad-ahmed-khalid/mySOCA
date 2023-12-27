@@ -15,12 +15,13 @@ import useRewardContainer from './RewardContainer';
 import Fonts from '@Theme/Fonts';
 import {AwardSvg, ViaCard} from '@Asset/logo';
 import H1 from '@Component/Headings/H1';
+import SpinnerLoader from '@Component/SmallLoader';
 
 const RewardScreen = ({route}) => {
-  const {PlayerID} = route?.params?.item;
+  const {player_reg_no: PlayerID} = route?.params?.item;
   console.log(PlayerID, 'PlayerIDPlayerID');
 
-  const {getRedeemData} = useRewardContainer(PlayerID);
+  const {getRedeemData, isLoading} = useRewardContainer(PlayerID);
 
   const RenderItem = ({item}: any) => {
     const {Points, Price, Redemtion, isRedeemable} = item || {};
@@ -122,6 +123,7 @@ const RewardScreen = ({route}) => {
               alignItems: 'center',
             }}>
             <H1 text="Redeem" />
+
             {/* <View
               style={{
                 flexDirection: 'row',
@@ -132,13 +134,25 @@ const RewardScreen = ({route}) => {
               <H6 text="Pts" style={{alignSelf: 'flex-end'}} />
             </View> */}
           </View>
-          <View style={{marginTop: Metrics.baseMargin}}>
-            <FlatListHandler
-              data={getRedeemData?.data}
-              keyExtractor={item => item?.id}
-              renderItem={RenderItem}
-            />
-          </View>
+          <H4
+            text="Coming Soon"
+            style={{color: 'red', marginTop: Metrics.baseMargin}}
+          />
+          {isLoading ? (
+            <SpinnerLoader size={'large'} color={'#09203F'} />
+          ) : (
+            <View
+              style={{
+                marginTop: Metrics.baseMargin,
+                opacity: 0.7,
+              }}>
+              <FlatListHandler
+                data={getRedeemData?.data}
+                keyExtractor={item => item?.id}
+                renderItem={RenderItem}
+              />
+            </View>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>

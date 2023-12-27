@@ -14,22 +14,36 @@ import {Colors} from '@Theme/Colors';
 import ButtonView from '@Component/ButtonView';
 import {navigate} from '@Service/navigationService';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
-import {LogoutSvg} from '@Asset/logo';
+import {Logout, LogoutSvg} from '@Asset/logo';
 import {STORAGE_KEYS} from '@Constants/queryKeys';
 import {getItem, setItem} from '@Service/storageService';
+import SpinnerLoader from '@Component/SmallLoader';
+import CustomModal from '@Component/CustomModal/CustomModal';
 
 const PlayerSelection = () => {
+  const {handleLogoutUser} = useContext(loginContext) as LoginContext;
+  const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
+    React.useState(false);
   const parentId = getItem(STORAGE_KEYS.PARENTID);
   console.log(parentId, 'parentIdparentIdparentId');
 
-  const {selectionPlayerData} = usePlayerSelectionContainer(parentId);
+  const {selectionPlayerData, isLoading} =
+    usePlayerSelectionContainer(parentId);
   console.log(
     selectionPlayerData,
     'selectionPlayerDataselectionPlayerDataselectionPlayerData',
   );
+  const changeDeleteModalVisible = isDelete => {
+    if (isDelete == true) {
+      setIsDeleteAccountVisible(!isDeleteAccountVisible);
+      handleLogoutUser();
+    } else {
+      setIsDeleteAccountVisible(!isDeleteAccountVisible);
+    }
+  };
 
   const renderItem = ({item}) => {
-    const {Name, PlayerID} = item || {};
+    const {Player_Name, PlayerID} = item || {};
 
     return (
       <ButtonView
@@ -49,7 +63,7 @@ const PlayerSelection = () => {
             }}
           />
           <H4
-            text={Name}
+            text={Player_Name}
             style={{
               ...Fonts.Medium(Fonts.Size.medium, Colors.WHITE),
               marginTop: Metrics.baseMargin,
@@ -71,11 +85,36 @@ const PlayerSelection = () => {
           alignItems: 'center',
           marginVertical: Metrics.verticalScale(40),
         }}>
-        <H2 text="Please select a profile" style={{color: Colors.WHITE}} />
-        <FlatListHandler
-          data={selectionPlayerData?.data}
-          renderItem={renderItem}
-          keyExtractor={item => item?.id}
+        <View
+          style={{
+            flexDirection: 'row',
+          }}>
+          <H2 text="Please select a profile" style={{color: Colors.WHITE}} />
+          <ButtonView
+            onPress={() => setIsDeleteAccountVisible(true)}
+            style={{marginLeft: Metrics.doubleBaseMargin}}>
+            <Logout />
+          </ButtonView>
+        </View>
+
+        {isLoading ? (
+          <SpinnerLoader
+            size={'large'}
+            containerStyles={{marginTop: Metrics.doubleBaseMargin}}
+          />
+        ) : (
+          <FlatListHandler
+            data={selectionPlayerData?.data}
+            renderItem={renderItem}
+            keyExtractor={item => item?.id}
+          />
+        )}
+        <CustomModal
+          changeDeleteModalVisible={changeDeleteModalVisible}
+          setIsDeleteAccountVisible={setIsDeleteAccountVisible}
+          isDeleteAccountVisible={isDeleteAccountVisible}
+          title={'Logout'}
+          desc={'Are you sure you want to logout?'}
         />
       </View>
     </LinearGradient>

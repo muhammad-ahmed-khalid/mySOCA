@@ -14,29 +14,26 @@ import {DATE_FORMATS} from '@Utility/DateUtils';
 import CustomFlatListSeperator from '@Component/CustomFlatListSeperator/CustomFlatListSeperator';
 import LinearGradient from 'react-native-linear-gradient';
 import H4 from '@Component/Headings/H4';
-import { DropDownIcon } from '@Asset/logo';
+import {DropDownIcon} from '@Asset/logo';
 import usePerformanceContainer from './PerformanceContainer';
-import { STORAGE_KEYS } from '@Constants/queryKeys';
-import { getItem } from '@Service/storageService';
+import {STORAGE_KEYS} from '@Constants/queryKeys';
+import {getItem} from '@Service/storageService';
 
 const TotalGames = ({route}) => {
-const {PlayerID}=route?.params?.params
-const {getPerformanceData}=usePerformanceContainer(PlayerID)
-const data=getPerformanceData?.data?.TotalGames|| {}
-// Assuming data is the object you provided
-const dataArray = Object.entries(data)?.map(([key, value]) => ({ key, value }));
+  const {PlayerID} = route?.params?.params;
+  const {getPerformanceData} = usePerformanceContainer(PlayerID);
+  const data = getPerformanceData?.data?.TotalGames || {};
+  // Assuming data is the object you provided
+  const dataArray = Object.entries(data)?.map(([key, value]) => ({key, value}));
 
   return (
     <SafeAreaView>
-
       <ScrollView style={{}}>
         <View
           style={{
             marginHorizontal: 20,
             marginTop: Metrics.verticalScale(20),
-        
           }}>
-  
           <FlatListHandler
             renderItem={({item}) => (
               <View
@@ -45,8 +42,12 @@ const dataArray = Object.entries(data)?.map(([key, value]) => ({ key, value }));
                   justifyContent: 'space-between',
                   marginVertical: Metrics.verticalScale(20),
                 }}>
-                <H5 text={item.key} />
-                <H5 text={item.value} />
+                {item.value > 0 && (
+                  <>
+                    <H5 text={item.key} />
+                    <H5 text={item.value} />
+                  </>
+                )}
               </View>
             )}
             data={dataArray}

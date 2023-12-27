@@ -9,7 +9,7 @@ export const login = async (params: any) => {
   const { data } = await apiRequest({
     url: SERVICE_CONFIG_URLS.AUTH.LOGIN,
     method: API_CONFIG.POST,
-    params
+    params,
   });
   return data;
 };

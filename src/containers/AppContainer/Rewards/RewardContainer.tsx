@@ -3,7 +3,7 @@ import {STORAGE_KEYS} from '@Constants/queryKeys';
 import {useQuery} from '@tanstack/react-query';
 
 export default function useRewardContainer(PlayerID) {
-  const {data: getRedeemData} = useQuery(
+  const {data: getRedeemData, isLoading} = useQuery(
     [STORAGE_KEYS.GET_REDEEM],
     () => getRedeem({playerId: PlayerID}),
     {
@@ -14,5 +14,6 @@ export default function useRewardContainer(PlayerID) {
 
   return {
     getRedeemData,
+    isLoading,
   };
 }

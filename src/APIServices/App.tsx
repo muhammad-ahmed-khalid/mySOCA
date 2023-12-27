@@ -48,13 +48,25 @@ export const getActivity = async (params: any) => {
     method: API_CONFIG.GET,
     params,
     showLoader: false,
+    showToast: false,
   });
+
   return data;
 };
 
 export const getPerformance = async (params: any) => {
   const {data} = await apiRequest({
     url: `${SERVICE_CONFIG_URLS.PLAYER.GET_PLAYER}${params.playerId}/performance`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getPayment = async (params: any) => {
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_PLAYER}payments/${params.playerId}`,
     method: API_CONFIG.GET,
     params,
     showLoader: false,

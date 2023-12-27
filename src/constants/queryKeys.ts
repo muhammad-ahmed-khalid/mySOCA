@@ -9,5 +9,6 @@ export const STORAGE_KEYS = {
   GET_ACTIVITY:'getActivity',
   GET_PERFORMANCE:'getPerformance',
   GET_PERFORMANCE_DATA:'getPerformanceData',
-  GET_PLAYER_ID:'getPlayerId'
+  GET_PLAYER_ID:'getPlayerId',
+  GET_PAYMENT:'getPayment'
 };

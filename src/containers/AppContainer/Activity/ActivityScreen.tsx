@@ -15,74 +15,42 @@ import {DATE_FORMATS} from '@Utility/DateUtils';
 import CustomFlatListSeperator from '@Component/CustomFlatListSeperator/CustomFlatListSeperator';
 import LinearGradient from 'react-native-linear-gradient';
 import H4 from '@Component/Headings/H4';
-import { DropDownIcon } from '@Asset/logo';
+import {DropDownIcon} from '@Asset/logo';
+import SpinnerLoader from '@Component/SmallLoader';
 
 const ActivityScreen = ({route}) => {
   const {PlayerID, RewardPoints, Months} = route?.params;
-  const {getActivityData} = useActivityContainer(PlayerID);
-  const playerData =
-    getActivityData && getActivityData.data?.length > 0
-      ? getActivityData?.data[0]
-      : {};
+  const {getActivityData, isLoading} = useActivityContainer(PlayerID);
+  const playerData = getActivityData?.data || {};
 
+  console.log(
+    getActivityData,
+    'getActivityDatagetActivityDatagetActivityDatagetActivityData',
+  );
+  const dataArray = Object.entries(playerData)
+    ?.map(([key, value]) => ({
+      key,
+      value,
+    }))
+    .slice(2);
 
-  // Transform the data into an array of objects with "month" and "value" keys
-  const transformedData = Object.keys(playerData).map(month => ({
-    month,
-    value: playerData[month],
-  })).slice(1); // Exclude the first element
-  const renderTransaction = ({item}) => {
-    const {
-      Amount,
-      CreatedOn,
-      PaymentType,
-      RewardPoints,
-      TransactionID,
-      Redemption,
-    } = item || {};
+  const renderItem = ({item}: any) => {
     return (
       <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          marginVertical: Metrics.baseMargin,
+          marginVertical: Metrics.verticalScale(20),
         }}>
-         
-        <View>
-          <H5 text={Redemption} />
-          <H7
-            text={moment(CreatedOn).format(DATE_FORMATS.DATE_FORMAT)}
-            style={{...Fonts.Medium(Fonts.Size.xxxSmall, Colors.DATE_COLOR)}}
-          />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          {PaymentType === 'RewardPoints' ? (
-            <>
-              <H5 text={RewardPoints} />
-              <H7
-                text="Pts"
-                style={{
-                  ...Fonts.Medium(Fonts.Size.xxxxSmall, Colors.BLACK),
-                  marginTop: 10,
-                }}
-              />
-            </>
-          ) : (
-            <>
-              <H5 text={`$${Amount}`} />
-            </>
-          )}
-        </View>
+        <H5 text={item.key} />
+        <H5 text={item.value} />
       </View>
     );
   };
+
   return (
-    <SafeAreaView>
-     <LinearGradient
+    <>
+      <LinearGradient
         colors={['#09203F', '#537895']}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
@@ -95,104 +63,95 @@ const ActivityScreen = ({route}) => {
           borderBottomLeftRadius: Metrics.scale(20),
           borderBottomRightRadius: Metrics.scale(20),
         }}>
-               <View
+        <View
           style={{
             marginHorizontal: 20,
             marginTop: Metrics.verticalScale(50),
           }}>
-
-     <H1 text="Account Activity" style={{color:'white'}}/>
-     <View style={{flexDirection:'row',marginTop:Metrics.doubleBaseMargin,justifyContent:'space-between'}}>
-     <View>
-            <H5
-              text={`TOTAL POINTS`}
-              style={{
-                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                // alignSelf: 'flex-start',
-                color: 'white',
-                // marginHorizontal: Metrics.scale(20),
-              }}
-            />
-
-            <H1
-              text={`${RewardPoints}`}
-              style={{
-                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                // alignSelf: 'flex-start',
-                color: Colors.WHITE,
-                // paddingHorizontal: 10,
-                // marginHorizontal: Metrics.scale(20),
-              }}
-            />
-      </View>
-      <View>
-            <H5
-              text={`MONTHS THIS YEAR`}
-              style={{
-                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                // alignSelf: 'flex-start',
-                color: 'white',
-                // marginHorizontal: Metrics.scale(20),
-              }}
-            />
-            <H1
-              text={`${Months}`}
-              style={{
-                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                // alignSelf: 'flex-start',
-                color: Colors.WHITE,
-                alignSelf:'center'
-                // paddingHorizontal: 10,
-                // marginHorizontal: Metrics.scale(20),
-              }}
-            />
-      </View>
-     </View>
-     <View style={{flexDirection:'row',alignItems:'center',marginTop:Metrics.baseMargin}}>
-     <H5 text="Last 12 Months" style={{color: Colors.WHITE,}}/>
- <DropDownIcon style={{marginHorizontal:Metrics.smallMargin}}/>
-
-     </View>
-
-     </View>
-      </LinearGradient>
-      <ScrollView style={{}}>
-        <View
-          style={{
-            marginHorizontal: 20,
-            marginTop: Metrics.verticalScale(20),
-        
-          }}>
-          {/* <View
+          <H1 text="Account Activity" style={{color: 'white'}} />
+          <View
             style={{
               flexDirection: 'row',
+              marginTop: Metrics.doubleBaseMargin,
               justifyContent: 'space-between',
+            }}>
+            <View>
+              <H5
+                text={`TOTAL POINTS`}
+                style={{
+                  // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+                  // alignSelf: 'flex-start',
+                  color: 'white',
+                  // marginHorizontal: Metrics.scale(20),
+                }}
+              />
+
+              <H1
+                text={`${RewardPoints}`}
+                style={{
+                  // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+                  // alignSelf: 'flex-start',
+                  color: Colors.WHITE,
+                  // paddingHorizontal: 10,
+                  // marginHorizontal: Metrics.scale(20),
+                }}
+              />
+            </View>
+            <View>
+              <H5
+                text={`MONTHS THIS YEAR`}
+                style={{
+                  // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+                  // alignSelf: 'flex-start',
+                  color: 'white',
+                  // marginHorizontal: Metrics.scale(20),
+                }}
+              />
+              <H1
+                text={`${Months}`}
+                style={{
+                  // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+                  // alignSelf: 'flex-start',
+                  color: Colors.WHITE,
+                  alignSelf: 'center',
+                  // paddingHorizontal: 10,
+                  // marginHorizontal: Metrics.scale(20),
+                }}
+              />
+            </View>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
               marginTop: Metrics.baseMargin,
             }}>
-            <H6 text="Mont" />
-            <H6 text="Reward Pts/Amount" />
-          </View> */}
-          <FlatListHandler
-            renderItem={({item}) => (
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  marginVertical: Metrics.verticalScale(20),
-                }}>
-                <H5 text={item.month} />
-                <H5 text={item.value} />
-              </View>
-            )}
-            data={transformedData}
-            keyExtractor={item => item?.id}
-            ItemSeparatorComponent={() => {
-              return <CustomFlatListSeperator />;
-            }}
-          />
+            <H5 text="Last 12 Months" style={{color: Colors.WHITE}} />
+            <DropDownIcon style={{marginHorizontal: Metrics.smallMargin}} />
+          </View>
         </View>
+      </LinearGradient>
+      <ScrollView style={{}}>
+        {isLoading ? (
+          <SpinnerLoader size={'large'} color={'#09203F'} />
+        ) : (
+          <View
+            style={{
+              marginHorizontal: 20,
+              marginTop: Metrics.verticalScale(20),
+            }}>
+            <FlatListHandler
+              renderItem={renderItem}
+              data={dataArray}
+              keyExtractor={item => item?.id}
+              ItemSeparatorComponent={() => {
+                return <CustomFlatListSeperator />;
+              }}
+            />
+          </View>
+        )}
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 

@@ -74,11 +74,18 @@ export default function AppStack() {
           require('@Container/AppContainer/Activity/ActivityScreen').default
         }
       />
-        <Stack.Screen
+      <Stack.Screen
         options={{title: 'Performance', headerShown: false}}
         name={NavigationRoutes.APP_STACK.PERFORMANCE}
         getComponent={() =>
           require('@Container/AppContainer/Performance/Performance').default
+        }
+      />
+      <Stack.Screen
+        options={{title: 'Payment', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.PAYMENT}
+        getComponent={() =>
+          require('@Container/AppContainer/Payment/PaymentScreen').default
         }
       />
     </Stack.Navigator>

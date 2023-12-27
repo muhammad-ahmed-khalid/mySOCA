@@ -3,7 +3,7 @@ import {STORAGE_KEYS} from '@Constants/queryKeys';
 import {useQuery} from '@tanstack/react-query';
 
 export default function useActivityContainer(PlayerID) {
-  const {data: getActivityData} = useQuery(
+  const {data: getActivityData, isLoading} = useQuery(
     [STORAGE_KEYS.GET_ACTIVITY],
     () => getActivity({playerId: PlayerID}),
     {
@@ -14,5 +14,6 @@ export default function useActivityContainer(PlayerID) {
 
   return {
     getActivityData,
+    isLoading,
   };
 }
