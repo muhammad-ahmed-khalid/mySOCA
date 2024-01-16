@@ -22,6 +22,7 @@ const RewardScreen = ({route}) => {
   console.log(PlayerID, 'PlayerIDPlayerID');
 
   const {getRedeemData, isLoading} = useRewardContainer(PlayerID);
+  console.log(getRedeemData, 'getRedeemDatagetRedeemDatagetRedeemData');
 
   const RenderItem = ({item}: any) => {
     const {Points, Price, Redemtion, isRedeemable} = item || {};
@@ -33,19 +34,6 @@ const RewardScreen = ({route}) => {
         style={styles.gradientContainer}>
         <View style={{}}>
           <H4 text={Redemtion} style={{color: 'white'}} />
-          {/* <View
-            style={{
-              flexDirection: 'row',
-              alignContent: 'center',
-              alignItems: 'center',
-            }}>
-            <H4 text={Points} style={{color: 'white'}} />
-            <H7
-              text="Pts"
-              style={{alignSelf: 'flex-end'}}
-              style={{color: 'white'}}
-            />
-          </View> */}
         </View>
         <View>
           <H6
@@ -69,8 +57,8 @@ const RewardScreen = ({route}) => {
               paddingHorizontal: Metrics.baseMargin,
               borderRadius: Metrics.baseMargin,
               marginTop: Metrics.baseMargin,
-              backgroundColor: '#868F96',
-              bordeColor: Colors.GREY_BORDER,
+              // backgroundColor: '#868F96',
+              // bordeColor: Colors.GREY_BORDER,
               flexDirection: 'row',
               alignContent: 'center',
               alignItems: 'center',
@@ -91,8 +79,8 @@ const RewardScreen = ({route}) => {
               paddingHorizontal: Metrics.baseMargin,
               borderRadius: Metrics.baseMargin,
               marginTop: Metrics.baseMargin,
-              backgroundColor: '#868F96',
-              bordeColor: Colors.GREY_BORDER,
+              // backgroundColor: '#868F96',
+              // bordeColor: Colors.GREY_BORDER,
               flexDirection: 'row',
               alignContent: 'center',
               alignItems: 'center',
@@ -123,28 +111,18 @@ const RewardScreen = ({route}) => {
               alignItems: 'center',
             }}>
             <H1 text="Redeem" />
-
-            {/* <View
-              style={{
-                flexDirection: 'row',
-                alignContent: 'center',
-                alignItems: 'center',
-              }}>
-              <H2 text="1000" />
-              <H6 text="Pts" style={{alignSelf: 'flex-end'}} />
-            </View> */}
           </View>
-          <H4
+          {/* <H4
             text="Coming Soon"
             style={{color: 'red', marginTop: Metrics.baseMargin}}
-          />
+          /> */}
           {isLoading ? (
             <SpinnerLoader size={'large'} color={'#09203F'} />
           ) : (
             <View
               style={{
                 marginTop: Metrics.baseMargin,
-                opacity: 0.7,
+                // opacity: 0.7,
               }}>
               <FlatListHandler
                 data={getRedeemData?.data}

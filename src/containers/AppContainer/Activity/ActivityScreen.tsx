@@ -127,7 +127,7 @@ const ActivityScreen = ({route}) => {
               marginTop: Metrics.baseMargin,
             }}>
             <H5 text="Last 12 Months" style={{color: Colors.WHITE}} />
-            <DropDownIcon style={{marginHorizontal: Metrics.smallMargin}} />
+            {/* <DropDownIcon style={{marginHorizontal: Metrics.smallMargin}} /> */}
           </View>
         </View>
       </LinearGradient>
