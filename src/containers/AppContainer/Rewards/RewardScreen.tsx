@@ -37,7 +37,7 @@ const RewardScreen = ({route}) => {
         </View>
         <View>
           <H6
-            text="Redeem Via"
+            text="Redeem at the academy for"
             style={{
               color: 'white',
               alignSelf: 'center',
@@ -51,7 +51,7 @@ const RewardScreen = ({route}) => {
             justifyContent: 'space-evenly',
             marginHorizontal: Metrics.scale(60),
           }}>
-          <ButtonView
+          <View
             style={{
               paddingVertical: Metrics.baseMargin,
               paddingHorizontal: Metrics.baseMargin,
@@ -72,8 +72,8 @@ const RewardScreen = ({route}) => {
                 alignSelf: 'flex-end',
               }}
             />
-          </ButtonView>
-          <ButtonView
+          </View>
+          <View
             style={{
               paddingVertical: Metrics.baseMargin,
               paddingHorizontal: Metrics.baseMargin,
@@ -90,7 +90,7 @@ const RewardScreen = ({route}) => {
               text={`$${Price}`}
               style={{color: 'white', marginHorizontal: Metrics.smallMargin}}
             />
-          </ButtonView>
+          </View>
         </View>
       </LinearGradient>
     );
