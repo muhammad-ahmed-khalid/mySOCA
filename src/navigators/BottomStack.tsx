@@ -72,16 +72,16 @@ const tabRoutes = [
     },
   },
 
-  {
-    name: NavigationRoutes.APP_STACK.REWARDS,
-    component: RewardScreen,
-    options: {
-      tabBarIcon: ({color, focused}) => (
-        <RenderTabBarIcon source={RewardIcon} color={color} focused={focused} />
-      ),
-      title: 'Rewards',
-    },
-  },
+  // {
+  //   name: NavigationRoutes.APP_STACK.REWARDS,
+  //   component: RewardScreen,
+  //   options: {
+  //     tabBarIcon: ({color, focused}) => (
+  //       <RenderTabBarIcon source={RewardIcon} color={color} focused={focused} />
+  //     ),
+  //     title: 'Rewards',
+  //   },
+  // },
   {
     name: NavigationRoutes.APP_STACK.ACCOUNTS,
     component: AccountScreen,
@@ -95,8 +95,6 @@ const tabRoutes = [
 ];
 
 const BottomTabs = props => {
-
-
   const insets = useSafeAreaInsets();
   return (
     <Tab.Navigator
