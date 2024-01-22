@@ -24,6 +24,7 @@ export const SERVICE_CONFIG_URLS = {
     GET_PLAYER_SELECTION:`players/`,
     GET_TIER:`/tiers`,
     GET_REDEEM:`redeemable/`,
-    GET_ACTIVITY:'player/activity/'
+    GET_ACTIVITY:'player/activity/',
+    DELETE_ACCOUNT:'user'
   },
 };

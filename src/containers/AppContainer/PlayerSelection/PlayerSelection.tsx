@@ -14,31 +14,40 @@ import {Colors} from '@Theme/Colors';
 import ButtonView from '@Component/ButtonView';
 import {navigate} from '@Service/navigationService';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
-import {Logout, LogoutSvg} from '@Asset/logo';
+import {DeleteIcon, DeletedAccontIcon, Logout, LogoutSvg} from '@Asset/logo';
 import {STORAGE_KEYS} from '@Constants/queryKeys';
 import {getItem, setItem} from '@Service/storageService';
 import SpinnerLoader from '@Component/SmallLoader';
 import CustomModal from '@Component/CustomModal/CustomModal';
+import H3 from '@Component/Headings/H3';
 
 const PlayerSelection = () => {
   const {handleLogoutUser} = useContext(loginContext) as LoginContext;
   const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
     React.useState(false);
-  const parentId = getItem(STORAGE_KEYS.PARENTID);
-  console.log(parentId, 'parentIdparentIdparentId');
+  const [isDeleteUserAccountVisible, setIsDeleteUserAccountVisible] =
+    React.useState(false);
 
-  const {selectionPlayerData, isLoading} =
+  const parentId = getItem(STORAGE_KEYS.PARENTID);
+
+  const {selectionPlayerData, isLoading, deleteAccount} =
     usePlayerSelectionContainer(parentId);
-  console.log(
-    selectionPlayerData,
-    'selectionPlayerDataselectionPlayerDataselectionPlayerData',
-  );
+
   const changeDeleteModalVisible = isDelete => {
     if (isDelete == true) {
       setIsDeleteAccountVisible(!isDeleteAccountVisible);
       handleLogoutUser();
     } else {
       setIsDeleteAccountVisible(!isDeleteAccountVisible);
+    }
+  };
+
+  const changeDeleteAccountModalVisible = isDelete => {
+    if (isDelete == true) {
+      setIsDeleteUserAccountVisible(!isDeleteUserAccountVisible);
+      deleteAccount({parentId});
+    } else {
+      setIsDeleteUserAccountVisible(!isDeleteUserAccountVisible);
     }
   };
 
@@ -117,6 +126,32 @@ const PlayerSelection = () => {
           desc={'Are you sure you want to logout?'}
         />
       </View>
+      <ButtonView
+        onPress={() => setIsDeleteUserAccountVisible(true)}
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          alignSelf: 'center',
+          position: 'absolute',
+          top: 400,
+          bottom: 0,
+        }}>
+        <DeleteIcon />
+        <H3
+          text="Delete Account"
+          style={{
+            color: Colors.WHITE,
+            marginHorizontal: Metrics.baseMargin,
+          }}
+        />
+      </ButtonView>
+      <CustomModal
+        changeDeleteModalVisible={changeDeleteAccountModalVisible}
+        setIsDeleteAccountVisible={setIsDeleteUserAccountVisible}
+        isDeleteAccountVisible={isDeleteUserAccountVisible}
+        title={'deleteAccount'}
+        desc={'deletedAccountConformation'}
+      />
     </LinearGradient>
   );
 };

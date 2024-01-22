@@ -1,27 +1,16 @@
-import {getPlayerSelection, login} from '@Api/Auth';
-import {useMutation, useQuery} from '@tanstack/react-query';
-import React, {useContext} from 'react';
-import {AuthLoginResponse} from './types';
+import {deleteUser, getPlayerSelection} from '@Api/Auth';
+import {STORAGE_KEYS} from '@Constants/queryKeys';
 import loginContext from '@Context/loginContext';
 import {LoginContext} from '@Context/loginContext/types';
-import {navigate} from '@Service/navigationService';
-import NavigationRoutes from '@Navigator/NavigationRoutes';
-import {STORAGE_KEYS} from '@Constants/queryKeys';
-import {getPlayer} from '@Api/App';
+import {reset} from '@Service/navigationService';
+import {useMutation, useQuery} from '@tanstack/react-query';
+import React, {useContext} from 'react';
 
 export default function usePlayerSelectionContainer(parentId) {
   const refForm = React.useRef();
-  const {setUserAuthentication, setIsAuth} = useContext(
+  const {setUserAuthentication, handleLogoutUser} = useContext(
     loginContext,
   ) as LoginContext;
-
-  //   const {mutate: loginMutation} = useMutation(getPlayerSelection, {
-  //     onSuccess: (data: AuthLoginResponse, payload) => {
-  //       //todo set context is auth true
-  //       setUserAuthentication(data);
-  //       //   navigate(NavigationRoutes.AUTH_STACK.PLAYER_SELECTION, {data});
-  //     },
-  //   });
 
   const {data: selectionPlayerData, isLoading} = useQuery(
     [STORAGE_KEYS.GET_ALL_PLAYERS_DATA],
@@ -33,9 +22,19 @@ export default function usePlayerSelectionContainer(parentId) {
     },
   );
 
+  const {mutate: deleteAccount} = useMutation(deleteUser, {
+    onSuccess: data => {
+      handleLogoutUser();
+    },
+    onError: (e: object) => {
+      console.log(e, 'error');
+    },
+  });
+
   return {
     refForm,
     selectionPlayerData,
     isLoading,
+    deleteAccount,
   };
 }
