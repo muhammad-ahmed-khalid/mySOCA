@@ -70,7 +70,6 @@ export const getPrivacyPolicy = async (params: any) => {
 };
 
 export const deleteUser = async (params: any) => {
-  console.log(params,'paramsparamsparams');
   
   const { data } = await apiRequest({
     url: `${SERVICE_CONFIG_URLS.PLAYER.DELETE_ACCOUNT}/${params?.parentId}` ,

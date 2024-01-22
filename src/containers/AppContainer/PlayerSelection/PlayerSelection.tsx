@@ -149,8 +149,8 @@ const PlayerSelection = () => {
         changeDeleteModalVisible={changeDeleteAccountModalVisible}
         setIsDeleteAccountVisible={setIsDeleteUserAccountVisible}
         isDeleteAccountVisible={isDeleteUserAccountVisible}
-        title={'deleteAccount'}
-        desc={'deletedAccountConformation'}
+        title={'Delete Account'}
+        desc={'Are you sure you want to Delete Account?'}
       />
     </LinearGradient>
   );
