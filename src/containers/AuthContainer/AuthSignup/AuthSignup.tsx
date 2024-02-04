@@ -18,6 +18,7 @@ import {
   Keyboard,
   ScrollView,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import Input from '@Component/Input';
 import AuthDefaultHeading from '@Component/AuthDefaultHeading/AuthDefaultHeading';
@@ -31,7 +32,7 @@ const AuthSignup = () => {
   const {onSubmitForm, refForm} = useAuthSignupContainer();
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
   const [isPassVisible, setIsPassVisible] = React.useState(false);
-
+  const {width, height} = Dimensions.get('window');
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(prev => !prev);
   };
@@ -96,7 +97,13 @@ const AuthSignup = () => {
                       />
                       <TouchableOpacity
                         onPress={togglePasswordVisibility}
-                        style={styles.iconContainer}>
+                        style={
+                          width <= 340
+                            ? styles.iconFourInchContainer
+                            : width >= 380
+                            ? styles.iconSixInchContainer
+                            : styles.iconContainer
+                        }>
                         {isPasswordVisible ? (
                           <ShowPassword />
                         ) : (
@@ -114,7 +121,13 @@ const AuthSignup = () => {
                       />
                       <TouchableOpacity
                         onPress={togglePassVisibility}
-                        style={styles.iconContainer}>
+                        style={
+                          width <= 340
+                            ? styles.iconFourInchContainer
+                            : width >= 380
+                            ? styles.iconSixInchContainer
+                            : styles.iconContainer
+                        }>
                         {isPassVisible ? <ShowPassword /> : <HidePassword />}
                       </TouchableOpacity>
                     </View>
@@ -184,6 +197,22 @@ const styles = StyleSheet.create({
     // padding: 10,
     position: 'absolute',
     left: 265,
+    right: 0,
+    top: 20,
+    bottom: 0,
+  },
+  iconFourInchContainer: {
+    // padding: 10,
+    position: 'absolute',
+    left: 225,
+    right: 0,
+    top: 15,
+    bottom: 0,
+  },
+  iconSixInchContainer: {
+    // padding: 10,
+    position: 'absolute',
+    left: 300,
     right: 0,
     top: 20,
     bottom: 0,

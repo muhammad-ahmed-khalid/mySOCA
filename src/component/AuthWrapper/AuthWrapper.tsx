@@ -11,6 +11,7 @@ import {
   View,
   ViewStyle,
   Image,
+  Dimensions,
 } from 'react-native';
 
 interface IAuthWrapper {
@@ -24,11 +25,19 @@ export default function AuthWrapper({
   children,
   scrollEnabled = false,
 }: IAuthWrapper) {
+  const {width, height: allHeight} = Dimensions.get('window');
+
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
       contentContainerStyle={[
-        scrollEnabled ? {minHeight: '100%'} : {minHeight: '105%'},
+        scrollEnabled
+          ? allHeight <= 600
+            ? {minHeight: '130%'}
+            : {minHeight: '100%'}
+          : allHeight <= 600
+          ? {minHeight: '145%'}
+          : {minHeight: '105%'},
       ]} // Remove height: '100%'
       alwaysBounceVertical={false}
       bounces={false}
@@ -36,6 +45,7 @@ export default function AuthWrapper({
         width: '100%',
         backgroundColor: '#374051',
         // marginBottom: 20,
+        height: '100%',
       }}>
       <SafeAreaView style={styles.container}>
         <Image source={SOCAPng} style={{height: 250, width: 250}} />

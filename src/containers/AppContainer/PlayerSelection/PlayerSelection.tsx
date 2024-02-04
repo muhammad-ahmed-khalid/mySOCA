@@ -132,9 +132,8 @@ const PlayerSelection = () => {
           flexDirection: 'row',
           alignItems: 'center',
           alignSelf: 'center',
-          position: 'absolute',
-          top: 400,
           bottom: 0,
+          marginTop: Metrics.verticalScale(450),
         }}>
         <DeleteIcon />
         <H3

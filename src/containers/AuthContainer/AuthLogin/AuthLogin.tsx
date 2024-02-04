@@ -12,6 +12,7 @@ import {
   View,
   Keyboard,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import useAuthLoginContainer from './AuthLoginContainer';
 import Input from '@Component/Input';
@@ -28,6 +29,10 @@ const AuthLogin = () => {
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(prev => !prev);
   };
+  const {width, height} = Dimensions.get('window');
+
+  // Log the dimensions
+  // console.log('Screen Height:', height);
   return (
     <>
       {/* <KeyboardAvoidingView
@@ -77,7 +82,13 @@ const AuthLogin = () => {
                       />
                       <TouchableOpacity
                         onPress={togglePasswordVisibility}
-                        style={styles.iconContainer}>
+                        style={
+                          width <= 340
+                            ? styles.iconFourInchContainer
+                            : width >= 380
+                            ? styles.iconSixInchContainer
+                            : styles.iconContainer
+                        }>
                         {isPasswordVisible ? (
                           <ShowPassword />
                         ) : (
@@ -149,6 +160,22 @@ const styles = StyleSheet.create({
     // padding: 10,
     position: 'absolute',
     left: 265,
+    right: 0,
+    top: 20,
+    bottom: 0,
+  },
+  iconFourInchContainer: {
+    // padding: 10,
+    position: 'absolute',
+    left: 225,
+    right: 0,
+    top: 15,
+    bottom: 0,
+  },
+  iconSixInchContainer: {
+    // padding: 10,
+    position: 'absolute',
+    left: 300,
     right: 0,
     top: 20,
     bottom: 0,
