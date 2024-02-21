@@ -151,8 +151,12 @@ import ShowPassword from './ShowPassword.svg';
 import HidePassword from './HidePassword.svg';
 import PaymentsSvg from './PaymentsSvg.svg';
 import HomeJpeg from './HomeScreen.jpeg';
+import LOGOSVG from './LOGOSVG.svg';
+import LOGO from './LOGO.png';
+import AuthBG from './AuthBG.png';
 
 export {
+  LOGOSVG,
   MyLocation,
   Star,
   AppHeaderLogo,
@@ -186,6 +190,7 @@ export {
   SupportSvg,
   WalletSvg,
   Global,
+  AuthBG,
   UserIconProfile,
   Logout,
   ReferFriend,
@@ -302,5 +307,5 @@ export {
   ShowPassword,
   HidePassword,
   PaymentsSvg,
-  HomeJpeg,
+  LOGO,
 };

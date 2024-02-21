@@ -4,7 +4,7 @@ import {
   RightArrowLarge,
   ShowPassword,
 } from '@Asset/logo';
-import AuthWrapper from '@Component/AuthWrapper/AuthWrapper';
+import AuthWrapper from '@Component/AuthWrapper';
 import AppButton from '@Component/Buttons/AppButton';
 import FormHandler from '@Component/FormHandler';
 import {Colors} from '@Theme/Colors';
@@ -21,7 +21,7 @@ import {
   Dimensions,
 } from 'react-native';
 import Input from '@Component/Input';
-import AuthDefaultHeading from '@Component/AuthDefaultHeading/AuthDefaultHeading';
+import AuthDefaultHeading from '@Component/AuthDefaultHeading';
 import AuthDefaultBottom from '@Component/AuthDefaultBottom/AuthDefaultBottom';
 import {navigate} from '@Service/navigationService';
 import NavigationRoutes from '@Navigator/NavigationRoutes';

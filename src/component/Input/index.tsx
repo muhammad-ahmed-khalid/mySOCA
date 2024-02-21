@@ -13,8 +13,8 @@ import {
   useState,
 } from 'react';
 import {Platform, StyleSheet, Text, TextInput, View} from 'react-native';
-
 import {InputProps} from './types';
+import { HidePassword, ShowPassword } from '@Asset/logo';
 
 const Input = forwardRef((props: InputProps, ref) => {
   const {
@@ -33,6 +33,7 @@ const Input = forwardRef((props: InputProps, ref) => {
     keyboardType,
     isPaddingRight = false,
     maxLength = 100,
+    isPassword= false,
   } = props;
 
   const refInput = useRef();
@@ -86,6 +87,12 @@ const Input = forwardRef((props: InputProps, ref) => {
     }));
   };
   console.log(state.err, 'state.errstate.err');
+  const [showPassword, setShowPassword] = useState(false);
+  function handleIconPress() {
+    setShowPassword(!showPassword);
+  }
+  
+  
   return (
     <View>
       <View style={styles.innerWrapper}>
@@ -128,8 +135,19 @@ const Input = forwardRef((props: InputProps, ref) => {
           placeholder={placeholder}
           keyboardType={keyboardType}
           editable={!isDisabled}
+          secureTextEntry={isPassword && !showPassword}
         />
         {rightIcon && <View style={styles.rightIconWrapper}>{rightIcon}</View>}
+        {isPassword && (
+          <ButtonView
+            onPress={handleIconPress}
+            disabled={!isPassword}
+            style={styles.iconWrapper}
+            hitSlop={{ top: 10, bottom: 10, left: 5, right: 5 }}
+          >
+            {showPassword ? <HidePassword /> : <ShowPassword />}
+          </ButtonView>
+        )}
         {isApply && (
           <ButtonView
             style={styles.applyBtnWrapper}

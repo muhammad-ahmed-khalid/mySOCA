@@ -16,11 +16,12 @@ import {
 } from 'react-native';
 import useAuthLoginContainer from './AuthLoginContainer';
 import Input from '@Component/Input';
-import AuthDefaultHeading from '@Component/AuthDefaultHeading/AuthDefaultHeading';
+import AuthDefaultHeading from '@Component/AuthDefaultHeading';
 import AuthDefaultBottom from '@Component/AuthDefaultBottom/AuthDefaultBottom';
 import {navigate} from '@Service/navigationService';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
 import H7 from '@Component/Headings/H7';
+import H1 from '@Component/Headings/H1';
 
 const AuthLogin = () => {
   const {refForm, onSubmitForm} = useAuthLoginContainer();
@@ -31,8 +32,6 @@ const AuthLogin = () => {
   };
   const {width, height} = Dimensions.get('window');
 
-  // Log the dimensions
-  // console.log('Screen Height:', height);
   return (
     <>
       {/* <KeyboardAvoidingView
@@ -41,23 +40,9 @@ const AuthLogin = () => {
     ></KeyboardAvoidingView> */}
       <AuthWrapper wrapperStyle={{flex: 1, width: '100%'}} scrollEnabled={true}>
         <View
-          style={{
-            flex: 1,
-            marginTop: Metrics.verticalScale(20),
-            // marginHorizontal: Metrics.scale(20),
-            width: '100%',
-            backgroundColor: 'white',
-            borderTopLeftRadius: Metrics.doubleBaseMargin,
-            borderTopRightRadius: Metrics.doubleBaseMargin,
-            shadowColor: Colors.BLACK,
-            shadowOffset: {
-              width: 0,
-              height: 3,
-            },
-            shadowOpacity: 0.29,
-            shadowRadius: 4.65,
-            elevation: 1,
-          }}>
+          style={styles.innerWrapper}>
+            <H1 text='Sign In' style={styles.mainTitle}/>
+            <H1 text='Sign in to your account' style={styles.subTitle}/>
           <FormHandler ref={refForm} validateOnChange>
             {SCHEMAS => {
               return (
@@ -150,9 +135,9 @@ const styles = StyleSheet.create({
     marginTop: Metrics.smallMargin,
   },
   bottomWrapper: {
-    position: 'absolute',
+    // position: 'absolute',
     bottom: 20,
-    top: 260,
+    // top: 260,
     width: '80%',
     alignSelf: 'center',
   },
@@ -180,4 +165,17 @@ const styles = StyleSheet.create({
     top: 20,
     bottom: 0,
   },
+
+  innerWrapper:{
+    flex: 1,
+    backgroundColor: 'red',
+    paddingHorizontal: 30,
+    alignItems: 'center'
+  },
+  mainTitle:{
+    ...Fonts.SemiBold(Fonts.Size.xLarge, Colors.WHITE),
+  },
+  subTitle:{
+    ...Fonts.SemiBold(Fonts.Size.xLarge, Colors.WHITE),
+  }
 });
