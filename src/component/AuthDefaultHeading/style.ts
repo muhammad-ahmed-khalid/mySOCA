@@ -13,14 +13,13 @@ const styles = StyleSheet.create({
   },
   textCenter: {
     textAlign: "center",
-    ...Fonts.SemiBold(Fonts.Size.xLarge, Colors.Colors.DARK),
+    ...Fonts.Medium(Fonts.Size.xxLarge, Colors.Colors.WHITE),
     marginHorizontal: 20,
   },
   desc: {
     textAlign: "center",
     color: Colors.Colors.WARM_GREY,
-    lineHeight: Metrics.verticalScale(26),
-    ...Fonts.Regular(Fonts.Size.xSmall, Colors.Colors.MEDIUM_GREY),
+    ...Fonts.Regular(Fonts.Size.large, Colors.Colors.WHITE),
     marginTop: Metrics.verticalScale(5),
   },
 });

@@ -4,17 +4,22 @@ import React, {useContext} from 'react';
 import {AuthLoginResponse} from './types';
 import loginContext from '@Context/loginContext';
 import {LoginContext} from '@Context/loginContext/types';
-import {pop} from '@Service/navigationService';
+import {navigate, pop} from '@Service/navigationService';
+import { setItem } from '@Service/storageService';
+import { STORAGE_KEYS } from '@Constants/queryKeys';
+import NavigationRoutes from '@Navigator/NavigationRoutes';
 
 export default function useAuthSignupContainer() {
   const refForm = React.useRef();
   const {setUserAuthentication, setIsAuth} = useContext(
     loginContext,
   ) as LoginContext;
-  const {mutate: signupMutation} = useMutation(signup, {
+  const {mutate: signupMutation,isLoading: loginUserLoading} = useMutation(signup, {
     onSuccess: data => {
       //todo set context is auth true
-      pop();
+      // pop();
+      setItem(STORAGE_KEYS.PARENTID, data?.parentId);
+      setUserAuthentication(data);
       //   setUserAuthentication(data);
     },
   });
@@ -31,5 +36,6 @@ export default function useAuthSignupContainer() {
   return {
     refForm,
     onSubmitForm,
+    loginUserLoading
   };
 }

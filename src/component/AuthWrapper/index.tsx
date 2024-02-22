@@ -10,7 +10,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import styles from './style';
-import {AuthBG, LOGO, LOGOSVG} from '@Asset/logo';
+import {AuthBG, BGWithLayer, LOGO, LOGOSVG} from '@Asset/logo';
 
 interface IAuthWrapper {
   wrapperStyle?: StyleProp<ViewStyle>;
@@ -33,7 +33,7 @@ export default function AuthWrapper({wrapperStyle, children}: IAuthWrapper) {
     </ScrollView>
     
     <ImageBackground 
-    source={AuthBG}
+    source={BGWithLayer}
     style={styles.imageBackground}
     />
     </>

@@ -79,6 +79,8 @@ export const Colors = {
   SEPARATOR_COLOR:'#B1B1B1',
   DATE_COLOR:'#A3A4A8',
   FAQS_COLOR:'#6F6C90',
+  DARK_BLUE: "#00B2FF",
+  BUTTON_LIGHT_GREY: "#01070F",
 };
 
 export const TOAST_COLORS = {

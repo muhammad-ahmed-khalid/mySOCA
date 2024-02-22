@@ -6,22 +6,23 @@ import { View } from "react-native";
 import useForgotPasswordContainer from "./ForgotPasswordContainer";
 import ForgotPasswordForm from "./components/ForgotPasswordForm";
 import styles from "./style";
+import Metrics from "@Utility/Metrics";
 
 export default function ForgotPasswordScreen() {
   const { onSubmitForm, refForm } = useForgotPasswordContainer();
 
   return (
     <>
-      <AuthWrapper>
+      <AuthWrapper wrapperStyle={{paddingTop: Metrics.verticalScale(120)}}>
         <AuthDefaultHeading
-          title={"COMMON_TEXT.FORGOT_PASSWORD_TITLE"}
-          desc={"COMMON_TEXT.ENTER_EMAIL_TO_CONTINUE"}
+          title={"Forget Password"}
+          desc={"Enter email address to reset your password"}
         />
         <View style={styles.innerWrapper}>
           <ForgotPasswordForm refForm={refForm} />
           <ButtonWithInnerLoader
             onPress={onSubmitForm}
-            buttonText={"BUTTON_TEXT.CONTINUE"}
+            buttonText={"Submit"}
             loading={false}
             btnStyle={styles.appBtnStyle}
           />

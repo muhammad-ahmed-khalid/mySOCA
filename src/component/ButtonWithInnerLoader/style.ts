@@ -5,11 +5,11 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     btnText: {
         marginHorizontal: 10,
-        ...Fonts.Medium(Fonts.Size.normal, Colors.Colors.WHITE),
+        ...Fonts.Bold(Fonts.Size.medium, Colors.Colors.BUTTON_LIGHT_GREY),
     },
     submitBtnStyle: {
-        backgroundColor: Colors.Colors.DARK,
-        borderRadius: Metrics.verticalScale(50),
+        backgroundColor: Colors.Colors.DARK_BLUE,
+        borderRadius: Metrics.verticalScale(5),
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

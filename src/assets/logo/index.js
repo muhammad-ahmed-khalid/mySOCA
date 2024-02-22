@@ -154,8 +154,16 @@ import HomeJpeg from './HomeScreen.jpeg';
 import LOGOSVG from './LOGOSVG.svg';
 import LOGO from './LOGO.png';
 import AuthBG from './AuthBG.png';
+import BGWithLayer from './BGWithLayer.png';
+import Email from './Email.svg';
+import EyeClose from './EyeClose.svg';
+import EyeOpen from './EyeOpen.svg';
 
 export {
+  EyeOpen,
+  EyeClose,
+  Email,
+  BGWithLayer,
   LOGOSVG,
   MyLocation,
   Star,

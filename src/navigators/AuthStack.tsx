@@ -11,6 +11,8 @@ export default function AuthStack() {
     <Stack.Navigator
       initialRouteName={NavigationRoutes.AUTH_STACK.LOGIN}
       screenOptions={{
+        gestureEnabled: false,
+        animation: "slide_from_right",
         header: props => {
           let state = props.navigation.getState();
           let routeIndex = state?.routes[state?.index]?.state?.index;

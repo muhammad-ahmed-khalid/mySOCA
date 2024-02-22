@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         ...Fonts.Medium(Fonts.Size.small, Colors.Colors.WARM_GREY),
       },
       forgotText: {
-        ...Fonts.Regular(Fonts.Size.xSmall, Colors.Colors.DARK),
+        ...Fonts.Regular(Fonts.Size.normal, Colors.Colors.WHITE),
         marginTop: Metrics.verticalScale(-5),
         textDecorationLine: "underline", 
       },

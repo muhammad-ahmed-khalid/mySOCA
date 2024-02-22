@@ -14,7 +14,7 @@ import {
 } from 'react';
 import {Platform, StyleSheet, Text, TextInput, View} from 'react-native';
 import {InputProps} from './types';
-import { HidePassword, ShowPassword } from '@Asset/logo';
+import { EyeClose, EyeOpen, HidePassword, ShowPassword } from '@Asset/logo';
 
 const Input = forwardRef((props: InputProps, ref) => {
   const {
@@ -145,7 +145,7 @@ const Input = forwardRef((props: InputProps, ref) => {
             style={styles.iconWrapper}
             hitSlop={{ top: 10, bottom: 10, left: 5, right: 5 }}
           >
-            {showPassword ? <HidePassword /> : <ShowPassword />}
+            {showPassword ? <EyeClose /> : <EyeOpen />}
           </ButtonView>
         )}
         {isApply && (
@@ -164,19 +164,18 @@ const Input = forwardRef((props: InputProps, ref) => {
 const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
-    borderColor: Colors.MEDIUM_GRAY,
+    borderColor: Colors.DARK_BLUE,
     borderRadius: 10,
     marginVertical: Metrics.verticalScale(10),
     paddingVertical: Metrics.scale(10),
     paddingHorizontal: Metrics.scale(15),
 
     color: Colors.BLACK,
-    ...Fonts.Medium(Fonts.Size.xSmall, Colors.DARK_BLACK),
+    ...Fonts.Medium(Fonts.Size.xSmall, Colors.WHITE),
     width: '100%',
   },
   err: {
-    marginLeft: Metrics.scale(15),
-    color: Colors.ERROR_COLOR,
+    ...Fonts.Medium(Fonts.Size.xxxxSmall, Colors.ERROR_COLOR),
   },
   applyBtnWrapper: {
     position: 'absolute',
@@ -206,16 +205,25 @@ const styles = StyleSheet.create({
     right: Metrics.scale(18),
     top:
       Platform.OS === 'ios'
-        ? Metrics.verticalScale(25)
-        : Metrics.verticalScale(30),
+        ? Metrics.scale(25)
+        : Metrics.scale(27),
   },
   leftIconWrapper: {
     position: 'absolute',
     left: Metrics.scale(10),
     top:
       Platform.OS === 'ios'
-        ? Metrics.verticalScale(22)
-        : Metrics.verticalScale(28),
+        ? Metrics.scale(22)
+        : Metrics.scale(28),
+  },
+  iconWrapper: {
+    position: "absolute",
+    top:
+      Platform.OS === 'ios'
+        ? Metrics.scale(25)
+        : Metrics.scale(30),
+        right: Metrics.scale(18),
+    zIndex: 99999,
   },
 });
 
