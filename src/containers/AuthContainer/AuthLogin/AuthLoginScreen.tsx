@@ -66,9 +66,18 @@ const LoginForm = ({refForm}: ILoginFormProps) => {
         {(SCHEMAS: any) => {
           return (
             <>
-              <Input
+              {/* <Input
                 {...SCHEMAS.email('parentEmail')}
                 placeholder="Enter your Parent Email"
+                returnKeyType={'next'}
+                placeholderTextColor={'#fff'}
+                rightIcon={<Email/>}
+              /> */}
+             {/* ID: 753 
+            Password: test */}
+              <Input
+                {...SCHEMAS.text('parentId')}
+                placeholder="Enter your Parent ID"
                 returnKeyType={'next'}
                 placeholderTextColor={'#fff'}
                 rightIcon={<Email/>}
