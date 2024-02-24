@@ -11,6 +11,8 @@ export default function AuthStack() {
     <Stack.Navigator
       initialRouteName={NavigationRoutes.AUTH_STACK.LOGIN}
       screenOptions={{
+        gestureEnabled: false,
+        animation: "slide_from_right",
         header: props => {
           let state = props.navigation.getState();
           let routeIndex = state?.routes[state?.index]?.state?.index;
@@ -31,7 +33,14 @@ export default function AuthStack() {
         options={{title: 'Auth Login', headerShown: false}}
         name={NavigationRoutes.AUTH_STACK.LOGIN}
         getComponent={() =>
-          require('@Container/AuthContainer/AuthLogin/AuthLogin').default
+          require('@Container/AuthContainer/AuthLogin/AuthLoginScreen').default
+        }
+      />
+          <Stack.Screen
+        options={{title: 'Forget Password', headerShown: false}}
+        name={NavigationRoutes.AUTH_STACK.FORGET_PASSWORD}
+        getComponent={() =>
+          require('@Container/AuthContainer/ForgotPasswordContainer').default
         }
       />
       <Stack.Screen

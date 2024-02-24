@@ -152,8 +152,20 @@ import HidePassword from './HidePassword.svg';
 import PaymentsSvg from './PaymentsSvg.svg';
 import HomeJpeg from './HomeScreen.jpeg';
 import BackIconSvg from './BackIconSvg.svg'
+import LOGOSVG from './LOGOSVG.svg';
+import LOGO from './LOGO.png';
+import AuthBG from './AuthBG.png';
+import BGWithLayer from './BGWithLayer.png';
+import Email from './Email.svg';
+import EyeClose from './EyeClose.svg';
+import EyeOpen from './EyeOpen.svg';
 
 export {
+  EyeOpen,
+  EyeClose,
+  Email,
+  BGWithLayer,
+  LOGOSVG,
   MyLocation,
   Star,
   AppHeaderLogo,
@@ -187,6 +199,7 @@ export {
   SupportSvg,
   WalletSvg,
   Global,
+  AuthBG,
   UserIconProfile,
   Logout,
   ReferFriend,
@@ -304,5 +317,6 @@ export {
   HidePassword,
   PaymentsSvg,
   HomeJpeg,
-  BackIconSvg
+  BackIconSvg,
+  LOGO,
 };
