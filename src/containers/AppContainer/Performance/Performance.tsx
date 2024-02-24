@@ -16,6 +16,7 @@ import H2 from '@Component/Headings/H2';
 import {Col, Grid, Row} from 'react-native-easy-grid';
 import H7 from '@Component/Headings/H7';
 import H6 from '@Component/Headings/H6';
+import Header from '@Component/AppHeader';
 
 export default function Performance({route}) {
   console.log(route, 'routerouteroute');
@@ -159,7 +160,8 @@ export default function Performance({route}) {
 
   return (
     <>
-      <LinearGradient
+      <Header title="Home"/>
+      {/* <LinearGradient
         colors={['#09203F', '#537895']}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
@@ -182,8 +184,8 @@ export default function Performance({route}) {
             marginTop: Metrics.smallMargin,
           }}
         />
-      </LinearGradient>
-      <ScrollView>
+      </LinearGradient> */}
+      {/* <ScrollView>
         <View
           style={{
             marginHorizontal: 20,
@@ -330,7 +332,7 @@ export default function Performance({route}) {
             </View>
           </Col>
         </Grid>
-      </ScrollView>
+      </ScrollView> */}
     </>
   );
 }

@@ -81,6 +81,7 @@ export const Colors = {
   FAQS_COLOR:'#6F6C90',
   DARK_BLUE: "#00B2FF",
   BUTTON_LIGHT_GREY: "#01070F",
+  ICE_BLUE:'#00B2FF'
 };
 
 export const TOAST_COLORS = {

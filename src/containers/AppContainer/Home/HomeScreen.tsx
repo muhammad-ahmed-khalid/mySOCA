@@ -34,6 +34,7 @@ import H3 from '@Component/Headings/H3';
 import {getItem, setItem} from '@Service/storageService';
 import {STORAGE_KEYS} from '@Constants/queryKeys';
 import SpinnerLoader from '@Component/SmallLoader';
+import Header from '@Component/AppHeader';
 
 const HomeScreen = ({route}) => {
   const {player_reg_no: PlayerID, Player_Name} = route?.params?.item;
@@ -45,141 +46,144 @@ const HomeScreen = ({route}) => {
     playerData?.data || {};
 
   return (
-    <SafeAreaView>
-      <LinearGradient
-        colors={['#09203F', '#537895']}
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 0}}
-        style={{
-          backgroundColor: '#374051',
-          alignItems: 'center',
-          // paddingBottom: Metrics.scale(20),
-          paddingTop: Metrics.verticalScale(30),
-          // height: '75%',
-          // borderBottomLeftRadius: Metrics.scale(30),
-          // borderBottomRightRadius: Metrics.scale(30),
-        }}>
-        <Image
-          source={SOCAPng}
-          style={{
-            height: 80,
-            width: 80,
-            marginBottom: Metrics.verticalScale(5),
-          }}
-        />
+    <>
+    <Header title="Home" backButton={false} subText={"Welcome Back"} desc={Player_Name}/>
+    </>
+    // <SafeAreaView>
+    //   <LinearGradient
+    //     colors={['#09203F', '#537895']}
+    //     start={{x: 0, y: 0}}
+    //     end={{x: 1, y: 0}}
+    //     style={{
+    //       backgroundColor: '#374051',
+    //       alignItems: 'center',
+    //       // paddingBottom: Metrics.scale(20),
+    //       paddingTop: Metrics.verticalScale(30),
+    //       // height: '75%',
+    //       // borderBottomLeftRadius: Metrics.scale(30),
+    //       // borderBottomRightRadius: Metrics.scale(30),
+    //     }}>
+    //     <Image
+    //       source={SOCAPng}
+    //       style={{
+    //         height: 80,
+    //         width: 80,
+    //         marginBottom: Metrics.verticalScale(5),
+    //       }}
+    //     />
 
-        {playerLoading ? (
-          <SpinnerLoader size={'large'} />
-        ) : (
-          <>
-            <H2
-              text={`${Player_Name}`}
-              style={{
-                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                alignSelf: 'flex-start',
-                color: Colors.WHITE,
-                marginHorizontal: Metrics.scale(20),
-                marginTop: Metrics.verticalScale(20),
-              }}
-            />
-            <H2
-              text={`${Tier}`}
-              style={{
-                // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                alignSelf: 'flex-start',
-                color: Colors.WHITE,
-                marginHorizontal: Metrics.scale(20),
-              }}
-            />
+    //     {playerLoading ? (
+    //       <SpinnerLoader size={'large'} />
+    //     ) : (
+    //       <>
+    //         <H2
+    //           text={`${Player_Name}`}
+    //           style={{
+    //             // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+    //             alignSelf: 'flex-start',
+    //             color: Colors.WHITE,
+    //             marginHorizontal: Metrics.scale(20),
+    //             marginTop: Metrics.verticalScale(20),
+    //           }}
+    //         />
+    //         <H2
+    //           text={`${Tier}`}
+    //           style={{
+    //             // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
+    //             alignSelf: 'flex-start',
+    //             color: Colors.WHITE,
+    //             marginHorizontal: Metrics.scale(20),
+    //           }}
+    //         />
 
-            <View
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginTop: Metrics.verticalScale(10),
-              }}>
-              <SemiCircleProgress
-                progress={Months}
-                strokeWidth={5}
-                radius={100}
-              />
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                marginTop: Metrics.verticalScale(40),
-                justifyContent: 'space-between',
-                width: '100%',
-                paddingHorizontal: 15,
-              }}>
-              <View>
-                <H5
-                  text={`TOTAL POINTS`}
-                  style={{
-                    color: 'white',
-                  }}
-                />
+    //         <View
+    //           style={{
+    //             justifyContent: 'center',
+    //             alignItems: 'center',
+    //             marginTop: Metrics.verticalScale(10),
+    //           }}>
+    //           <SemiCircleProgress
+    //             progress={Months}
+    //             strokeWidth={5}
+    //             radius={100}
+    //           />
+    //         </View>
+    //         <View
+    //           style={{
+    //             flexDirection: 'row',
+    //             marginTop: Metrics.verticalScale(40),
+    //             justifyContent: 'space-between',
+    //             width: '100%',
+    //             paddingHorizontal: 15,
+    //           }}>
+    //           <View>
+    //             <H5
+    //               text={`TOTAL POINTS`}
+    //               style={{
+    //                 color: 'white',
+    //               }}
+    //             />
 
-                <H2
-                  text={`${RewardPoints}`}
-                  style={{
-                    color: Colors.WHITE,
-                    alignSelf: 'center',
-                  }}
-                />
-              </View>
-              <View>
-                <View style={{alignSelf: 'flex-end'}}>
-                  <H5
-                    text={`CASH REWARDS`}
-                    style={{
-                      color: 'white',
-                    }}
-                  />
+    //             <H2
+    //               text={`${RewardPoints}`}
+    //               style={{
+    //                 color: Colors.WHITE,
+    //                 alignSelf: 'center',
+    //               }}
+    //             />
+    //           </View>
+    //           <View>
+    //             <View style={{alignSelf: 'flex-end'}}>
+    //               <H5
+    //                 text={`CASH REWARDS`}
+    //                 style={{
+    //                   color: 'white',
+    //                 }}
+    //               />
 
-                  <H2
-                    text={`${CashRewards}`}
-                    style={{
-                      color: Colors.WHITE,
-                      alignSelf: 'center',
-                    }}
-                  />
-                </View>
-                <ButtonView
-                  onPress={() =>
-                    navigate(NavigationRoutes.APP_STACK.ACTIVITY, {
-                      PlayerID,
-                      RewardPoints,
-                      Months,
-                    })
-                  }
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    alignSelf: 'flex-end',
-                    marginRight: Metrics.scale(-15),
-                    // marginTop: Metrics.baseMargin,
-                    marginBottom: Metrics.baseMargin,
-                  }}>
-                  <H5
-                    text={`Account Activity`}
-                    style={{
-                      color: 'white',
-                    }}
-                  />
-                  <ChevronSvg style={{marginHorizontal: Metrics.smallMargin}} />
-                </ButtonView>
-              </View>
-            </View>
-            <Image
-              source={HomeJpeg}
-              resizeMode="stretch"
-              style={{height: 200, width: '100%'}}
-            />
-          </>
-        )}
-      </LinearGradient>
-    </SafeAreaView>
+    //               <H2
+    //                 text={`${CashRewards}`}
+    //                 style={{
+    //                   color: Colors.WHITE,
+    //                   alignSelf: 'center',
+    //                 }}
+    //               />
+    //             </View>
+    //             <ButtonView
+    //               onPress={() =>
+    //                 navigate(NavigationRoutes.APP_STACK.ACTIVITY, {
+    //                   PlayerID,
+    //                   RewardPoints,
+    //                   Months,
+    //                 })
+    //               }
+    //               style={{
+    //                 flexDirection: 'row',
+    //                 alignItems: 'center',
+    //                 alignSelf: 'flex-end',
+    //                 marginRight: Metrics.scale(-15),
+    //                 // marginTop: Metrics.baseMargin,
+    //                 marginBottom: Metrics.baseMargin,
+    //               }}>
+    //               <H5
+    //                 text={`Account Activity`}
+    //                 style={{
+    //                   color: 'white',
+    //                 }}
+    //               />
+    //               <ChevronSvg style={{marginHorizontal: Metrics.smallMargin}} />
+    //             </ButtonView>
+    //           </View>
+    //         </View>
+    //         <Image
+    //           source={HomeJpeg}
+    //           resizeMode="stretch"
+    //           style={{height: 200, width: '100%'}}
+    //         />
+    //       </>
+    //     )}
+    //   </LinearGradient>
+    // </SafeAreaView>
   );
 };
 

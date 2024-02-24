@@ -158,6 +158,7 @@ import BGWithLayer from './BGWithLayer.png';
 import Email from './Email.svg';
 import EyeClose from './EyeClose.svg';
 import EyeOpen from './EyeOpen.svg';
+import BackIconSvg from './BackIconSvg.svg'
 
 export {
   EyeOpen,
@@ -316,4 +317,6 @@ export {
   HidePassword,
   PaymentsSvg,
   LOGO,
+  HomeJpeg,
+  BackIconSvg
 };
