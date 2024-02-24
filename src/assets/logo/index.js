@@ -151,6 +151,7 @@ import ShowPassword from './ShowPassword.svg';
 import HidePassword from './HidePassword.svg';
 import PaymentsSvg from './PaymentsSvg.svg';
 import HomeJpeg from './HomeScreen.jpeg';
+import BackIconSvg from './BackIconSvg.svg'
 
 export {
   MyLocation,
@@ -303,4 +304,5 @@ export {
   HidePassword,
   PaymentsSvg,
   HomeJpeg,
+  BackIconSvg
 };

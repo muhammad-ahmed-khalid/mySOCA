@@ -19,18 +19,21 @@ import {Colors} from '@Theme/Colors';
 import TierScreen from '@Container/AppContainer/Tiers/TierScreen';
 import RewardScreen from '@Container/AppContainer/Rewards/RewardScreen';
 import AccountScreen from '@Container/AppContainer/Accounts/AccountScreen';
+import H6 from '@Component/Headings/H6';
 const Tab = createBottomTabNavigator();
 
 const RenderTabBarIcon = ({source, color, focused}) => {
   return (
     <View style={styles.tabBarIconWrapper}>
       {focused && (
+  
         <View
           style={[
             styles.tabBarShape,
             {top: Platform.OS === 'android' ? -12 : -19},
           ]}
         />
+        
       )}
 
       <Image
@@ -42,6 +45,7 @@ const RenderTabBarIcon = ({source, color, focused}) => {
           tintColor: color,
         }}
       />
+
     </View>
   );
 };
@@ -100,12 +104,9 @@ const BottomTabs = props => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-
         tabBarStyle: {
-          backgroundColor: Colors.DARKISH,
+          backgroundColor: '#0A182C',
           alignSelf: 'center',
-          marginBottom: 10,
-          borderRadius: 30,
           shadowColor: Colors.BLACK,
           shadowOffset: {
             width: 0,
@@ -114,13 +115,13 @@ const BottomTabs = props => {
           shadowOpacity: 0.29,
           shadowRadius: 4.65,
           elevation: 8,
-          width: '90%',
+          width: '100%',
           height:
             Platform.OS === 'android'
               ? 65
               : 85 - insets.bottom + (insets.bottom ? +40 : 0),
           paddingTop:
-            insets.bottom !== 0 ? (Platform.OS === 'android' ? 0 : 20) : 0,
+            insets.bottom !== 0 ? (Platform.OS === 'android' ? 10 : 20) : 0,
         },
         tabBarLabelStyle: {
           includeFontPadding: false,
@@ -162,14 +163,26 @@ const styles = StyleSheet.create({
   tabBarIconWrapper: {
     width: 30,
     height: 20,
+    position: 'relative',
   },
   tabBarShape: {
-    width: '100%',
-    height: 5,
+    // width: '100%',
+    // height: '100%',
+    paddingHorizontal: 50,
+    paddingVertical: 22,
+    marginTop: 8,
+    alignSelf: 'center',
     position: 'absolute',
-    // backgroundColor: '#000',
-    top: -19,
-    borderBottomRightRadius: 5,
-    borderBottomLeftRadius: 5,
+    backgroundColor: '#040C17', // Color of the border
+    bottom: 0,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderTopColor: '#00B2FF',
+    borderBottomColor: '#00B2FF',
+    borderRightColor: '#00B2FF',
+    borderLeftColor: '#00B2FF',
+
+    // borderBottomRightRadius: 15, // Adjust border radius as needed
+    // borderBottomLeftRadius: 15, // Adjust border radius as needed
   },
 });
