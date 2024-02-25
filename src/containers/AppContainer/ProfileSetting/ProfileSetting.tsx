@@ -106,7 +106,7 @@ export default ProfileSetting;
 const styles = StyleSheet.create({
   totalGamePlayedTitle: {
     ...Fonts.SemiBold(Fonts.Size.xSmall, '#98D8FA'),
-    marginBottom: Metrics.scale(20),
+    marginBottom: Metrics.scale(20)
   },
   flatListWrapper: {
     paddingHorizontal: Metrics.scale(3),
