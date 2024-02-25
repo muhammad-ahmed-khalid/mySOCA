@@ -88,6 +88,13 @@ export default function AppStack() {
           require('@Container/AppContainer/ProfileSetting/ProfileSetting').default
         }
       />
+            <Stack.Screen
+        options={{title: 'About', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.ABOUT}
+        getComponent={() =>
+          require('@Container/AppContainer/About/About').default
+        }
+      />
       <Stack.Screen
         options={{title: 'Payment', headerShown: false}}
         name={NavigationRoutes.APP_STACK.PAYMENT}

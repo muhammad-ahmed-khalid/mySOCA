@@ -1,7 +1,6 @@
-import {getPerformance, getTier} from '@Api/App';
-import { AboutIconNew, FaqsIconNew, PerformanceSvg, SupportIcon } from '@Asset/logo';
-import {STORAGE_KEYS} from '@Constants/queryKeys';
-import {useQuery} from '@tanstack/react-query';
+import { AboutIconNew, FaqsIconNew, SupportIcon } from '@Asset/logo';
+import NavigationRoutes from '@Navigator/NavigationRoutes';
+import { navigate } from '@Service/navigationService';
 
 export default function useProfileSettingContainer() {
 
@@ -10,11 +9,10 @@ export default function useProfileSettingContainer() {
           id: 1,
           icon:  <AboutIconNew/>,
           text: 'About Us',
-        //   optionalText: `${name} / ${gender?.name}` || 'notAvaliable',
           actionType: "Chevron",
-          isRating: true,
-        //   rating: rating,
-          action: () => {},
+          action: () => {
+            navigate(NavigationRoutes.APP_STACK.ABOUT);
+          },
         },
         {
           id: 2,

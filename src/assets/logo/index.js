@@ -158,19 +158,35 @@ import BGWithLayer from './BGWithLayer.png';
 import Email from './Email.svg';
 import EyeClose from './EyeClose.svg';
 import EyeOpen from './EyeOpen.svg';
-import BackIconSvg from './BackIconSvg.svg'
+import BackIconSvg from './BackIconSvg.svg';
 import PlayerImage from './PlayerImage.png';
-import AgeIcon from './AgeIcon.svg'
-import Trophy from './Trophy.svg'
-import LeaguesIcon from './LeaguesIcon.svg'
-import TourneyIcon from './TourneyIcon.svg'
-import ChevronBlue from './ChevronBlue.svg'
-import AboutIconNew from './AboutIconNew.svg'
-import SupportIcon from './SupportIcon.svg'
-import FaqsIconNew from './FaqsIconNew.svg'
-import NotificationIconNew from './NotificationIconNew.svg'
+import AgeIcon from './AgeIcon.svg';
+import Trophy from './Trophy.svg';
+import LeaguesIcon from './LeaguesIcon.svg';
+import TourneyIcon from './TourneyIcon.svg';
+import ChevronBlue from './ChevronBlue.svg';
+import AboutIconNew from './AboutIconNew.svg';
+import SupportIcon from './SupportIcon.svg';
+import FaqsIconNew from './FaqsIconNew.svg';
+import NotificationIconNew from './NotificationIconNew.svg';
+import TikTokIcon from './TikTokIcon.svg';
+import YoutubeIcon from './YoutubeIcon.svg';
+import FacebookIcon from './FacebookIcon.svg';
+import InstaIcon from './InstaIcon.svg';
+import TwitterIcon from './TwitterIcon.svg';
+import WorldIcon from './WorldIcon.svg';
+import PhoneNumberNewIcon from './PhoneNumberNewIcon.svg';
+import EmailNewIcon from './EmailNewIcon.svg';
 
 export {
+  EmailNewIcon,
+  PhoneNumberNewIcon,
+  WorldIcon,
+  TikTokIcon,
+  YoutubeIcon,
+  FacebookIcon,
+  InstaIcon,
+  TwitterIcon,
   NotificationIconNew,
   FaqsIconNew,
   SupportIcon,
@@ -338,5 +354,5 @@ export {
   HomeJpeg,
   BackIconSvg,
   LOGO,
-  ChevronBlue
+  ChevronBlue,
 };
