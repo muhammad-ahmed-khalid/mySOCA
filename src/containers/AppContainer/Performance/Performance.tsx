@@ -1,22 +1,24 @@
-import H1 from '@Component/Headings/H1';
-import TopTabs from '@Component/Tabs/TopTabs';
-import {performanceTabs} from '@Constants/dummyData';
+import {CATEGORIES_MAIN} from '@Constants/dummyData';
 import * as React from 'react';
-import {FlatList, ScrollView, StyleSheet, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, View} from 'react-native';
 
-import LinearGradient from 'react-native-linear-gradient';
-import Metrics from '@Utility/Metrics';
-import {Colors} from '@Theme/Colors';
-import usePerformanceContainer from './PerformanceContainer';
-import H3 from '@Component/Headings/H3';
-import FlatListHandler from '@Component/FlatlistHandler';
-import H5 from '@Component/Headings/H5';
-import CustomFlatListSeperator from '@Component/CustomFlatListSeperator/CustomFlatListSeperator';
-import H2 from '@Component/Headings/H2';
-import {Col, Grid, Row} from 'react-native-easy-grid';
-import H7 from '@Component/Headings/H7';
-import H6 from '@Component/Headings/H6';
+import {
+  AgeIcon,
+  LeaguesIcon,
+  PlayerImage,
+  TourneyIcon,
+  Trophy,
+} from '@Asset/logo';
 import Header from '@Component/AppHeader';
+import ButtonView from '@Component/ButtonView';
+import FlatListHandler from '@Component/FlatlistHandler';
+import H2 from '@Component/Headings/H2';
+import H3 from '@Component/Headings/H3';
+import H4 from '@Component/Headings/H4';
+import H7 from '@Component/Headings/H7';
+import {Colors, Fonts} from '@Theme/index';
+import Metrics from '@Utility/Metrics';
+import usePerformanceContainer from './PerformanceContainer';
 
 export default function Performance({route}) {
   console.log(route, 'routerouteroute');
@@ -153,14 +155,13 @@ export default function Performance({route}) {
       value,
     };
   });
-  console.log(
-    getPerformanceData,
-    'getPerformanceDatagetPerformanceDatagetPerformanceData',
-  );
+  // console.log(
+  //   getPerformanceData,
+  //   'getPerformanceDatagetPerformanceDatagetPerformanceData',
+  // );
 
   return (
-    <>
-      <Header title="Home"/>
+    <View style={{backgroundColor: '#1A182c', flex: 1}}>
       {/* <LinearGradient
         colors={['#09203F', '#537895']}
         start={{x: 0, y: 0}}
@@ -333,9 +334,86 @@ export default function Performance({route}) {
           </Col>
         </Grid>
       </ScrollView> */}
-    </>
+      <Header title="Player Performance" />
+      <ScrollView
+        contentContainerStyle={{paddingHorizontal: 15, paddingVertical: Metrics.scale(23)}}>
+        <PlayerInfo />
+        <TotlaGamePlayed />
+        <FieldingErrors />
+      </ScrollView>
+    </View>
   );
 }
+
+const PlayerInfo = () => {
+  return (
+    <View style={styles.PlayerInfoContainer}>
+      <Image source={PlayerImage} style={styles.image} />
+      <View style={styles.ageWrapper}>
+        <AgeIcon />
+        <H3 text="19" style={styles.ageText} />
+      </View>
+      <H3 text="Stacy Gwen" style={styles.nameText} />
+      <H3 text="USACID - Cricclubs id" style={styles.solganText} />
+    </View>
+  );
+};
+
+const TotlaGamePlayed = () => {
+  return (
+    <View style={styles.totalGamePlayedWrapper}>
+      <H2 text="Total games played" style={styles.totalGamePlayedTitle} />
+      <View style={styles.totalGameBoxesWrapper}>
+        <View style={styles.totalGameBoxesInnerWrapper}>
+          <Trophy />
+          <H4 text="$300.00" style={styles.totalGameBoxePrice} />
+          <H4 text="Championships" style={styles.totalGameBoxeTitle} />
+        </View>
+        <View
+          style={[
+            styles.totalGameBoxesInnerWrapper,
+            {marginHorizontal: Metrics.scale(13)},
+          ]}>
+          <LeaguesIcon />
+          <H4 text="$300.00" style={styles.totalGameBoxePrice} />
+          <H4 text="Championships" style={styles.totalGameBoxeTitle} />
+        </View>
+        <View style={styles.totalGameBoxesInnerWrapper}>
+          <TourneyIcon />
+          <H4 text="$300.00" style={styles.totalGameBoxePrice} />
+          <H4 text="Championships" style={styles.totalGameBoxeTitle} />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const FieldingErrors = () => {
+  const renderMainCategories = ({item}: any) => {
+    return (
+      <ButtonView key={item?.id} style={styles.catMainWrapper}>
+        <View style={styles.cateTextWrapper}>
+          <H4 text={item?.cate} style={styles.cateTitle} />
+          <H7 text={item?.score} style={styles.cateTagLine} />
+        </View>
+      </ButtonView>
+    );
+  };
+  return (
+    <View>
+      <H2
+        text="Fielding errors this year"
+        style={styles.totalGamePlayedTitle}
+      />
+      <FlatListHandler
+        data={CATEGORIES_MAIN}
+        numColumns={2}
+        columnWrapperStyle={styles.columnWrapperStyle}
+        renderItem={renderMainCategories}
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -344,8 +422,86 @@ const styles = StyleSheet.create({
   },
   text: {
     marginHorizontal: 25,
-    color: Colors.WHITE,
+    color: Colors.Colors.WHITE,
     marginBottom: Metrics.baseMargin,
     textAlign: 'center',
+  },
+
+  PlayerInfoContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: Metrics.scale(105),
+    height: Metrics.scale(113),
+    borderRadius: 6,
+    overflow: 'hidden'
+  },
+  ageWrapper: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    marginTop: Metrics.scale(18),
+  },
+  ageText: {
+    ...Fonts.Regular(Fonts.Size.mLarge, Colors.Colors.DARK_BLUE),
+    lineHeight: 24,
+    marginLeft: Metrics.scale(5),
+  },
+  nameText: {
+    ...Fonts.Bold(Fonts.Size.xxxLarge, Colors.Colors.WHITE),
+    marginBottom: Metrics.scale(8),
+  },
+  solganText: {
+    ...Fonts.Medium(Fonts.Size.xSmall, Colors.Colors.WHITE),
+  },
+  totalGameBoxesWrapper: {
+    flexDirection: 'row',
+  },
+  totalGameBoxesInnerWrapper: {
+    alignItems: 'center',
+    width: '31%',
+    borderWidth: 1,
+    borderColor: Colors.Colors.DARK_BLUE,
+    borderRadius: 13,
+    paddingTop: Metrics.scale(15),
+    paddingBottom: Metrics.scale(16),
+  },
+  totalGameBoxePrice: {
+    ...Fonts.SemiBold(Fonts.Size.normal, Colors.Colors.WHITE),
+    marginTop: Metrics.scale(10),
+    marginBottom: Metrics.scale(5),
+  },
+  totalGameBoxeTitle: {
+    ...Fonts.Medium(Fonts.Size.xxxxSmall, Colors.Colors.DARK_BLUE),
+  },
+  totalGamePlayedTitle: {
+    ...Fonts.SemiBold(Fonts.Size.xSmall, '#98D8FA'),
+    marginBottom: Metrics.scale(13),
+  },
+  totalGamePlayedWrapper: {
+    marginTop: Metrics.scale(28),
+    marginBottom: Metrics.scale(25),
+  },
+  columnWrapperStyle: {
+    justifyContent: 'space-between',
+    paddingRight: 1,
+  },
+  cateTextWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  catMainWrapper: {
+    width: '48%',
+    borderRadius: 10,
+    padding: Metrics.scale(13),
+    backgroundColor: '#0A182C',
+    marginBottom: 12,
+  },
+  cateTitle: {
+    ...Fonts.Medium(Fonts.Size.xSmall, Colors.Colors.DARK_BLUE),
+  },
+  cateTagLine: {
+    ...Fonts.Medium(Fonts.Size.normal, Colors.Colors.WHITE),
   },
 });

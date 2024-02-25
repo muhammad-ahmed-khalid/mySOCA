@@ -159,8 +159,18 @@ import Email from './Email.svg';
 import EyeClose from './EyeClose.svg';
 import EyeOpen from './EyeOpen.svg';
 import BackIconSvg from './BackIconSvg.svg'
+import PlayerImage from './PlayerImage.png';
+import AgeIcon from './AgeIcon.svg'
+import Trophy from './Trophy.svg'
+import LeaguesIcon from './LeaguesIcon.svg'
+import TourneyIcon from './TourneyIcon.svg'
 
 export {
+  TourneyIcon,
+  LeaguesIcon,
+  Trophy,
+  AgeIcon,
+  PlayerImage,
   EyeOpen,
   EyeClose,
   Email,
