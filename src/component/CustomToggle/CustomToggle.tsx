@@ -1,21 +1,52 @@
-import ButtonView from '@Component/ButtonView';
 import H1 from '@Component/Headings/H1';
+import {RideJourneyBottomSheetStep} from '@Constants/user';
+import ButtonView from '@Component/ButtonView';
 import Fonts from '@Theme/Fonts';
 import {Colors} from '@Theme/index';
 import Metrics from '@Utility/Metrics';
-import React, {useRef} from 'react';
-import {StyleSheet, View, Animated} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import { Animated, StyleSheet, View } from 'react-native';
 
-const CustomToggle = ({boolean, handleMutate}) => {
-  const dotPosition = useRef(new Animated.Value(boolean ? 1 : 0)).current;
+const CustomToggle = ({
+  boolean,
+  handleMutate,
+  isShowHeading = true,
+  headingText = '',
+  isShowModal = false,
+  isRideFlow = true,
+  setRideJourneySheetZustand,
+}) => {
+  const [dotPosition, setDotPosition] = useState(
+    new Animated.Value(boolean ? 1 : 0),
+  );
 
-  const changeSetValue = () => {
-    handleMutate(!boolean);
+  useEffect(() => {
     Animated.timing(dotPosition, {
-      toValue: boolean ? 0 : 1,
+      toValue: boolean ? 1 : 0,
       duration: 500, // Adjust the duration to control the speed of the animation
       useNativeDriver: false,
-    }).start();
+    }).start(() => {
+      // Animation finished, update dotPosition
+      setDotPosition(new Animated.Value(boolean ? 1 : 0));
+    });
+  }, [boolean]);
+
+  const changeSetValue = () => {
+    if (isRideFlow == true) {
+      if (boolean && setRideJourneySheetZustand) {
+        setRideJourneySheetZustand(RideJourneyBottomSheetStep.INCOMING_REQUEST);
+      } else {
+        let payload = {
+          allowIncomingRequests: !boolean,
+        };
+        handleMutate(payload);
+      }
+    } else {
+      let payload = {
+        allowIncomingRequests: !boolean,
+      };
+      handleMutate(payload);
+    }
   };
 
   const dotTranslateX = dotPosition.interpolate({
@@ -30,7 +61,7 @@ const CustomToggle = ({boolean, handleMutate}) => {
 
   return (
     <View style={styles.toggleContainer}>
-      <H1 style={styles.primaryWrapper} text="Notifications" />
+      {isShowHeading && <H1 style={styles.primaryWrapper} text={headingText} />}
       <ButtonView
         activeOpacity={1}
         onPress={changeSetValue}
@@ -61,7 +92,7 @@ const CustomToggle = ({boolean, handleMutate}) => {
   );
 };
 
-export default CustomToggle;
+export default React.memo(CustomToggle);
 
 const styles = StyleSheet.create({
   toggleWrapper: {

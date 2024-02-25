@@ -1,5 +1,6 @@
-import { ChevronSvg, DriverRating, RightArrowSmall } from '@Asset/logo';
+import { ChevronBlue, ChevronSvg, DriverRating, RightArrowSmall } from '@Asset/logo';
 import ButtonView from '@Component/ButtonView';
+import CustomToggle from '@Component/CustomToggle/CustomToggle';
 import H6 from '@Component/Headings/H6';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
 import { navigate } from '@Service/navigationService';
@@ -22,6 +23,7 @@ interface IRenderMenuItem {
   isEditable?: boolean;
   mainTextStyle?: any;
   isRating?: boolean;
+  allowIncomingRequests?: boolean;
 }
 
 const RenderMenuItem = ({
@@ -37,6 +39,7 @@ const RenderMenuItem = ({
   isEditable = true,
   mainTextStyle,
   isRating = false,
+  allowIncomingRequests,
 }: IRenderMenuItem) => {
   const handlePressVerifyEmail = () => {
     const payload = {
@@ -65,9 +68,21 @@ const RenderMenuItem = ({
       case 'Chevron':
         return (
           <View>
-            <ChevronSvg />
+            <ChevronBlue />
           </View>
         );
+        case 'showToggle':
+          return (
+            <View style={{ right: -5 }}>
+              <CustomToggle
+                boolean ={allowIncomingRequests}
+                isShowHeading={false}
+                handleMutate={() => {}}
+                isShowModal={false}
+                isRideFlow = {false}
+              />
+            </View>
+          );
       case 'ArrowRight':
         return (
           <View>
@@ -118,13 +133,18 @@ const styles = StyleSheet.create({
     marginLeft: Metrics.scale(20),
   },
   mainText: {
-    ...Fonts.SemiBold(Fonts.Size.xSmall, Colors.Colors.DARK_BLACK),
+    ...Fonts.Medium(Fonts.Size.normal, Colors.Colors.WHITE),
   },
   optionalText: {
     ...Fonts.Regular(Fonts.Size.xxSmall, Colors.Colors.DARK_BLACK),
   },
   iconWrapper: {
-    width: Metrics.scale(30),
+    width: Metrics.scale(34),
+    height: Metrics.scale(34),
+    backgroundColor: "red",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8
   },
   container: {
     flexDirection: 'row',

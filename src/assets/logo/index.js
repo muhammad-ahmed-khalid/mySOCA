@@ -164,8 +164,17 @@ import AgeIcon from './AgeIcon.svg'
 import Trophy from './Trophy.svg'
 import LeaguesIcon from './LeaguesIcon.svg'
 import TourneyIcon from './TourneyIcon.svg'
+import ChevronBlue from './ChevronBlue.svg'
+import AboutIconNew from './AboutIconNew.svg'
+import SupportIcon from './SupportIcon.svg'
+import FaqsIconNew from './FaqsIconNew.svg'
+import NotificationIconNew from './NotificationIconNew.svg'
 
 export {
+  NotificationIconNew,
+  FaqsIconNew,
+  SupportIcon,
+  AboutIconNew,
   TourneyIcon,
   LeaguesIcon,
   Trophy,
@@ -326,7 +335,8 @@ export {
   ShowPassword,
   HidePassword,
   PaymentsSvg,
-  LOGO,
   HomeJpeg,
-  BackIconSvg
+  BackIconSvg,
+  LOGO,
+  ChevronBlue
 };

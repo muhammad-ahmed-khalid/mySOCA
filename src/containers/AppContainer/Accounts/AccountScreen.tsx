@@ -64,7 +64,7 @@ const AccountScreen = ({route}) => {
                 style={{marginHorizontal: Metrics.baseMargin}}
               />
             </ButtonView>
-            <ChevronSvg />
+            {/* <ChevronSvg /> */}
           </ButtonView>
 
           {/* <View style={styles.bottomLine} /> */}
@@ -92,7 +92,24 @@ const AccountScreen = ({route}) => {
             </ButtonView>
             <ChevronSvg />
           </ButtonView> */}
-
+     <ButtonView
+              onPress={() => {
+                navigate(NavigationRoutes.APP_STACK.PROFILE_SETTING);
+              }}
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: Metrics.baseMargin,
+            }}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <PerformanceSvg />
+              <H5
+                text="Profile Settings"
+                style={{marginHorizontal: Metrics.baseMargin}}
+              />
+            </View>
+          </ButtonView>
           <View style={styles.bottomLine} />
           <ButtonView
             onPress={() => setIsDeleteAccountVisible(true)}
