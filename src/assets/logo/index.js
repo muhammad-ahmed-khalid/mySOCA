@@ -151,7 +151,6 @@ import ShowPassword from './ShowPassword.svg';
 import HidePassword from './HidePassword.svg';
 import PaymentsSvg from './PaymentsSvg.svg';
 import HomeJpeg from './HomeScreen.jpeg';
-import BackIconSvg from './BackIconSvg.svg'
 import LOGOSVG from './LOGOSVG.svg';
 import LOGO from './LOGO.png';
 import AuthBG from './AuthBG.png';
@@ -166,8 +165,44 @@ import MisRewardSvg from './MisRewardSvg.svg'
 import RedeemedSvg from './RedeemedSvg.svg'
 import EarnedSvg from './EarnedSvg.svg'
 import HomeBackgroundgSvg from './HomeBackgroundSvg.svg'
+import BackIconSvg from './BackIconSvg.svg';
+import PlayerImage from './PlayerImage.png';
+import AgeIcon from './AgeIcon.svg';
+import Trophy from './Trophy.svg';
+import LeaguesIcon from './LeaguesIcon.svg';
+import TourneyIcon from './TourneyIcon.svg';
+import ChevronBlue from './ChevronBlue.svg';
+import AboutIconNew from './AboutIconNew.svg';
+import SupportIcon from './SupportIcon.svg';
+import FaqsIconNew from './FaqsIconNew.svg';
+import NotificationIconNew from './NotificationIconNew.svg';
+import TikTokIcon from './TikTokIcon.svg';
+import YoutubeIcon from './YoutubeIcon.svg';
+import FacebookIcon from './FacebookIcon.svg';
+import InstaIcon from './InstaIcon.svg';
+import TwitterIcon from './TwitterIcon.svg';
+import WorldIcon from './WorldIcon.svg';
+import PhoneNumberNewIcon from './PhoneNumberNewIcon.svg';
+import EmailNewIcon from './EmailNewIcon.svg';
 
 export {
+  EmailNewIcon,
+  PhoneNumberNewIcon,
+  WorldIcon,
+  TikTokIcon,
+  YoutubeIcon,
+  FacebookIcon,
+  InstaIcon,
+  TwitterIcon,
+  NotificationIconNew,
+  FaqsIconNew,
+  SupportIcon,
+  AboutIconNew,
+  TourneyIcon,
+  LeaguesIcon,
+  Trophy,
+  AgeIcon,
+  PlayerImage,
   EyeOpen,
   EyeClose,
   Email,
@@ -332,5 +367,6 @@ export {
   MisRewardSvg,
   RedeemedSvg,
   EarnedSvg,
-  HomeBackgroundgSvg
+  HomeBackgroundgSvg,
+  ChevronBlue,
 };

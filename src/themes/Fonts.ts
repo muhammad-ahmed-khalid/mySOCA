@@ -25,6 +25,7 @@ export default class Fonts {
     small: 15,
     normal: 16,
     medium: 18,
+    mLarge: 20,
     large: 22,
     xLarge: 24,
     xxLarge: 28,

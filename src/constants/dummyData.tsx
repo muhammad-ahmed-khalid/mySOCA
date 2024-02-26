@@ -116,3 +116,35 @@ export const yearData=[
   },
 ]
 
+export const CATEGORIES_MAIN = [
+  {
+    id: 1,
+    score : "12",
+    cate: "Catch Drops",
+  },
+  {
+    id: 2,
+    score : "12",
+    cate: "Misfields",
+  },
+  {
+    id: 3,
+    score : "12",
+    cate: "Missed R/O",
+  },
+  {
+    id: 4,
+    score : "12",
+    cate: "Full Toss",
+  },
+  {
+    id: 5,
+    score : "12",
+    cate: "Short Balls",
+  },
+  {
+    id: 6,
+    score : "12",
+    cate: "Stumpings",
+  },
+];
