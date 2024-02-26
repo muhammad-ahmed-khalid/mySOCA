@@ -159,6 +159,13 @@ import BGWithLayer from './BGWithLayer.png';
 import Email from './Email.svg';
 import EyeClose from './EyeClose.svg';
 import EyeOpen from './EyeOpen.svg';
+import PlayerPNG from './playerPNG.png'
+import PerformanceButtonSvg from './PerformanceButtonSvg.svg'
+import SavedSvg from './SavedSvg.svg'
+import MisRewardSvg from './MisRewardSvg.svg'
+import RedeemedSvg from './RedeemedSvg.svg'
+import EarnedSvg from './EarnedSvg.svg'
+import HomeBackgroundgSvg from './HomeBackgroundSvg.svg'
 
 export {
   EyeOpen,
@@ -319,4 +326,11 @@ export {
   HomeJpeg,
   BackIconSvg,
   LOGO,
+  PlayerPNG,
+  PerformanceButtonSvg,
+  SavedSvg,
+  MisRewardSvg,
+  RedeemedSvg,
+  EarnedSvg,
+  HomeBackgroundgSvg
 };

@@ -1,3 +1,4 @@
+import { EarnedSvg, MisRewardSvg, RedeemedSvg, SavedSvg } from "@Asset/logo";
 import Batting from "@Container/AppContainer/Performance/Batting";
 import Bowling from "@Container/AppContainer/Performance/Bowling";
 import Fielding from "@Container/AppContainer/Performance/Fielding";
@@ -70,3 +71,48 @@ export const performanceTabs = [
     component: Fielding,
   },
 ];
+
+export const playerFamilyData=[
+  {
+    id:0,
+    name:"Stacy Gwen",
+    Championships:"02",
+    Leagues:"22",
+    Tourneys:"15"
+  },
+  {
+    id:1,
+    name:"Stacy Gwen",
+    Championships:"05",
+    Leagues:"25",
+    Tourneys:"10"
+  }
+]
+
+export const yearData=[
+  {
+    id:0,
+    svg:<SavedSvg/>,
+    cash:'$300.00',
+    label:'Saved'
+  },
+  {
+    id:1,
+    svg:<EarnedSvg/>,
+    cash:'$300.00',
+    label:'Earned'
+  },
+  {
+    id:2,
+    svg:<RedeemedSvg/>,
+    cash:'$300.00',
+    label:'Redeemed'
+  },
+  {
+    id:3,
+    svg:<MisRewardSvg/>,
+    cash:'$300.00',
+    label:'Mis Rwds'
+  },
+]
+
