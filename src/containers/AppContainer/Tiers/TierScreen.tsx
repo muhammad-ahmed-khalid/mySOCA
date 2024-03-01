@@ -1,35 +1,34 @@
 import {
-  LayoutAnimation,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-} from 'react-native';
-import React from 'react';
-import H2 from '@Component/Headings/H2';
-import Metrics from '@Utility/Metrics';
-import FlatListHandler from '@Component/FlatlistHandler';
-import {FaqsList} from '@Constants/dummyData';
-import Fonts from '@Theme/Fonts';
-import {Colors} from '@Theme/Colors';
-import {
   AwardGoldSvg,
   AwardPlatinumSvg,
   AwardSilverSvg,
   AwardSvg,
   FaqsIcon,
-  FaqsIcon2,
-  RewardIcon,
+  FaqsIcon2
 } from '@Asset/logo';
-import H6 from '@Component/Headings/H6';
-import H7 from '@Component/Headings/H7';
 import ButtonView from '@Component/ButtonView';
-import H5 from '@Component/Headings/H5';
-import useTierContainer from './TierContainer';
+import FlatListHandler from '@Component/FlatlistHandler';
 import H1 from '@Component/Headings/H1';
-import LinearGradient from 'react-native-linear-gradient';
+import H5 from '@Component/Headings/H5';
+import H6 from '@Component/Headings/H6';
 import SpinnerLoader from '@Component/SmallLoader';
+import { FaqsList } from '@Constants/dummyData';
+import Fonts from '@Theme/Fonts';
+import Metrics from '@Utility/Metrics';
+import React from 'react';
+import {
+  LayoutAnimation,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import useTierContainer from './TierContainer';
+import Header from '@Component/AppHeader';
+import H3 from '@Component/Headings/H3';
+import H4 from '@Component/Headings/H4';
+import { Colors } from '@Theme/index';
 
 const TierScreen = () => {
   const {getTierData, isLoading} = useTierContainer();
@@ -139,8 +138,16 @@ const TierScreen = () => {
     );
   };
   return (
-    <>
-      <LinearGradient
+    <View style={{backgroundColor: '#1A182c', flex: 1}}>
+        <Header backButton={false} desc={"Tiers"}/>
+        <ScrollView
+        contentContainerStyle={{paddingHorizontal: 15, paddingVertical: Metrics.scale(23)}}>
+          <View style={styles.headingWrapper}>
+            <H3 text='3 Months' style={styles.monthText}/>
+            <Text style={styles.monthTagline}>left to unlock <H4 text='Gold' style={styles.tierTEXt}/> Tier</Text>
+          </View>
+      </ScrollView>
+      {/* <LinearGradient
         colors={['#09203F', '#537895']}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
@@ -186,11 +193,24 @@ const TierScreen = () => {
             </View>
           </View>
         </ScrollView>
-      )}
-    </>
+      )} */}
+    </View>
   );
 };
 
 export default TierScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  headingWrapper:{
+
+  },
+  monthText:{
+    ...Fonts.Bold(Fonts.Size.medium, Colors.Colors.WHITE),
+  },
+  monthTagline:{
+    ...Fonts.Bold(Fonts.Size.xSmall,"#98D8FA")
+  },
+  tierTEXt:{
+    ...Fonts.Bold(Fonts.Size.xSmall,"#FFC802")
+  }
+});
