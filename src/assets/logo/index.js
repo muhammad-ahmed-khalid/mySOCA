@@ -177,8 +177,16 @@ import TwitterIcon from './TwitterIcon.svg';
 import WorldIcon from './WorldIcon.svg';
 import PhoneNumberNewIcon from './PhoneNumberNewIcon.svg';
 import EmailNewIcon from './EmailNewIcon.svg';
+import SelectedPackage from './SelectedPackage.svg';
+import PlatiniumTrophy from './PlatiniumTrophy.svg';
+import GoldTrophy from './GoldTrophy.svg';
+import SilverTrophy from './SilverTrophy.svg';
 
 export {
+  SelectedPackage,
+  PlatiniumTrophy,
+  SilverTrophy,
+  GoldTrophy,
   EmailNewIcon,
   PhoneNumberNewIcon,
   WorldIcon,
