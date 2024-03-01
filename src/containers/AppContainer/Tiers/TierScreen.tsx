@@ -202,7 +202,6 @@ export default TierScreen;
 
 const styles = StyleSheet.create({
   headingWrapper:{
-
   },
   monthText:{
     ...Fonts.Bold(Fonts.Size.medium, Colors.Colors.WHITE),
