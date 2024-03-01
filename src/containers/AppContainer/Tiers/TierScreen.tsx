@@ -201,7 +201,7 @@ const TierScreen = () => {
 export default TierScreen;
 
 const styles = StyleSheet.create({
-  headingWrapper:{ },
+  headingWrapper:{},
   monthText:{
     ...Fonts.Bold(Fonts.Size.medium, Colors.Colors.WHITE),
   },

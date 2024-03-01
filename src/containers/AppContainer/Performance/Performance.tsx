@@ -435,7 +435,7 @@ const styles = StyleSheet.create({
     width: Metrics.scale(105),
     height: Metrics.scale(113),
     borderRadius: 6,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   ageWrapper: {
     flexDirection: 'row',
