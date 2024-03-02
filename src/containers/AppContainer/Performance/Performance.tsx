@@ -23,7 +23,7 @@ import usePerformanceContainer from './PerformanceContainer';
 export default function Performance({route}) {
   console.log(route, 'routerouteroute');
 
-  const {PlayerID, Player_Name} = route?.params;
+  const {PlayerID, Player_Name} = route?.params || {};
   const {getPerformanceData} = usePerformanceContainer(PlayerID);
   const data = getPerformanceData?.data?.Tournaments || {};
   const battingData = getPerformanceData?.data?.Batting || {};
@@ -418,7 +418,6 @@ const FieldingErrors = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // marginTop: 30,
   },
   text: {
     marginHorizontal: 25,

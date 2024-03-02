@@ -181,8 +181,10 @@ import SelectedPackage from './SelectedPackage.svg';
 import PlatiniumTrophy from './PlatiniumTrophy.svg';
 import GoldTrophy from './GoldTrophy.svg';
 import SilverTrophy from './SilverTrophy.svg';
+import ArrowDown from './ArrowDown.svg';
 
 export {
+  ArrowDown,
   SelectedPackage,
   PlatiniumTrophy,
   SilverTrophy,
