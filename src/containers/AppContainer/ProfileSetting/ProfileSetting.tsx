@@ -15,8 +15,8 @@ import { NotificationIconNew } from '@Asset/logo';
 const ProfileSetting = () => {
   const { menuProfileSettingList } = useProfileSettingContainer()
   return (
-    <View style={{backgroundColor: '#1A182c', flex: 1}}>
-      <Header title="Profile Setting" />
+    <View style={{backgroundColor: Colors.Colors.APP_BACKGROUND, flex: 1}}>
+      <Header desc="Profile Setting" backButton={false}/>
       <ScrollView
         contentContainerStyle={{
           paddingHorizontal: 15,
@@ -24,7 +24,7 @@ const ProfileSetting = () => {
           flex: 1,
           justifyContent: 'space-between',
         }}>
-        <View>
+        <View >
           <GeneralSetting />
           <ReachOutUs menuProfileSettingList={menuProfileSettingList}/>
         </View>

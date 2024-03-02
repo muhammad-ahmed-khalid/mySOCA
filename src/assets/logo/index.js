@@ -188,6 +188,7 @@ import SelectedPackage from './SelectedPackage.svg';
 import PlatiniumTrophy from './PlatiniumTrophy.svg';
 import GoldTrophy from './GoldTrophy.svg';
 import SilverTrophy from './SilverTrophy.svg';
+import ImageBackgroundPNG from './ImageBackgroundPNG.png'
 
 export {
   SelectedPackage,
@@ -377,4 +378,5 @@ export {
   EarnedSvg,
   HomeBackgroundgSvg,
   ChevronBlue,
+  ImageBackgroundPNG
 };

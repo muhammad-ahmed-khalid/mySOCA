@@ -20,6 +20,7 @@ import TierScreen from '@Container/AppContainer/Tiers/TierScreen';
 import RewardScreen from '@Container/AppContainer/Rewards/RewardScreen';
 import AccountScreen from '@Container/AppContainer/Accounts/AccountScreen';
 import H6 from '@Component/Headings/H6';
+import ProfileSetting from '@Container/AppContainer/ProfileSetting/ProfileSetting';
 const Tab = createBottomTabNavigator();
 
 const RenderTabBarIcon = ({source, color, focused}) => {
@@ -87,13 +88,13 @@ const tabRoutes = [
   //   },
   // },
   {
-    name: NavigationRoutes.APP_STACK.ACCOUNTS,
-    component: AccountScreen,
+    name: NavigationRoutes.APP_STACK.PROFILE_SETTING,
+    component: ProfileSetting,
     options: {
       tabBarIcon: ({color, focused}) => (
         <RenderTabBarIcon source={MalePng} color={color} focused={focused} />
       ),
-      title: 'Account',
+      title: 'Profile',
     },
   },
 ];
