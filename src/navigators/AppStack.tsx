@@ -81,6 +81,13 @@ export default function AppStack() {
           require('@Container/AppContainer/Performance/Performance').default
         }
       />
+        <Stack.Screen
+        options={{title: 'Performance', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.ALL_PERFORMANCE}
+        getComponent={() =>
+          require('@Container/AppContainer/AllPerformance/Performance').default
+        }
+      />
          <Stack.Screen
         options={{title: 'Profile Setting', headerShown: false}}
         name={NavigationRoutes.APP_STACK.PROFILE_SETTING}
