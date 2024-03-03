@@ -67,6 +67,25 @@ const AccountScreen = ({route}) => {
             {/* <ChevronSvg /> */}
           </ButtonView>
 
+          <ButtonView
+              onPress={() => {
+                navigate(NavigationRoutes.APP_STACK.ALL_PERFORMANCE);
+              }}
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: Metrics.baseMargin,
+            }}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <PerformanceSvg />
+              <H5
+                text="All Performance"
+                style={{marginHorizontal: Metrics.baseMargin}}
+              />
+            </View>
+          </ButtonView>
+
           {/* <View style={styles.bottomLine} /> */}
 
           {/* <ButtonView
