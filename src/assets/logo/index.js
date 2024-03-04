@@ -190,6 +190,9 @@ import GoldTrophy from './GoldTrophy.svg';
 import SilverTrophy from './SilverTrophy.svg';
 import ImageBackgroundPNG from './ImageBackgroundPNG.png';
 import ArrowDown from './ArrowDown.svg';
+import SignoutSvg from './SignoutSvg.svg'
+import boy from './boy.png'
+import girl from './girl.png'
 
 export {
   ArrowDown,
@@ -380,5 +383,8 @@ export {
   EarnedSvg,
   HomeBackgroundgSvg,
   ChevronBlue,
-  ImageBackgroundPNG
+  ImageBackgroundPNG,
+  SignoutSvg,
+  boy, 
+  girl
 };

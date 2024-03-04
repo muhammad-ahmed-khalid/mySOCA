@@ -109,6 +109,20 @@ export default function AppStack() {
           require('@Container/AppContainer/Payment/PaymentScreen').default
         }
       />
+          <Stack.Screen
+        options={{title: 'Announcement', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.ANNOUNCEMENT}
+        getComponent={() =>
+          require('@Container/AppContainer/Announcement/Announcement').default
+        }
+      />
+              <Stack.Screen
+        options={{title: 'Faqs', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.FAQS}
+        getComponent={() =>
+          require('@Container/AppContainer/Faqs/Faqs').default
+        }
+      />
     </Stack.Navigator>
   );
 }

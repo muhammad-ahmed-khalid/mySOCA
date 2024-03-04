@@ -21,6 +21,7 @@ import RewardScreen from '@Container/AppContainer/Rewards/RewardScreen';
 import AccountScreen from '@Container/AppContainer/Accounts/AccountScreen';
 import H6 from '@Component/Headings/H6';
 import ProfileSetting from '@Container/AppContainer/ProfileSetting/ProfileSetting';
+import Performance from '@Container/AppContainer/AllPerformance/Performance';
 const Tab = createBottomTabNavigator();
 
 const RenderTabBarIcon = ({source, color, focused}) => {
@@ -77,16 +78,16 @@ const tabRoutes = [
     },
   },
 
-  // {
-  //   name: NavigationRoutes.APP_STACK.REWARDS,
-  //   component: RewardScreen,
-  //   options: {
-  //     tabBarIcon: ({color, focused}) => (
-  //       <RenderTabBarIcon source={RewardIcon} color={color} focused={focused} />
-  //     ),
-  //     title: 'Rewards',
-  //   },
-  // },
+  {
+    name: NavigationRoutes.APP_STACK.ALL_PERFORMANCE,
+    component: Performance,
+    options: {
+      tabBarIcon: ({color, focused}) => (
+        <RenderTabBarIcon source={RewardIcon} color={color} focused={focused} />
+      ),
+      title: 'Performance',
+    },
+  },
   {
     name: NavigationRoutes.APP_STACK.PROFILE_SETTING,
     component: ProfileSetting,
@@ -119,7 +120,7 @@ const BottomTabs = props => {
           width: '100%',
           height:
             Platform.OS === 'android'
-              ? 65
+              ? 69
               : 85 - insets.bottom + (insets.bottom ? +40 : 0),
           paddingTop:
             insets.bottom !== 0 ? (Platform.OS === 'android' ? 10 : 20) : 0,
@@ -128,7 +129,7 @@ const BottomTabs = props => {
           includeFontPadding: false,
           fontFamily: 'Montserrat-Medium',
           fontSize: 10,
-          marginTop: 10,
+          marginTop: 4,
           position: 'relative',
           top: Platform.OS === 'android' ? -15 : 0,
         },
@@ -171,7 +172,7 @@ const styles = StyleSheet.create({
     // height: '100%',
     paddingHorizontal: 50,
     paddingVertical: 22,
-    marginTop: 8,
+    marginTop: 6,
     alignSelf: 'center',
     position: 'absolute',
     backgroundColor: '#040C17', // Color of the border

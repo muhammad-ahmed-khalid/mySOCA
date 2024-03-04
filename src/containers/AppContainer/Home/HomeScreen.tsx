@@ -92,7 +92,7 @@ const HomeScreen = ({route}) => {
             borderRadius: 10,
             marginTop: Metrics.baseMargin,
           }}>
-          <Image source={PlayerPNG} />
+          <Image source={item.png} />
           <View style={{marginHorizontal: Metrics.baseMargin}}>
             <H5 text={item?.name} style={{color: Colors.WHITE}} />
             <View style={{flexDirection: 'row'}}>
@@ -220,12 +220,17 @@ const HomeScreen = ({route}) => {
             marginTop: Metrics.baseMargin,
             marginBottom: Metrics.baseMargin,
           }}>
-          <H6 text="Announcements" style={{color: Colors.TEXT_COLOR}} />
-          {/* <View style={{marginTop:Metrics.baseMargin,}}>
-
-
-    <HomeBackgroundgSvg />
-    </View> */}
+            <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+              
+         
+       <H6 text="Announcements" style={{color: Colors.TEXT_COLOR}} />
+       <ButtonView onPress={()=>navigate(NavigationRoutes.APP_STACK.ANNOUNCEMENT)}>
+        <H7 text='See All' style={{   ...Fonts.SemiBold(Fonts.Size.xxxSmall, Colors.WHITE),
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.WHITE}}/>
+      </ButtonView>
+            </View>
+   
           <ImageBackground
             source={ImageBackgroundPNG}
             resizeMode="cover"

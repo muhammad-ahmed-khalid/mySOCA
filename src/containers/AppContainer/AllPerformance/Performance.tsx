@@ -12,7 +12,7 @@ import { Colors, Fonts } from '@Theme/index'
 
 const Performance = () => {
     return (
-        <View style={{ backgroundColor: '#1A182c', flex: 1 }}>
+        <View style={{ backgroundColor: Colors.Colors.APP_BACKGROUND, flex: 1 }}>
             <Header backButton={false} desc={"Performance"} />
             <ScrollView
                 contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: Metrics.scale(23) }}>

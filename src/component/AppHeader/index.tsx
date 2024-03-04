@@ -79,5 +79,6 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     flexDirection: 'row',
+    marginTop:Metrics.doubleBaseMargin
   },
 });

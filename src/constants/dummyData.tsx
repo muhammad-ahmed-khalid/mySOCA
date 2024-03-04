@@ -1,4 +1,4 @@
-import { EarnedSvg, MisRewardSvg, RedeemedSvg, SavedSvg } from "@Asset/logo";
+import { EarnedSvg, MisRewardSvg, RedeemedSvg, SavedSvg, boy, girl } from "@Asset/logo";
 import Batting from "@Container/AppContainer/Performance/Batting";
 import Bowling from "@Container/AppContainer/Performance/Bowling";
 import Fielding from "@Container/AppContainer/Performance/Fielding";
@@ -34,17 +34,27 @@ export const TransactionList = [
 export const FaqsList = [
   {
     id: 0,
-    label: 'Gold',
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
     desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
   },
   {
     id: 1,
-    label: 'Silver',
-    desc: `· 1:1 Sessions \n· 1 Bat \n· Free Practice`,
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    desc: `Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor`,
   },
   {
     id: 2,
-    label: 'Platinum',
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+  },
+  {
+    id: 3,
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+  },
+  {
+    id: 4,
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
     desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
   },
 ];
@@ -75,6 +85,7 @@ export const performanceTabs = [
 export const playerFamilyData=[
   {
     id:0,
+    png:boy,
     name:"Stacy Gwen",
     Championships:"02",
     Leagues:"22",
@@ -82,6 +93,7 @@ export const playerFamilyData=[
   },
   {
     id:1,
+    png:girl,
     name:"Stacy Gwen",
     Championships:"05",
     Leagues:"25",
@@ -148,3 +160,4 @@ export const CATEGORIES_MAIN = [
     cate: "Stumpings",
   },
 ];
+

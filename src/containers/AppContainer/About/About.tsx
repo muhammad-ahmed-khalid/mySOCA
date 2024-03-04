@@ -11,7 +11,7 @@ import H5 from '@Component/Headings/H5';
 
 const About = () => {
   return (
-    <View style={{backgroundColor: '#1A182c', flex: 1}}>
+    <View style={{backgroundColor: Colors.Colors.APP_BACKGROUND, flex: 1}}>
       <Header title="About Us" />
       <ScrollView
         contentContainerStyle={{
