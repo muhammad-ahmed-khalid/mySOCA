@@ -4,8 +4,11 @@ import {Image, ScrollView, StyleSheet, View} from 'react-native';
 
 import {
   AgeIcon,
+  DummyCircle,
+  GirlPlayer,
   LeaguesIcon,
   PlayerImage,
+  SilverSmallCup,
   TourneyIcon,
   Trophy,
 } from '@Asset/logo';
@@ -167,6 +170,7 @@ export default function Performance({route}) {
         contentContainerStyle={{paddingHorizontal: 15, paddingVertical: Metrics.scale(23),}}>
         <PlayerInfo />
         <TotlaGamePlayed />
+        <Attendance />
         <FieldingErrors />
       </ScrollView>
     </View>
@@ -176,13 +180,19 @@ export default function Performance({route}) {
 const PlayerInfo = () => {
   return (
     <View style={styles.PlayerInfoContainer}>
-      <Image source={PlayerImage} style={styles.image} />
+      <Image source={GirlPlayer} style={styles.image} />
+      <View style={styles.playerInfoInnerWrapper}>
       <View style={styles.ageWrapper}>
         <AgeIcon />
         <H3 text="19" style={styles.ageText} />
       </View>
       <H3 text="Stacy Gwen" style={styles.nameText} />
       <H3 text="USACID - Cricclubs id" style={styles.solganText} />
+      <View style={styles.cupWrapper}>
+        <SilverSmallCup />
+        <H3 text="Silver" style={styles.cupText} />
+      </View>
+      </View>
     </View>
   );
 };
@@ -210,6 +220,24 @@ const TotlaGamePlayed = () => {
           <TourneyIcon />
           <H4 text="$300.00" style={styles.totalGameBoxePrice} />
           <H4 text="Championships" style={styles.totalGameBoxeTitle} />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const Attendance = () => {
+  return (
+    <View style={styles.attendanceWrapper}>
+      <H2 text="Attendance" style={styles.totalGamePlayedTitle} />
+      <View style={styles.attendanceBoxWrapper}>
+        <View style={styles.leftSect}>
+          <H4 text='80' style={styles.leftTitle}/>
+          <H4 text='out of 100' style={styles.leftSubTitle}/>
+        </View>
+        <View style={styles.rightSect}>
+           <H4 text='80%' style={styles.rightTitle}/>
+           <DummyCircle />
         </View>
       </View>
     </View>
@@ -255,20 +283,35 @@ const styles = StyleSheet.create({
   },
 
   PlayerInfoContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'row'
   },
   image: {
-    width: Metrics.scale(105),
-    height: Metrics.scale(113),
-    borderRadius: 6,
+    width: Metrics.scale(139),
+    height: Metrics.scale(165),
+    borderRadius: 15,
     overflow: 'hidden',
+  },
+  playerInfoInnerWrapper:{
+    marginLeft: Metrics.scale(14)
   },
   ageWrapper: {
     flexDirection: 'row',
     alignItems: 'flex-end',
+  },
+  cupWrapper:{
+    borderWidth: 1,
+    borderColor: Colors.Colors.DARK_BLUE,
+    borderRadius: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
-    marginTop: Metrics.scale(18),
+    width: 95,
+    paddingVertical: 10,
+    marginTop: Metrics.scale(11)
+  },
+  cupText:{
+    ...Fonts.SemiBold(Fonts.Size.xSmall, Colors.Colors.WHITE),
+    marginLeft: Metrics.scale(8)
   },
   ageText: {
     ...Fonts.Regular(Fonts.Size.mLarge, Colors.Colors.DARK_BLUE),
@@ -276,7 +319,7 @@ const styles = StyleSheet.create({
     marginLeft: Metrics.scale(5),
   },
   nameText: {
-    ...Fonts.Bold(Fonts.Size.xxxLarge, Colors.Colors.WHITE),
+    ...Fonts.Bold(Fonts.Size.xxLarge, Colors.Colors.WHITE),
     marginBottom: Metrics.scale(8),
   },
   solganText: {
@@ -331,4 +374,34 @@ const styles = StyleSheet.create({
   cateTagLine: {
     ...Fonts.Medium(Fonts.Size.normal, Colors.Colors.WHITE),
   },
+  attendanceWrapper:{
+    marginBottom: Metrics.scale(25)
+  },
+  attendanceBoxWrapper:{
+    backgroundColor: Colors.Colors.FAMILY_BACKGROUND,
+    borderRadius: 10,
+    paddingHorizontal: Metrics.scale(13),
+    paddingTop: Metrics.scale(15),
+    paddingBottom: Metrics.scale(16),
+    flexDirection: "row",
+    justifyContent: 'space-between'
+  },
+  leftSect:{
+    justifyContent: 'center',
+  },
+  rightSect:{
+    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  leftTitle:{
+    ...Fonts.SemiBold(Fonts.Size.normal, Colors.Colors.WHITE),
+  },
+  leftSubTitle:{
+    ...Fonts.Medium(Fonts.Size.xxxSmall, Colors.Colors.DARK_BLUE),
+  },
+  rightTitle:{
+    ...Fonts.SemiBold(Fonts.Size.xhuge, Colors.Colors.TEXT_COLOR),
+    marginRight: Metrics.scale(13)
+  }
 });
