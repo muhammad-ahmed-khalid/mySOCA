@@ -193,8 +193,14 @@ import ArrowDown from './ArrowDown.svg';
 import SignoutSvg from './SignoutSvg.svg'
 import boy from './boy.png'
 import girl from './girl.png'
+import GirlPlayer from "./GirlPlayer.png"
+import SilverSmallCup from './SilverSmallCup.svg'
+import DummyCircle from './DummyCircle.svg'
 
 export {
+  DummyCircle,
+  SilverSmallCup,
+  GirlPlayer,
   ArrowDown,
   SelectedPackage,
   PlatiniumTrophy,

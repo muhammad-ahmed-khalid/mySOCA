@@ -157,7 +157,7 @@ export const CATEGORIES_MAIN = [
   {
     id: 6,
     score : "12",
-    cate: "Stumpings",
+    cate: "Miss Stumpings",
   },
 ];
 
