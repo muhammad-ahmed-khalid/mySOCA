@@ -196,8 +196,12 @@ import girl from './girl.png'
 import GirlPlayer from "./GirlPlayer.png"
 import SilverSmallCup from './SilverSmallCup.svg'
 import DummyCircle from './DummyCircle.svg'
+import PresentIcon from './PresentIcon.svg'
+import CancelSmallIcon from './CancelSmallIcon.svg'
 
 export {
+  PresentIcon,
+CancelSmallIcon,
   DummyCircle,
   SilverSmallCup,
   GirlPlayer,

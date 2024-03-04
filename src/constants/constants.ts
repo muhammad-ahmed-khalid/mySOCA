@@ -13,3 +13,9 @@ export const commonFullWidth = {
   flex: 1,
   paddingBottom: Metrics.scale(20)
 }
+
+export const COACH_PLAYER_TODAY_ATTENDANCE = {
+  PRESENT: 0,
+  ABSENT: 1,
+  UNKNOWN: 2
+}

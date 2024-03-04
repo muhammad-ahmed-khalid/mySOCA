@@ -32,6 +32,16 @@ export default function useProfileSettingContainer() {
           emailVerification: 'Verify',
           action: () => {navigate(NavigationRoutes.APP_STACK.FAQS)},
         },
+        {
+          id: 3,
+          icon:  <FaqsIconNew/>,
+          text: 'Coach Home Attendance',
+          actionType: "Chevron",
+        //   optionalText: email || 'notAvaliable',
+          isVerified: false,
+          emailVerification: 'Verify',
+          action: () => {navigate(NavigationRoutes.APP_STACK.COACH_HOME_ATTENDANCE)},
+        },
         // {
         //   id: 4,
         //   icon:  <PerformanceSvg/>,
