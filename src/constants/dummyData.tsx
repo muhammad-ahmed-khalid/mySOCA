@@ -82,82 +82,150 @@ export const performanceTabs = [
   },
 ];
 
-export const playerFamilyData=[
+export const playerFamilyData = [
   {
-    id:0,
-    png:boy,
-    name:"Stacy Gwen",
-    Championships:"02",
-    Leagues:"22",
-    Tourneys:"15"
+    id: 0,
+    png: boy,
+    name: "Stacy Gwen",
+    Championships: "02",
+    Leagues: "22",
+    Tourneys: "15"
   },
   {
-    id:1,
-    png:girl,
-    name:"Stacy Gwen",
-    Championships:"05",
-    Leagues:"25",
-    Tourneys:"10"
+    id: 1,
+    png: girl,
+    name: "Stacy Gwen",
+    Championships: "05",
+    Leagues: "25",
+    Tourneys: "10"
   }
 ]
 
-export const yearData=[
+export const yearData = [
   {
-    id:0,
-    svg:<SavedSvg/>,
-    cash:'$300.00',
-    label:'Saved'
+    id: 0,
+    svg: <SavedSvg />,
+    cash: '$300.00',
+    label: 'Saved'
   },
   {
-    id:1,
-    svg:<EarnedSvg/>,
-    cash:'$300.00',
-    label:'Earned'
+    id: 1,
+    svg: <EarnedSvg />,
+    cash: '$300.00',
+    label: 'Earned'
   },
   {
-    id:2,
-    svg:<RedeemedSvg/>,
-    cash:'$300.00',
-    label:'Redeemed'
+    id: 2,
+    svg: <RedeemedSvg />,
+    cash: '$300.00',
+    label: 'Redeemed'
   },
   {
-    id:3,
-    svg:<MisRewardSvg/>,
-    cash:'$300.00',
-    label:'Mis Rwds'
+    id: 3,
+    svg: <MisRewardSvg />,
+    cash: '$300.00',
+    label: 'Mis Rwds'
   },
 ]
 
 export const CATEGORIES_MAIN = [
   {
     id: 1,
-    score : "12",
+    score: "12",
     cate: "Catch Drops",
   },
   {
     id: 2,
-    score : "12",
+    score: "12",
     cate: "Misfields",
   },
   {
     id: 3,
-    score : "12",
+    score: "12",
     cate: "Missed R/O",
   },
   {
     id: 4,
-    score : "12",
+    score: "12",
     cate: "Full Toss",
   },
   {
     id: 5,
-    score : "12",
+    score: "12",
     cate: "Short Balls",
   },
   {
     id: 6,
-    score : "12",
+    score: "12",
     cate: "Miss Stumpings",
   },
 ];
+
+export const PLAYER_ATTENDANCE_SHEET = [
+  {
+    id: 1,
+    playerName: "Player Name Here",
+    isPresent: 0, // Means Present
+  },
+  {
+    id: 2,
+    playerName: "Player Name Here",
+    isPresent: 0, // Means Present
+  },
+  {
+    id: 3,
+    playerName: "Player Name Here",
+    isPresent: 1,// Means Absent
+  },
+  {
+    id: 4,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 5,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 6,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 7,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 8,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 9,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 10,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 11,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 12,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+  {
+    id: 13,
+    playerName: "Player Name Here",
+    isPresent: 2,// Means Not Decided
+  },
+]
 
