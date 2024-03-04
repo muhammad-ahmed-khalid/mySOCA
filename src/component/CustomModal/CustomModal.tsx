@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     paddingTop: Metrics.verticalScale(25),
     paddingBottom: Metrics.verticalScale(25),
     paddingHorizontal: Metrics.verticalScale(18),
-    backgroundColor: Colors.WHITE,
+    backgroundColor: Colors.FAMILY_BACKGROUND,
     marginHorizontal: Metrics.scale(10),
     borderRadius: Metrics.scale(15),
     justifyContent: 'center',
@@ -101,20 +101,21 @@ const styles = StyleSheet.create({
   btnWrapper: {
     paddingHorizontal: Metrics.scale(30),
     paddingVertical: Metrics.verticalScale(8),
-    borderRadius: Metrics.scale(50),
+    borderRadius: Metrics.scale(10),
     borderWidth: Metrics.scale(1),
     borderColor: Colors.GREY_BORDER,
     justifyContent: 'center',
+    backgroundColor:Colors.ICE_BLUE
   },
   title: {
-    ...Fonts.SemiBold(Fonts.Size.medium, Colors.DARK_BLACK),
+    ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
     marginBottom: Metrics.verticalScale(15),
     textAlign: 'center',
   },
   confirmText: {
     textAlign: 'center',
     marginBottom: Metrics.verticalScale(20),
-    ...Fonts.SemiBold(Fonts.Size.normal, Colors.DARK_BLACK),
+    ...Fonts.SemiBold(Fonts.Size.normal, Colors.WHITE),
   },
 });
 

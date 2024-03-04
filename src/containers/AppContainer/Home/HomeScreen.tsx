@@ -2,8 +2,12 @@ import {
   AwardSvg,
   ChevronSvg,
   HomeAddress,
+  HomeBackgroundgSvg,
   HomeJpeg,
+  ImageBackgroundPNG,
   LogoutSvg,
+  PerformanceButtonSvg,
+  PlayerPNG,
   RightArrowLarge,
   SOCAPng,
 } from '@Asset/logo';
@@ -13,12 +17,23 @@ import H4 from '@Component/Headings/H4';
 import H5 from '@Component/Headings/H5';
 import H6 from '@Component/Headings/H6';
 import H7 from '@Component/Headings/H7';
-import {TransactionList} from '@Constants/dummyData';
+import {
+  TransactionList,
+  playerFamilyData,
+  yearData,
+} from '@Constants/dummyData';
 import {Colors} from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import Metrics from '@Utility/Metrics';
 import React, {useContext, useEffect} from 'react';
-import {Text, View, StyleSheet, ScrollView, Image} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  ImageBackground,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Svg, Circle} from 'react-native-svg';
@@ -45,9 +60,205 @@ const HomeScreen = ({route}) => {
   const {Tier, RewardPoints, Months, Attendance, Amount, CashRewards} =
     playerData?.data || {};
 
+  const renderYearItem = ({item}: any) => {
+    return (
+      <View
+        style={{
+          alignItems: 'center',
+          marginTop: Metrics.baseMargin,
+          padding: Metrics.baseMargin,
+          borderWidth: 1,
+          borderColor: Colors.ICE_BLUE,
+          marginHorizontal: Metrics.smallMargin,
+          borderRadius: 10,
+          paddingVertical: Metrics.doubleBaseMargin,
+        }}>
+        <View>{item?.svg}</View>
+        <H6 text={item?.cash} style={{color: Colors.WHITE}} />
+        <H7 text={item?.label} style={{color: Colors.ICE_BLUE}} />
+      </View>
+    );
+  };
+
+  const renderItem = ({item}: any) => {
+    return (
+      <View>
+        <View
+          style={{
+            flexDirection: 'row',
+            padding: Metrics.baseMargin,
+            backgroundColor: Colors.FAMILY_BACKGROUND,
+            marginRight: Metrics.baseMargin,
+            borderRadius: 10,
+            marginTop: Metrics.baseMargin,
+          }}>
+          <Image source={item.png} />
+          <View style={{marginHorizontal: Metrics.baseMargin}}>
+            <H5 text={item?.name} style={{color: Colors.WHITE}} />
+            <View style={{flexDirection: 'row'}}>
+              <H7 text="Championships " style={{color: Colors.ICE_BLUE}} />
+              <H7 text={item?.Championships} style={{color: Colors.WHITE}} />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <H7 text="Leagues " style={{color: Colors.ICE_BLUE}} />
+              <H7 text={item?.Leagues} style={{color: Colors.WHITE}} />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <H7 text="Tourneys " style={{color: Colors.ICE_BLUE}} />
+              <H7 text={item?.Tourneys} style={{color: Colors.WHITE}} />
+            </View>
+            <ButtonView
+            onPress={()=>navigate(NavigationRoutes.APP_STACK.PERFORMANCE)}
+              style={{
+                alignSelf: 'flex-end',
+                marginTop: Metrics.verticalScale(-20),
+              }}>
+              <PerformanceButtonSvg />
+            </ButtonView>
+          </View>
+        </View>
+      </View>
+    );
+  };
   return (
     <>
-    <Header title="Home" backButton={false} subText={"Welcome Back"} desc={Player_Name}/>
+      <Header
+        title="Home"
+        backButton={false}
+        subText={'Welcome Back'}
+        desc={Player_Name}
+      />
+      <View
+        style={{
+          backgroundColor: Colors.APP_BACKGROUND,
+          flex: 1,
+          paddingHorizontal: Metrics.scale(20),
+          paddingTop: Metrics.doubleBaseMargin,
+        }}>
+        <H6 text="Players in the family" style={{color: Colors.TEXT_COLOR}} />
+        <View>
+          <FlatListHandler
+            renderItem={renderItem}
+            data={playerFamilyData}
+            keyExtractor={item => item?.id}
+            horizontal
+          />
+        </View>
+        <View style={{marginTop: Metrics.baseMargin}}>
+          <H6 text="This year you" style={{color: Colors.TEXT_COLOR}} />
+          <FlatListHandler
+            renderItem={renderYearItem}
+            data={yearData}
+            keyExtractor={item => item?.id}
+            horizontal
+          />
+        </View>
+        <View>
+          <ScrollView horizontal style={{flexDirection: 'row'}}>
+            <View style={{marginTop: Metrics.baseMargin}}>
+              <H6 text="This month you" style={{color: Colors.TEXT_COLOR}} />
+              <View
+                style={{
+                  backgroundColor: Colors.FAMILY_BACKGROUND,
+                  padding: Metrics.baseMargin,
+                  borderRadius: 10,
+                  marginTop: Metrics.baseMargin,
+                }}>
+                <H6 text="Lane Usage" style={{color: Colors.WHITE}} />
+                <View style={{flexDirection: 'row'}}>
+                  <H7
+                    text="for the month of: "
+                    style={{color: Colors.ICE_BLUE}}
+                  />
+                  <H7 text="Feb, 2024" style={{color: Colors.WHITE}} />
+                </View>
+                <H5
+                  text="300.00"
+                  style={{
+                    color: Colors.WHITE,
+                    marginTop: Metrics.doubleBaseMargin,
+                  }}
+                />
+              </View>
+            </View>
+
+            <View
+              style={{
+                marginTop: Metrics.baseMargin,
+                marginHorizontal: Metrics.baseMargin,
+              }}>
+              <H6 text="Pending Items" style={{color: Colors.TEXT_COLOR}} />
+              <View
+                style={{
+                  backgroundColor: Colors.FAMILY_BACKGROUND,
+                  padding: Metrics.baseMargin,
+                  borderRadius: 10,
+                  marginTop: Metrics.baseMargin,
+                }}>
+                <H6 text="Lane Usage" style={{color: Colors.WHITE}} />
+                <View style={{flexDirection: 'row'}}>
+                  <H7
+                    text="for the month of: "
+                    style={{color: Colors.ICE_BLUE}}
+                  />
+                  <H7 text="Feb, 2024" style={{color: Colors.WHITE}} />
+                </View>
+                <H5
+                  text="300.00"
+                  style={{
+                    color: Colors.WHITE,
+                    marginTop: Metrics.doubleBaseMargin,
+                  }}
+                />
+              </View>
+            </View>
+          </ScrollView>
+        </View>
+
+        <View
+          style={{
+            marginTop: Metrics.baseMargin,
+            marginBottom: Metrics.baseMargin,
+          }}>
+            <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+              
+         
+       <H6 text="Announcements" style={{color: Colors.TEXT_COLOR}} />
+       <ButtonView onPress={()=>navigate(NavigationRoutes.APP_STACK.ANNOUNCEMENT)}>
+        <H7 text='See All' style={{   ...Fonts.SemiBold(Fonts.Size.xxxSmall, Colors.WHITE),
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.WHITE}}/>
+      </ButtonView>
+            </View>
+   
+          <ImageBackground
+            source={ImageBackgroundPNG}
+            resizeMode="cover"
+            style={{height: 100, marginTop: Metrics.baseMargin,padding:Metrics.baseMargin}}>
+           <View style={{flexDirection:'row'}}>
+           <H5
+            style={{color: Colors.WHITE}}
+              text="Evolution Championship
+(Spring 2024)"
+            />
+            <ButtonView style={{backgroundColor:Colors.ICE_BLUE,paddingHorizontal:Metrics.smallMargin,paddingVertical:Metrics.baseMargin,borderRadius:10}}>
+            <H6
+            style={{color: Colors.BUTTON_LIGHT_GREY}}
+              text="Register Now"
+            />
+            </ButtonView>
+           </View>
+
+             <View style={{flexDirection: 'row',marginTop:Metrics.baseMargin}}>
+                  <H7
+                    text="Last Date of Registration: "
+                    style={{color: Colors.ICE_BLUE,}}
+                  />
+                  <H7 text="20 Feb, 2024" style={{color: Colors.WHITE,}} />
+                </View>
+          </ImageBackground>
+        </View>
+      </View>
     </>
     // <SafeAreaView>
     //   <LinearGradient

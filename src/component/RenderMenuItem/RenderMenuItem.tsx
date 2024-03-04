@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   iconWrapper: {
     width: Metrics.scale(34),
     height: Metrics.scale(34),
-    backgroundColor: "red",
+    backgroundColor: Colors.Colors.FAMILY_BACKGROUND,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8

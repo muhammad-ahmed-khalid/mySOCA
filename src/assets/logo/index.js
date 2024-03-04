@@ -158,6 +158,13 @@ import BGWithLayer from './BGWithLayer.png';
 import Email from './Email.svg';
 import EyeClose from './EyeClose.svg';
 import EyeOpen from './EyeOpen.svg';
+import PlayerPNG from './playerPNG.png'
+import PerformanceButtonSvg from './PerformanceButtonSvg.svg'
+import SavedSvg from './SavedSvg.svg'
+import MisRewardSvg from './MisRewardSvg.svg'
+import RedeemedSvg from './RedeemedSvg.svg'
+import EarnedSvg from './EarnedSvg.svg'
+import HomeBackgroundgSvg from './HomeBackgroundSvg.svg'
 import BackIconSvg from './BackIconSvg.svg';
 import PlayerImage from './PlayerImage.png';
 import AgeIcon from './AgeIcon.svg';
@@ -181,7 +188,11 @@ import SelectedPackage from './SelectedPackage.svg';
 import PlatiniumTrophy from './PlatiniumTrophy.svg';
 import GoldTrophy from './GoldTrophy.svg';
 import SilverTrophy from './SilverTrophy.svg';
+import ImageBackgroundPNG from './ImageBackgroundPNG.png';
 import ArrowDown from './ArrowDown.svg';
+import SignoutSvg from './SignoutSvg.svg'
+import boy from './boy.png'
+import girl from './girl.png'
 
 export {
   ArrowDown,
@@ -364,5 +375,16 @@ export {
   HomeJpeg,
   BackIconSvg,
   LOGO,
+  PlayerPNG,
+  PerformanceButtonSvg,
+  SavedSvg,
+  MisRewardSvg,
+  RedeemedSvg,
+  EarnedSvg,
+  HomeBackgroundgSvg,
   ChevronBlue,
+  ImageBackgroundPNG,
+  SignoutSvg,
+  boy, 
+  girl
 };

@@ -143,7 +143,7 @@ const TierScreen = () => {
     );
   };
   return (
-    <View style={{ backgroundColor: '#1A182c', flex: 1 }}>
+    <View style={{backgroundColor: Colors.Colors.APP_BACKGROUND, flex: 1 }}>
       <Header backButton={false} desc={"Tiers"} />
       <ScrollView
         contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: Metrics.scale(23) }}>

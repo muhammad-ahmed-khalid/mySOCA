@@ -1,3 +1,4 @@
+import { EarnedSvg, MisRewardSvg, RedeemedSvg, SavedSvg, boy, girl } from "@Asset/logo";
 import Batting from "@Container/AppContainer/Performance/Batting";
 import Bowling from "@Container/AppContainer/Performance/Bowling";
 import Fielding from "@Container/AppContainer/Performance/Fielding";
@@ -33,17 +34,27 @@ export const TransactionList = [
 export const FaqsList = [
   {
     id: 0,
-    label: 'Gold',
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
     desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
   },
   {
     id: 1,
-    label: 'Silver',
-    desc: `· 1:1 Sessions \n· 1 Bat \n· Free Practice`,
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    desc: `Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor`,
   },
   {
     id: 2,
-    label: 'Platinum',
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+  },
+  {
+    id: 3,
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+  },
+  {
+    id: 4,
+    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
     desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
   },
 ];
@@ -70,6 +81,52 @@ export const performanceTabs = [
     component: Fielding,
   },
 ];
+
+export const playerFamilyData=[
+  {
+    id:0,
+    png:boy,
+    name:"Stacy Gwen",
+    Championships:"02",
+    Leagues:"22",
+    Tourneys:"15"
+  },
+  {
+    id:1,
+    png:girl,
+    name:"Stacy Gwen",
+    Championships:"05",
+    Leagues:"25",
+    Tourneys:"10"
+  }
+]
+
+export const yearData=[
+  {
+    id:0,
+    svg:<SavedSvg/>,
+    cash:'$300.00',
+    label:'Saved'
+  },
+  {
+    id:1,
+    svg:<EarnedSvg/>,
+    cash:'$300.00',
+    label:'Earned'
+  },
+  {
+    id:2,
+    svg:<RedeemedSvg/>,
+    cash:'$300.00',
+    label:'Redeemed'
+  },
+  {
+    id:3,
+    svg:<MisRewardSvg/>,
+    cash:'$300.00',
+    label:'Mis Rwds'
+  },
+]
 
 export const CATEGORIES_MAIN = [
   {
@@ -103,3 +160,4 @@ export const CATEGORIES_MAIN = [
     cate: "Stumpings",
   },
 ];
+

@@ -1,5 +1,5 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '@Component/AppHeader';
 import H2 from '@Component/Headings/H2';
 import Metrics from '@Utility/Metrics';
@@ -9,14 +9,29 @@ import FlatListHandler from '@Component/FlatlistHandler';
 import RenderMenuItem from '@Component/RenderMenuItem/RenderMenuItem';
 import ButtonView from '@Component/ButtonView';
 import H4 from '@Component/Headings/H4';
-import { NotificationIconNew } from '@Asset/logo';
+import { FaqsIcon, NotificationIconNew, SignoutSvg } from '@Asset/logo';
+import CustomModal from '@Component/CustomModal/CustomModal';
+import loginContext from '@Context/loginContext';
+import { LoginContext } from '@Context/loginContext/types';
 
 
 const ProfileSetting = () => {
+  const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
+  React.useState(false);
+  const {handleLogoutUser} = useContext(loginContext) as LoginContext;
+  const changeDeleteModalVisible = isDelete => {
+    if (isDelete == true) {
+      setIsDeleteAccountVisible(!isDeleteAccountVisible);
+      handleLogoutUser();
+    } else {
+      setIsDeleteAccountVisible(!isDeleteAccountVisible);
+    }
+  };
+
   const { menuProfileSettingList } = useProfileSettingContainer()
   return (
-    <View style={{backgroundColor: '#1A182c', flex: 1}}>
-      <Header title="Profile Setting" />
+    <View style={{backgroundColor: Colors.Colors.APP_BACKGROUND, flex: 1}}>
+      <Header desc="Profile Setting" backButton={false} actionButton={<ButtonView  onPress={() => setIsDeleteAccountVisible(true)}><SignoutSvg/></ButtonView>}/>
       <ScrollView
         contentContainerStyle={{
           paddingHorizontal: 15,
@@ -24,11 +39,18 @@ const ProfileSetting = () => {
           flex: 1,
           justifyContent: 'space-between',
         }}>
-        <View>
+        <View >
           <GeneralSetting />
           <ReachOutUs menuProfileSettingList={menuProfileSettingList}/>
         </View>
         <PrivicyPolicy />
+        <CustomModal
+            changeDeleteModalVisible={changeDeleteModalVisible}
+            setIsDeleteAccountVisible={setIsDeleteAccountVisible}
+            isDeleteAccountVisible={isDeleteAccountVisible}
+            title={'Logout'}
+            desc={'Are you sure you want to logout?'}
+          />
       </ScrollView>
     </View>
   );
@@ -100,6 +122,7 @@ const PrivicyPolicy = () => {
     </View>
   )
 }
+
 
 export default ProfileSetting;
 
