@@ -25,16 +25,22 @@ const TopTabs = ({component, data, isTrip = false, handleClose,PlayerID}: ITopTa
   
   const tabBarOptions = React.useMemo(() => {
     return {
-      tabBarStyle: styles.tabBarStyle,
+      tabBarStyle:{
+        ...styles.tabBarStyle,
+      },
       tabBarLabelStyle: {
         ...styles.tabBarLabelStyle,
-        color: isTrip ? Colors.VIA_COLOR : Colors.WHITE,
+        color: isTrip ? Colors.VIA_COLOR : "#fff",
       },
       tabBarIndicatorStyle: {
         ...styles.tabBarIndicatorStyle,
-        backgroundColor: isTrip ? Colors.VIA_COLOR : Colors.WHITE,
+        backgroundColor: isTrip ? Colors.VIA_COLOR : "#0A182C",
       },
-      tabBarAndroidRipple: {borderless: false},
+      // Add the following tabBarStyle to customize the active tab
+      tabBarActiveBackgroundColor: 'green',
+      tabBarActiveTintColor: 'black',
+      tabBarActiveBorderRadius: 100,
+      // tabBarAndroidRipple: {borderless: false},
     };
   }, [isTrip]);
 
@@ -63,7 +69,7 @@ const TopTabs = ({component, data, isTrip = false, handleClose,PlayerID}: ITopTa
               key={`${index}+${name}`}
               name={name}
               component={component}
-              initialParams={PlayerID}
+              // initialParams={PlayerID}
             />
           );
         },
@@ -74,16 +80,20 @@ const TopTabs = ({component, data, isTrip = false, handleClose,PlayerID}: ITopTa
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    backgroundColor: Colors.TRANSPARENT,
+    // backgroundColor: Colors.TRANSPARENT,
+    backgroundColor: 'red',
     elevation: 0,
+    borderRadius: 100,
   },
   tabBarLabelStyle: {
     textTransform: 'none',
-    ...Fonts.Bold(Fonts.Size.xSmall, Colors.DARK_BLACK),
-    top: 5,
+    ...Fonts.Medium(Fonts.Size.xxxSmall, Colors.WHITE),
   },
   tabBarIndicatorStyle: {
-    height: Metrics.verticalScale(3),
+    height: '100%',
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: "#00B2FF",
   },
 });
 
