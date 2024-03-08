@@ -96,8 +96,8 @@ export default function AppStack() {
         }
       />
             <Stack.Screen
-        options={{title: 'Coach Home', headerShown: false}}
-        name={NavigationRoutes.APP_STACK.COACH_HOME_ATTENDANCE}
+        options={{title: 'CoachHome', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.COACH_HOME}
         getComponent={() =>
           require('@Container/AppContainer/CoachHome/CoachHome').default
         }

@@ -40,7 +40,7 @@ export default function useProfileSettingContainer() {
         //   optionalText: email || 'notAvaliable',
           isVerified: false,
           emailVerification: 'Verify',
-          action: () => {navigate(NavigationRoutes.APP_STACK.COACH_HOME_ATTENDANCE)},
+          action: () => {navigate(NavigationRoutes.APP_STACK.COACH_HOME)},
         },
         // {
         //   id: 4,
