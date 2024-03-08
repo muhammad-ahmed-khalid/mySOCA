@@ -1,5 +1,6 @@
 import { EarnedSvg, MisRewardSvg, RedeemedSvg, SavedSvg, boy, girl } from "@Asset/logo";
 import CoachAttendance from "@Container/AppContainer/CoachHome/CoachAttendance";
+import TeamAllocation from "@Container/AppContainer/Manager/TeamAllocation";
 import Batting from "@Container/AppContainer/Performance/Batting";
 import Bowling from "@Container/AppContainer/Performance/Bowling";
 import Fielding from "@Container/AppContainer/Performance/Fielding";
@@ -241,5 +242,18 @@ export const coachTabs = [
     name: 'Attendance',
     title: 'Attendance',
     component: CoachAttendance,
+  },
+];
+
+export const managerTabs = [
+  {
+    name: 'Team Allocation',
+    title: 'Team Allocation',
+    component: TeamAllocation,
+  },
+  {
+    name: 'Fielding Session',
+    title: 'Fielding Session',
+    component: TeamAllocation,
   },
 ];

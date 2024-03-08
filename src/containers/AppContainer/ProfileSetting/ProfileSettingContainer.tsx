@@ -35,12 +35,22 @@ export default function useProfileSettingContainer() {
         {
           id: 3,
           icon:  <FaqsIconNew/>,
-          text: 'Coach Home Attendance',
+          text: 'Coach Home',
           actionType: "Chevron",
         //   optionalText: email || 'notAvaliable',
           isVerified: false,
           emailVerification: 'Verify',
           action: () => {navigate(NavigationRoutes.APP_STACK.COACH_HOME)},
+        },
+        {
+          id: 3,
+          icon:  <FaqsIconNew/>,
+          text: 'Manager Home',
+          actionType: "Chevron",
+        //   optionalText: email || 'notAvaliable',
+          isVerified: false,
+          emailVerification: 'Verify',
+          action: () => {navigate(NavigationRoutes.APP_STACK.MANAGER_HOME)},
         },
         // {
         //   id: 4,
