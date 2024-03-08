@@ -103,6 +103,13 @@ export default function AppStack() {
         }
       />
             <Stack.Screen
+        options={{title: 'ManagerHome', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.MANAGER_HOME}
+        getComponent={() =>
+          require('@Container/AppContainer/Manager/ManagerHome').default
+        }
+      />
+            <Stack.Screen
         options={{title: 'About', headerShown: false}}
         name={NavigationRoutes.APP_STACK.ABOUT}
         getComponent={() =>
