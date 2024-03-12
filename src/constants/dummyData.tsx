@@ -1,5 +1,6 @@
 import { EarnedSvg, MisRewardSvg, RedeemedSvg, SavedSvg, boy, girl } from "@Asset/logo";
 import CoachAttendance from "@Container/AppContainer/CoachHome/CoachAttendance";
+import CoachSummary from "@Container/AppContainer/CoachHome/CoachSummary";
 import TeamAllocation from "@Container/AppContainer/Manager/TeamAllocation";
 import Batting from "@Container/AppContainer/Performance/Batting";
 import Bowling from "@Container/AppContainer/Performance/Bowling";
@@ -236,7 +237,7 @@ export const coachTabs = [
   {
     name: 'Summary',
     title: 'Summary',
-    component: CoachAttendance,
+    component: CoachSummary,
   },
   {
     name: 'Attendance',
@@ -256,4 +257,29 @@ export const managerTabs = [
     title: 'Fielding Session',
     component: TeamAllocation,
   },
+];
+
+export const SessionData = [
+  { 
+    id: '1', 
+    Date: '00/00', 
+    Session: '000', 
+    Duration: '000', 
+    Notes: 'Did yoga and meditation' 
+  },
+  { 
+    id: '2', 
+    Date: '00/00', 
+    Session: '000', 
+    Duration: '000', 
+    Notes: 'Took a walk in the park' 
+  },
+  { 
+    id: '3', 
+    Date: '00/00',
+    Session: '000',  
+    Duration: '000', 
+    Notes: 'Worked on coding projects' 
+  },
+  // Add more dummy data as needed
 ];

@@ -198,6 +198,8 @@ import SilverSmallCup from './SilverSmallCup.svg'
 import DummyCircle from './DummyCircle.svg'
 import PresentIcon from './PresentIcon.svg'
 import CancelSmallIcon from './CancelSmallIcon.svg'
+import GroupSvg from './GroupSvg.svg'
+import PrivateSvg from './PrivateSvg.svg'
 
 export {
   PresentIcon,
@@ -396,5 +398,7 @@ CancelSmallIcon,
   ImageBackgroundPNG,
   SignoutSvg,
   boy, 
-  girl
+  girl,
+  GroupSvg,
+  PrivateSvg
 };

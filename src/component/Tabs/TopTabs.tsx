@@ -80,10 +80,11 @@ const TopTabs = ({component, data, isTrip = false, handleClose,PlayerID}: ITopTa
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    // backgroundColor: Colors.TRANSPARENT,
-    backgroundColor: 'red',
+    backgroundColor: Colors.TRANSPARENT,
+    // backgroundColor: 'red',
     elevation: 0,
     borderRadius: 100,
+    marginTop:Metrics.doubleBaseMargin
   },
   tabBarLabelStyle: {
     textTransform: 'none',

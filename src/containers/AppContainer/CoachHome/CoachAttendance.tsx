@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import {
     CancelSmallIcon,
+    FaqsIcon,
     PresentIcon
 } from '@Asset/logo';
 import Header from '@Component/AppHeader';
@@ -15,6 +16,7 @@ import { PLAYER_ATTENDANCE_SHEET } from '@Constants/dummyData';
 import { Colors, Fonts } from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import { Text } from 'react-native-svg';
+import H6 from '@Component/Headings/H6';
 
 const CoachAttendance = () => {
     return (
@@ -69,6 +71,11 @@ const TodayPlayerAttendance = () => {
 
     return (
         <View style={styles.todayPlayerAttendanceWrapper}>
+            
+            <ButtonView style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.Colors.DARK_BLUE,padding:12,borderRadius:20}} >
+                <H6 text="06 Feb, Tournament, Team, Game"  style={{color:Colors.Colors.WHITE}}/>
+                <FaqsIcon/>
+            </ButtonView>
             <H2 text="Today’s Players Attendance" style={styles.todayPlayerAttendancTitle} />
             <View style={styles.playerWrapper}>
                 <FlatListHandler
@@ -84,12 +91,13 @@ export default CoachAttendance
 
 const styles = StyleSheet.create({
     todayPlayerAttendanceWrapper: {
-        marginTop: Metrics.scale(28),
+        // marginTop: Metrics.scale(28),
         marginBottom: Metrics.scale(25),
     },
     todayPlayerAttendancTitle: {
         ...Fonts.SemiBold(Fonts.Size.xSmall, '#98D8FA'),
         marginBottom: Metrics.scale(13),
+        marginTop:Metrics.doubleBaseMargin
     },
     playerName: {
         ...Fonts.Medium(Fonts.Size.xSmall, Colors.Colors.WHITE),

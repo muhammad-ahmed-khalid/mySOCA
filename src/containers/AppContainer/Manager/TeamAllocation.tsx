@@ -1,4 +1,7 @@
+import { FaqsIcon } from '@Asset/logo';
+import ButtonView from '@Component/ButtonView';
 import H2 from '@Component/Headings/H2';
+import H6 from '@Component/Headings/H6';
 import { Colors, Fonts } from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import * as React from 'react';
@@ -33,6 +36,10 @@ const PlayerAllocationInGame = () => {
     ];
     return (
         <View style={styles.todayPlayerAttendanceWrapper}>
+                   <ButtonView style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.Colors.DARK_BLUE,padding:12,borderRadius:20}} >
+                <H6 text="06 Feb, Tournament, Team, Game"  style={{color:Colors.Colors.WHITE}}/>
+                <FaqsIcon/>
+            </ButtonView>
             <H2 text="Players Allocation in Game" style={styles.todayPlayerAttendancTitle} />
             <View style={styles.container}>
                 {tableData.map((rowData, rowIndex) => (
@@ -81,12 +88,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     todayPlayerAttendanceWrapper: {
-        marginTop: Metrics.scale(28),
+        // marginTop: Metrics.scale(28),
         marginBottom: Metrics.scale(25),
     },
     todayPlayerAttendancTitle: {
         ...Fonts.SemiBold(Fonts.Size.xSmall, '#98D8FA'),
         marginBottom: Metrics.scale(13),
+        marginTop:Metrics.doubleBaseMargin
     },
     playerName: {
         ...Fonts.Medium(Fonts.Size.xSmall, Colors.Colors.WHITE),

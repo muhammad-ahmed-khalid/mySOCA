@@ -8,7 +8,12 @@ import { Colors } from '@Theme/index'
 const CoachHome = () => {
   return (
     <View style={{flex: 1, backgroundColor: Colors.Colors.APP_BACKGROUND}}>
-        <Header title="Player Performance" />
+         <Header
+        title="Home"
+        backButton={false}
+        subText={'Welcome Back'}
+        desc={"Peter Parker"}
+      />
          <TopTabs component={coachTabs} />
     </View>
   )
