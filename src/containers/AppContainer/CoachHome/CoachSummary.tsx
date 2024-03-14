@@ -1,5 +1,6 @@
 import { CancelSmallIcon, FaqsIcon, GroupSvg, PresentIcon, PrivateSvg } from '@Asset/logo'
 import ButtonView from '@Component/ButtonView'
+import CustomModal from '@Component/CustomModal/CustomModal'
 import FlatListHandler from '@Component/FlatlistHandler'
 import H2 from '@Component/Headings/H2'
 import H3 from '@Component/Headings/H3'
@@ -7,6 +8,7 @@ import H5 from '@Component/Headings/H5'
 import H6 from '@Component/Headings/H6'
 import H7 from '@Component/Headings/H7'
 import ProgressCircleWithSVG from '@Component/PorgressCircle/ProgressCircleWithSvg'
+import TeamSelectionModal from '@Component/TeamSelectionModal'
 import { COACH_PLAYER_TODAY_ATTENDANCE } from '@Constants/constants'
 import { PLAYER_ATTENDANCE_SHEET, SessionData } from '@Constants/dummyData'
 import { Colors } from '@Theme/Colors'
@@ -28,9 +30,15 @@ const CoachSummary = () => {
 }
 
 const TodayPlayerAttendance = () => {
-
-
-
+    const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
+    React.useState(false);
+    const changeDeleteModalVisible = isDelete => {
+        if (isDelete == true) {
+          setIsDeleteAccountVisible(!isDeleteAccountVisible);
+        } else {
+          setIsDeleteAccountVisible(!isDeleteAccountVisible);
+        }
+      };
     const renderItem = ({ item }) => (
         <View style={styles.row}>
           <Text style={styles.cell}>{item.Date}</Text>
@@ -70,7 +78,7 @@ const TodayPlayerAttendance = () => {
             </View>
             </View>
     
-            <ButtonView style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.DARK_BLUE,padding:12,borderRadius:20}} >
+            <ButtonView onPress={()=>setIsDeleteAccountVisible(true)} style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.DARK_BLUE,padding:12,borderRadius:20}} >
                 <H6 text="06 Feb, Tournament, Team, Game"  style={{color:Colors.WHITE}}/>
                 <FaqsIcon/>
             </ButtonView>
@@ -89,6 +97,13 @@ const TodayPlayerAttendance = () => {
                       )}
                 />
             </View>
+            <TeamSelectionModal
+            changeDeleteModalVisible={changeDeleteModalVisible}
+            setIsDeleteAccountVisible={setIsDeleteAccountVisible}
+            isDeleteAccountVisible={isDeleteAccountVisible}
+            title={'Logout'}
+            desc={'Are you sure you want to logout?'}
+          />
         </View>
     );
 };

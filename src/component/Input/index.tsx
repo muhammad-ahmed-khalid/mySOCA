@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     top:
       Platform.OS === 'ios'
         ? Metrics.scale(25)
-        : Metrics.scale(27),
+        : Metrics.scale(30),
   },
   leftIconWrapper: {
     position: 'absolute',

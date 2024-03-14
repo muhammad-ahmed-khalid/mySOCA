@@ -94,7 +94,7 @@ const FormDataInput = React.forwardRef((props: any, ref) => {
                 textAlign: 'left',
               }
               : {
-                ...Fonts.Medium(Fonts.Size.small, Colors.Colors.WARM_GREY),
+                ...Fonts.Medium(Fonts.Size.small, Colors.Colors.WHITE),
                 textAlign: 'left',
               }]
           }>
@@ -126,7 +126,8 @@ const FormDataInput = React.forwardRef((props: any, ref) => {
           mode={props.mode}
           onConfirm={handleConfirm}
           onCancel={hideDatePicker}
-          date={state.value ? moment(state.value).toDate() : new Date(MinAge)}
+          date={new Date()}
+          minimumDate={new Date()}
         />
       )}
 
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
     marginVertical: Metrics.verticalScale(10),
   },
   labelStyle: {
-    ...Fonts.SemiBold(Fonts.Size.medium, Colors.APP_PRIMARY_COLOR),
+    ...Fonts.Medium(Fonts.Size.xSmall, Colors.Colors.DARK_BLUE),
     marginBottom: Metrics.verticalScale(10),
   },
   errorMessage: {
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
   },
   datePickerInput: {
     borderWidth: 1,
-    borderColor: Colors.Colors.MEDIUM_GRAY,
+    borderColor: Colors.Colors.DARK_BLUE,
     height: 48,
     flexDirection: 'row',
     alignItems: 'center',

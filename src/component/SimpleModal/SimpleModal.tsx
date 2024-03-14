@@ -13,7 +13,6 @@ import FlatListHandler from '../FlatlistHandler';
 interface ICustomModal {
   data?: any;
   cbValue?: any;
-  changeModalVisible: Function;
   setisLanguageModalVisible: Function;
   isLanguageModalVisible: boolean;
   item?: any;
@@ -29,36 +28,36 @@ interface IRenderItem {
 }
 
 const SimpleModal = ({
-  changeModalVisible,
   setisLanguageModalVisible,
   isLanguageModalVisible,
   data,
   cbValue,
   selectedLangValue,
   title = 'SelectLanguage',
-  setSelectedLanguageValue,
   handleSelectedLanguage,
 }: ICustomModal) => {
-  const closeModal = (bool: boolean) => {
-    changeModalVisible(bool);
-  };
-
-  const handleBackDrop = (bool: boolean) => {
-    setisLanguageModalVisible(bool);
+  const closeModal = () => {
+    setisLanguageModalVisible(false);
   };
 
   const [selectedRadio, setSelectedRadio] = useState(selectedLangValue?.id);
+
+  React.useEffect(() => {
+    if (selectedLangValue?.id) {
+      setSelectedRadio(selectedLangValue?.id);
+    }
+  }, [selectedLangValue?.id]);
+
   const handlePressSelection = (item: any) => {
     cbValue && cbValue(item);
     handleSelectedLanguage && handleSelectedLanguage(item?.id);
     setSelectedRadio(item?.id);
-    setSelectedLanguageValue && setSelectedLanguageValue(item?.id);
-    closeModal(false);
+    closeModal();
   };
 
   const renderItem = ({item, index}: IRenderItem) => {
     return (
-      <View style={styles.main} >
+      <View style={styles.main}>
         <ButtonView onPress={() => handlePressSelection(item)}>
           <View style={styles.radioWrapper}>
             <View
@@ -84,7 +83,7 @@ const SimpleModal = ({
       animationIn={'fadeIn'}
       animationOut={'fadeOut'}
       backdropOpacity={0.4}
-      onBackdropPress={() => handleBackDrop(false)}
+      onBackdropPress={closeModal}
       animationInTiming={50}
       animationOutTiming={200}
       isVisible={isLanguageModalVisible}
@@ -103,9 +102,7 @@ const SimpleModal = ({
           keyExtractor={item => item?.id}
         />
         <View style={styles.buttonView}>
-          <ButtonView
-            style={styles.touchableOpacity}
-            onPress={() => closeModal(false)}>
+          <ButtonView style={styles.touchableOpacity} onPress={closeModal}>
             <H7 style={styles.text} text="cancel" />
           </ButtonView>
         </View>
@@ -134,9 +131,9 @@ const styles = StyleSheet.create({
     margin: Metrics.baseMargin,
   },
   touchableOpacity: {
-    flex: 1,
     paddingVertical: Metrics.verticalScale(10),
     alignItems: 'center',
+    marginLeft: 'auto',
   },
   title: {
     ...Fonts.SemiBold(Fonts.Size.large, Colors.BLACK),
