@@ -23,6 +23,7 @@ const NavigationRoutes = {
     FAQS:"FAQS",
     COACH_HOME: "COACH_HOME",
     MANAGER_HOME: "MANAGER_HOME",
+    ROLE_SELECTION:"ROLE_SELECTION"
   },
 };
 

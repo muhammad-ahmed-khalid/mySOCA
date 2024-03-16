@@ -200,6 +200,10 @@ import PresentIcon from './PresentIcon.svg'
 import CancelSmallIcon from './CancelSmallIcon.svg'
 import GroupSvg from './GroupSvg.svg'
 import PrivateSvg from './PrivateSvg.svg'
+import RoleSelectionSvg from './RoleSelectionSvg.png'
+import CoachSvg from './CoachSvg.svg'
+import ManagerSvg from './ManagerSvg.svg'
+import ParentSvg from './ParentSvg.svg'
 
 export {
   PresentIcon,
@@ -400,5 +404,9 @@ CancelSmallIcon,
   boy, 
   girl,
   GroupSvg,
-  PrivateSvg
+  PrivateSvg,
+  RoleSelectionSvg,
+  CoachSvg,
+  ParentSvg,
+  ManagerSvg
 };

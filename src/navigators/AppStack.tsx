@@ -137,6 +137,13 @@ export default function AppStack() {
           require('@Container/AppContainer/Faqs/Faqs').default
         }
       />
+            <Stack.Screen
+        options={{title: 'Role Selection', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.ROLE_SELECTION}
+        getComponent={() =>
+          require('@Container/AppContainer/RoleSelectionScreen').default
+        }
+      />
     </Stack.Navigator>
   );
 }

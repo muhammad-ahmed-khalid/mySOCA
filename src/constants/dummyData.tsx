@@ -122,7 +122,7 @@ export const yearData = [
     id: 2,
     svg: <RedeemedSvg />,
     cash: '$300.00',
-    label: 'Redeemed'
+    label: 'To Redeem'
   },
   {
     id: 3,

@@ -2,6 +2,7 @@ import { FaqsIcon } from '@Asset/logo';
 import ButtonView from '@Component/ButtonView';
 import H2 from '@Component/Headings/H2';
 import H6 from '@Component/Headings/H6';
+import TeamSelectionModal from '@Component/TeamSelectionModal';
 import { Colors, Fonts } from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import * as React from 'react';
@@ -19,6 +20,15 @@ const FieldingSession = () => {
 }
 
 const PlayerAllocationInGame = () => {
+    const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
+    React.useState(false);
+    const changeDeleteModalVisible = isDelete => {
+        if (isDelete == true) {
+          setIsDeleteAccountVisible(!isDeleteAccountVisible);
+        } else {
+          setIsDeleteAccountVisible(!isDeleteAccountVisible);
+        }
+      };
     const tableData = [
         ['', 'Drops', 'Misfields','ROs', 'Full Toss','Shorts'],
         ['Player 1', '00', '00','00','00','00'],
@@ -36,7 +46,7 @@ const PlayerAllocationInGame = () => {
     ];
     return (
         <View style={styles.todayPlayerAttendanceWrapper}>
-                   <ButtonView style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.Colors.DARK_BLUE,padding:12,borderRadius:20}} >
+                   <ButtonView onPress={()=>setIsDeleteAccountVisible(true)} style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.Colors.DARK_BLUE,padding:12,borderRadius:20}} >
                 <H6 text="06 Feb, Tournament, Team, Game"  style={{color:Colors.Colors.WHITE}}/>
                 <FaqsIcon/>
             </ButtonView>
@@ -52,6 +62,13 @@ const PlayerAllocationInGame = () => {
                     </View>
                 ))}
             </View>
+            <TeamSelectionModal
+            changeDeleteModalVisible={changeDeleteModalVisible}
+            setIsDeleteAccountVisible={setIsDeleteAccountVisible}
+            isDeleteAccountVisible={isDeleteAccountVisible}
+            title={'Logout'}
+            desc={'Are you sure you want to logout?'}
+          />
         </View>
     );
 };

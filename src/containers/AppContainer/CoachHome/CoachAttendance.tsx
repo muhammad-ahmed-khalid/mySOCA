@@ -17,6 +17,7 @@ import { Colors, Fonts } from '@Theme/index';
 import Metrics from '@Utility/Metrics';
 import { Text } from 'react-native-svg';
 import H6 from '@Component/Headings/H6';
+import TeamSelectionModal from '@Component/TeamSelectionModal';
 
 const CoachAttendance = () => {
     return (
@@ -31,7 +32,15 @@ const CoachAttendance = () => {
 }
 
 const TodayPlayerAttendance = () => {
-
+    const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
+    React.useState(false);
+    const changeDeleteModalVisible = isDelete => {
+        if (isDelete == true) {
+          setIsDeleteAccountVisible(!isDeleteAccountVisible);
+        } else {
+          setIsDeleteAccountVisible(!isDeleteAccountVisible);
+        }
+      };
     const renderPlayerAttendance = ({ item }: any) => {
         return (
             <View style={styles.playerAttendanceRenderWrapper}>
@@ -72,7 +81,7 @@ const TodayPlayerAttendance = () => {
     return (
         <View style={styles.todayPlayerAttendanceWrapper}>
             
-            <ButtonView style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.Colors.DARK_BLUE,padding:12,borderRadius:20}} >
+            <ButtonView onPress={()=>setIsDeleteAccountVisible(true)} style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.Colors.DARK_BLUE,padding:12,borderRadius:20}} >
                 <H6 text="06 Feb, Tournament, Team, Game"  style={{color:Colors.Colors.WHITE}}/>
                 <FaqsIcon/>
             </ButtonView>
@@ -83,6 +92,13 @@ const TodayPlayerAttendance = () => {
                     renderItem={renderPlayerAttendance}
                 />
             </View>
+            <TeamSelectionModal
+            changeDeleteModalVisible={changeDeleteModalVisible}
+            setIsDeleteAccountVisible={setIsDeleteAccountVisible}
+            isDeleteAccountVisible={isDeleteAccountVisible}
+            title={'Logout'}
+            desc={'Are you sure you want to logout?'}
+          />
         </View>
     );
 };

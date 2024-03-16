@@ -14,6 +14,7 @@ import FormHandler from '@Component/FormHandler';
 import { DATE_FORMATS } from '@Utility/DateUtils';
 import SimpleModal from '@Component/SimpleModal/SimpleModal';
 import H6 from '@Component/Headings/H6';
+import CustomSelectionModal from '@Component/CustomSelectionModal';
 
 const tourneyList = [
   {
@@ -27,6 +28,36 @@ const tourneyList = [
   {
     id: 2,
     name: 'Tournament 03',
+  },
+];
+
+const teamList = [
+  {
+    id: 0,
+    name: 'Australia',
+  },
+  {
+    id: 1,
+    name: 'India',
+  },
+  {
+    id: 2,
+    name: 'England',
+  },
+];
+
+const gameList = [
+  {
+    id: 0,
+    name: 'Game 01',
+  },
+  {
+    id: 1,
+    name: 'Game 02',
+  },
+  {
+    id: 2,
+    name: 'Game 03',
   },
 ];
 
@@ -54,18 +85,39 @@ const TeamSelectionModal = ({
   const refForm = React.useRef();
 
   const [isTourneyModalVisible, setIsTourneyModalVisible] = useState(false);
-  const [selectedGender, setSelectedGender] = useState('');
+  const [isTeamModalVisible,setIsTeamModalVisible]=useState(false)
+  const [isGameModalVisible,setIsGameModalVisible]=useState(false)
+  const [selectedTourney, setSelectedTourney] = useState('');
+  const [selectedTeam,setIsSelectedTeam]=useState('')
+  const [selectedGame,setIsSelectedGame]=useState('')
 
-  const toggleGenderModal = () => {
+  const toggleTourneyModal = () => {
     setIsTourneyModalVisible(!isTourneyModalVisible);
   };
 
+  const toggleTeamModal=()=>{
+    setIsTeamModalVisible(!isTeamModalVisible)
+  }
+
+  const toggleGameModal=()=>{
+    setIsGameModalVisible(!isGameModalVisible)
+  }
+
+
   const handleTourneySelection = (tourney) => {
-    setSelectedGender(tourney);
+    setSelectedTourney(tourney);
     setIsTourneyModalVisible(false);
   };
 
+  const handleTeamSelection=(team)=>{
+    setIsSelectedTeam(team)
+    setIsTeamModalVisible(false)
+  }
 
+  const handleGameSelection=(game)=>{
+    setIsSelectedGame(game)
+    setIsTeamModalVisible(false)
+  }
 
   const handleBackDrop = (bool: boolean) => {
     setIsDeleteAccountVisible(bool);
@@ -73,6 +125,12 @@ const TeamSelectionModal = ({
   const handleTourneyDrop = (bool: boolean) => {
     setIsTourneyModalVisible(bool);
   };
+  const handleTeamDrop=(bool: boolean)=>{
+      setIsTeamModalVisible(bool)
+  }
+  const handleGameDrop=(bool: boolean)=>{
+    setIsGameModalVisible(bool)
+}
 
   return (
     <ReactNativeModal
@@ -97,33 +155,48 @@ const TeamSelectionModal = ({
 
                 />
                 <H6 text="Select Tourney" style={{ ...Fonts.Medium(Fonts.Size.xSmall, Colors.DARK_BLUE) }} />
-                <TouchableOpacity onPress={toggleGenderModal}>
-                  <Input  rightIcon={<FaqsIcon/>}  placeholder='Tournament 00' placeholderTextColor={Colors.WHITE} value={selectedGender} isDisabled={true} style={{ backgroundColor: 'transparent', borderColor: Colors.DARK_BLUE, borderWidth: 1, borderRadius: 10, ...Fonts.Medium(Fonts.Size.xSmall, Colors.WHITE), paddingHorizontal: Metrics.scale(15), marginVertical: Metrics.verticalScale(10), }} />
+                <TouchableOpacity onPress={toggleTourneyModal}>
+                  <Input rightIcon={<FaqsIcon />} placeholder='Tournament 00' placeholderTextColor={Colors.WHITE} value={selectedTourney} isDisabled={true} style={{ backgroundColor: 'transparent', borderColor: Colors.DARK_BLUE, borderWidth: 1, borderRadius: 10, ...Fonts.Medium(Fonts.Size.xSmall, Colors.WHITE), paddingHorizontal: Metrics.scale(15), marginVertical: Metrics.verticalScale(10), }} />
+                </TouchableOpacity>
+                <H6 text="Select Team" style={{ ...Fonts.Medium(Fonts.Size.xSmall, Colors.DARK_BLUE) }} />
+                <TouchableOpacity onPress={toggleTeamModal}>
+                  <Input rightIcon={<FaqsIcon />} placeholder='Team 00' placeholderTextColor={Colors.WHITE} value={selectedTeam} isDisabled={true} style={{ backgroundColor: 'transparent', borderColor: Colors.DARK_BLUE, borderWidth: 1, borderRadius: 10, ...Fonts.Medium(Fonts.Size.xSmall, Colors.WHITE), paddingHorizontal: Metrics.scale(15), marginVertical: Metrics.verticalScale(10), }} />
+                </TouchableOpacity>
+                <H6 text="Select Game" style={{ ...Fonts.Medium(Fonts.Size.xSmall, Colors.DARK_BLUE) }} />
+                <TouchableOpacity onPress={toggleGameModal}>
+                  <Input rightIcon={<FaqsIcon />} placeholder='Game 00' placeholderTextColor={Colors.WHITE} value={selectedGame} isDisabled={true} style={{ backgroundColor: 'transparent', borderColor: Colors.DARK_BLUE, borderWidth: 1, borderRadius: 10, ...Fonts.Medium(Fonts.Size.xSmall, Colors.WHITE), paddingHorizontal: Metrics.scale(15), marginVertical: Metrics.verticalScale(10), }} />
                 </TouchableOpacity>
 
+                <ButtonView style={{alignItems:"center",backgroundColor:Colors.DARK_BLUE, padding:10,marginTop:Metrics.doubleBaseMargin,borderRadius:Metrics.smallMargin}}>
+                    <H4 text="Confirm Selection" style={{   ...Fonts.Bold(Fonts.Size.medium, Colors.DARK_BLACK),}}/>
+                </ButtonView>
               </>
             );
           }}
         </FormHandler>
       </View>
-      <ReactNativeModal isVisible={isTourneyModalVisible} animationIn={'fadeIn'}
-        animationOut={'fadeOut'}
-        backdropOpacity={0.7}
-        onBackdropPress={!isNetConnection ? null : () => handleTourneyDrop(false)}
-        backdropTransitionOutTiming={0}>
-        <View style={styles.modal}>
-          <Text style={{ ...Fonts.Medium(Fonts.Size.medium, Colors.DARK_BLUE),alignSelf:'center',marginBottom:Metrics.baseMargin}}>Select Tourney</Text>
-          {tourneyList.map((item) => (
-            <TouchableOpacity
-              key={item.id}
-              
-              onPress={() => handleTourneySelection(item.name)}>
-                
-              <Text style={{ ...Fonts.Medium(Fonts.Size.small, Colors.WHITE),marginVertical:Metrics.smallMargin}}>{item.name}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </ReactNativeModal>
+      <CustomSelectionModal
+        isModalVisible={isTourneyModalVisible}
+        handleSelection={handleTourneySelection}
+        title={"Select tourney"}
+        handleDropOffPress={handleTourneyDrop}
+        modalData={tourneyList}
+      />
+         <CustomSelectionModal
+        isModalVisible={isTeamModalVisible}
+        handleSelection={handleTeamSelection}
+        title={"Select Team"}
+        handleDropOffPress={handleTeamDrop}
+        modalData={teamList}
+      />
+          <CustomSelectionModal
+        isModalVisible={isGameModalVisible}
+        handleSelection={handleGameSelection}
+        title={"Select Game"}
+        handleDropOffPress={handleGameDrop}
+        modalData={gameList}
+      />
+
     </ReactNativeModal>
 
   );
