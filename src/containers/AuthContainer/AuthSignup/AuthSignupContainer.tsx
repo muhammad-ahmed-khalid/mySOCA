@@ -17,9 +17,9 @@ export default function useAuthSignupContainer() {
   const {mutate: signupMutation,isLoading: loginUserLoading} = useMutation(signup, {
     onSuccess: data => {
       //todo set context is auth true
-      // pop();
-      setItem(STORAGE_KEYS.PARENTID, data?.parentId);
-      setUserAuthentication(data);
+      pop();
+      // setItem(STORAGE_KEYS.PARENTID, data?.parentId);
+      // setUserAuthentication(data);
       //   setUserAuthentication(data);
     },
   });

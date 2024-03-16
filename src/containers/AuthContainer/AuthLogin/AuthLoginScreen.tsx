@@ -77,7 +77,7 @@ const LoginForm = ({refForm}: ILoginFormProps) => {
             Password: test */}
               <Input
                 {...SCHEMAS.text('parentId')}
-                placeholder="Enter your Parent ID"
+                placeholder="Enter your Email"
                 returnKeyType={'next'}
                 placeholderTextColor={'#fff'}
                 rightIcon={<Email/>}
