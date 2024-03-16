@@ -204,6 +204,8 @@ import RoleSelectionSvg from './RoleSelectionSvg.png'
 import CoachSvg from './CoachSvg.svg'
 import ManagerSvg from './ManagerSvg.svg'
 import ParentSvg from './ParentSvg.svg'
+import MalePlayer from './MalePlayerSvg.png'
+import FemalePlayer from './FemalePlayerSvg.png'
 
 export {
   PresentIcon,
@@ -408,5 +410,7 @@ CancelSmallIcon,
   RoleSelectionSvg,
   CoachSvg,
   ParentSvg,
-  ManagerSvg
+  ManagerSvg,
+  MalePlayer,
+  FemalePlayer
 };

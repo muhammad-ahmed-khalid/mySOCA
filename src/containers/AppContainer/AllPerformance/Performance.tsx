@@ -1,24 +1,41 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '@Component/AppHeader'
 import Metrics from '@Utility/Metrics'
 import H2 from '@Component/Headings/H2'
 import ButtonView from '@Component/ButtonView'
 import H4 from '@Component/Headings/H4'
-import { ArrowDown } from '@Asset/logo'
+import { ArrowDown, FaqsIcon, SignoutSvg } from '@Asset/logo'
 import H6 from '@Component/Headings/H6'
 import H5 from '@Component/Headings/H5'
 import { Colors, Fonts } from '@Theme/index'
+import CustomModal from '@Component/CustomModal/CustomModal'
+import PlayerSelectionModal from './PlayerSelectionModal'
 
 const Performance = () => {
+    const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
+    React.useState(false);
+    const [playerName,setPlayerName]=useState("Stacy Gwen")
+    
+    const changeDeleteModalVisible = player => {
+        setPlayerName(player)
+ 
+    };
     return (
         <View style={{ backgroundColor: Colors.Colors.APP_BACKGROUND, flex: 1 }}>
-            <Header backButton={false} desc={"Performance"} />
+            <Header backButton={false} desc={"Performance"}actionButton={<ButtonView style={{flexDirection:'row',alignItems:'center',borderWidth:1,borderColor:Colors.Colors.DARK_BLUE,borderRadius:20,padding:10}}  onPress={() => setIsDeleteAccountVisible(true)}><H6 text={playerName} style={{color:Colors.Colors.WHITE}}/><FaqsIcon style={{marginHorizontal:Metrics.smallMargin}}/></ButtonView>}/>
             <ScrollView
                 contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: Metrics.scale(23) }}>
                 <OverAllPerformance />
                 <PlayerStatistics />
             </ScrollView>
+            <PlayerSelectionModal
+            changeDeleteModalVisible={changeDeleteModalVisible}
+            setIsDeleteAccountVisible={setIsDeleteAccountVisible}
+            isDeleteAccountVisible={isDeleteAccountVisible}
+            title={'Logout'}
+            desc={'Are you sure you want to logout?'}
+          />
         </View>
     )
 }
@@ -29,7 +46,7 @@ const OverAllPerformance = () => {
             <View style={styles.overAllPerformanceInnerWrapper}>
                 <H2 text='Over all performance' style={styles.overAllPerformanceText} />
                 <ButtonView style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <H4 text='All Times' style={styles.overAllPerformanceBtnText} />
+                    <H4 text='View All' style={styles.overAllPerformanceBtnText} />
                     <ArrowDown />
                 </ButtonView>
             </View>
@@ -131,7 +148,7 @@ export default Performance
 
 const styles = StyleSheet.create({
     overAllPerformanceWrapper: {
-        marginBottom: Metrics.scale(20)
+        marginBottom: Metrics.scale(20),
     },
     overAllPerformanceInnerWrapper: {
         flexDirection: 'row',

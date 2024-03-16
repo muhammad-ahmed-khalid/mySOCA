@@ -34,12 +34,7 @@ const CustomSelectionModal = ({
     modalData
 }: ICustomModal) => {
   const refForm = React.useRef();
-
-
-
   return (
-
-  
       <ReactNativeModal isVisible={isModalVisible} animationIn={'fadeIn'}
         animationOut={'fadeOut'}
         backdropOpacity={0.7}
