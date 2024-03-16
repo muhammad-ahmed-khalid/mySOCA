@@ -53,7 +53,7 @@ export default function Header(props: IHeaderProps) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    padding: Metrics.scale(25),
+    padding: Metrics.scale(18),
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor:'#0A182C'

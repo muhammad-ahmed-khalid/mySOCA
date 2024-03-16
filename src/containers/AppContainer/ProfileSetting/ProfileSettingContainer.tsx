@@ -52,6 +52,14 @@ export default function useProfileSettingContainer() {
           emailVerification: 'Verify',
           action: () => {navigate(NavigationRoutes.APP_STACK.MANAGER_HOME)},
         },
+        {
+          id: 3,
+          icon:  <FaqsIconNew/>,
+          text: 'Role Selection',
+          actionType: "Chevron",
+   
+          action: () => {navigate(NavigationRoutes.APP_STACK.ROLE_SELECTION)},
+        },
         // {
         //   id: 4,
         //   icon:  <PerformanceSvg/>,

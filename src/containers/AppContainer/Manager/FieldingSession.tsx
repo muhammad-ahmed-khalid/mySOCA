@@ -8,7 +8,7 @@ import Metrics from '@Utility/Metrics';
 import * as React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-const TeamAllocation = () => {
+const FieldingSession = () => {
     return (
         <View style={{ backgroundColor: Colors.Colors.APP_BACKGROUND, flex: 1 }}>
             <ScrollView
@@ -30,19 +30,19 @@ const PlayerAllocationInGame = () => {
         }
       };
     const tableData = [
-        ['', 'Batting Position', 'Bowling Quota'],
-        ['Player 1', '000', '000'],
-        ['Player 2', '000', '000'],
-        ['Player 3', '000', '000'],
-        ['Player 4', '000', '000'],
-        ['Player 5', '000', '000'],
-        ['Player 6', '000', '000'],
-        ['Player 7', '000', '000'],
-        ['Player 8', '000', '000'],
-        ['Player 9', '000', '000'],
-        ['Player 10', '000', '000'],
-        ['Player 11', '000', '000'],
-        ['Player 12', '000', '000']
+        ['', 'Drops', 'Misfields','ROs', 'Full Toss','Shorts'],
+        ['Player 1', '00', '00','00','00','00'],
+        ['Player 2', '00', '00','00','00','00'],
+        ['Player 3', '00', '00','00','00','00'],
+        ['Player 4', '00', '00','00','00','00'],
+        ['Player 5', '00', '00','00','00','00'],
+        ['Player 6', '00', '00','00','00','00'],
+        ['Player 7', '00', '00','00','00','00'],
+        ['Player 8', '00', '00','00','00','00'],
+        ['Player 9', '00', '00','00','00','00'],
+        ['Player 10', '00', '00','00','00','00'],
+        ['Player 11', '00', '00','00','00','00'],
+        ['Player 12', '00', '00','00','00','00']
     ];
     return (
         <View style={styles.todayPlayerAttendanceWrapper}>
@@ -50,7 +50,7 @@ const PlayerAllocationInGame = () => {
                 <H6 text="06 Feb, Tournament, Team, Game"  style={{color:Colors.Colors.WHITE}}/>
                 <FaqsIcon/>
             </ButtonView>
-            <H2 text="Players Allocation in Game" style={styles.todayPlayerAttendancTitle} />
+            <H2 text="Players Fielding Scoring" style={styles.todayPlayerAttendancTitle} />
             <View style={styles.container}>
                 {tableData.map((rowData, rowIndex) => (
                     <View key={rowIndex} style={styles.row}>
@@ -73,7 +73,7 @@ const PlayerAllocationInGame = () => {
     );
 };
 
-export default TeamAllocation
+export default FieldingSession
 
 const styles = StyleSheet.create({
     container: {
@@ -81,12 +81,13 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor:Colors.Colors.FAMILY_BACKGROUND,
         borderRadius:10,
+    
     },
     row: {
         flexDirection: 'row',
     },
     emptyCell: {
-        flex: 0.5, // Adjust width for empty cell
+        flex: 0.8, // Adjust width for empty cell
         alignItems: 'flex-start',
         justifyContent: 'center',
     },

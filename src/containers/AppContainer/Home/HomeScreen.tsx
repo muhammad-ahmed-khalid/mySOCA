@@ -121,7 +121,7 @@ const HomeScreen = ({route}) => {
     );
   };
   return (
-    <>
+    <ScrollView>
       <Header
         title="Home"
         backButton={false}
@@ -259,7 +259,7 @@ const HomeScreen = ({route}) => {
           </ImageBackground>
         </View>
       </View>
-    </>
+    </ScrollView>
     // <SafeAreaView>
     //   <LinearGradient
     //     colors={['#09203F', '#537895']}
