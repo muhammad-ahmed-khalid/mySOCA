@@ -7,6 +7,8 @@ export interface LoginContext {
   setUserAuthentication: (a: any) => void;
   handleLogoutUser: () => void;
   setCurrentUser: (a: any) => void;
+  isShowRoles: boolean;
+  setIsShowRoles: (v: boolean) => void;
 }
 
 export interface LoginProvider {

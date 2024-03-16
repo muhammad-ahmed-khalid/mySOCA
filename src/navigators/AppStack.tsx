@@ -2,13 +2,17 @@ import AppHeader from '@Component/Header/AppHeader';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Colors} from '@Theme/Colors';
 import NavigationRoutes from './NavigationRoutes';
+import useStartupContainer from '@Container/startupContainer/StartupContainer';
 
 const Stack = createNativeStackNavigator();
 
 export default function AppStack() {
+  const {isShowRoles} = useStartupContainer();
+  console.log(isShowRoles, "isShowRolesisShowRolesisShowRoles")
   return (
     <Stack.Navigator
-      initialRouteName={NavigationRoutes.APP_STACK.PLAYER_SELECTION}
+      initialRouteName={isShowRoles ? NavigationRoutes.APP_STACK.ROLE_SELECTION : NavigationRoutes.APP_STACK.PLAYER_SELECTION}
+      // initialRouteName={NavigationRoutes.APP_STACK.BOTTOM_TABS}
       screenOptions={{
         header: props => {
           let state = props.navigation.getState();

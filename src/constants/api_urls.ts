@@ -3,11 +3,12 @@ const student = 'student';
 const common = 'common';
 const driver = 'driver';
 const auth = 'auth'
+const roles = "roles"
 export const SERVICE_CONFIG_URLS = {
   AUTH: {
     LOGIN: `${auth}/login`,
     SIGNUP:`${auth}/create`,
-
+    ROLES: `${roles}`,
     ME: `${authController}/me`,
     REQUEST_OTP: `${driver}/tokens/request-otp`,
     VERIFY_OTP: `${driver}/tokens/verify-otp`,

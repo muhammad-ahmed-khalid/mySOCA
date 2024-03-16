@@ -27,7 +27,7 @@ const PlayerSelection = () => {
     React.useState(false);
   const [isDeleteUserAccountVisible, setIsDeleteUserAccountVisible] =
     React.useState(false);
-
+  
   const parentId = getItem(STORAGE_KEYS.PARENTID);
 
   const {selectionPlayerData, isLoading, deleteAccount} =

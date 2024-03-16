@@ -24,6 +24,18 @@ export const signup = async (params: any) => {
   return data;
 };
 
+export const getUserRoles = async (params: any) => {
+  console.log(params, "paramsparamsparamsparamsparamsparamsparamsparamsparams")
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.AUTH.ROLES}/${params?.parentID}`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+
 
 export const getPlayerSelection = async (params: any) => {
   

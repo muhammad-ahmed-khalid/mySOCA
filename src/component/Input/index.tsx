@@ -41,20 +41,20 @@ const Input = forwardRef((props: InputProps, ref) => {
   const [state, setState] = useState({
     isErr: false,
     err: '',
-    value: props.value || '',
+    value: props?.value || '',
   });
 
   useEffect(
     () =>
       setState(s => ({
         ...s,
-        value: props.value,
+        value: props?.value,
 
         obj: null,
         isErr: false,
         err: '',
       })),
-    [props.value],
+    [props?.value],
   );
 
   useImperativeHandle(ref, () => ({
@@ -62,15 +62,15 @@ const Input = forwardRef((props: InputProps, ref) => {
       setState(s => ({
         ...s,
         isErr,
-        err: err?.length ? err : props.err,
+        err: err?.length ? err : props?.err,
       }));
     },
-    getValue: () => state.obj || state.value,
+    getValue: () => state?.obj || state?.value,
     focus: () => refInput?.current?.focus(),
     setText: txt => onChangeText(txt),
     setObj: obj => {
       setState(s => ({...s, obj, value: obj.name}));
-      props.validate(props.schema, {[props.id]: obj});
+      props.validate(props?.schema, {[props?.id]: obj});
     },
   }));
 
@@ -80,13 +80,13 @@ const Input = forwardRef((props: InputProps, ref) => {
     props?.id &&
       props?.schema &&
       props?.validate &&
-      props.validate(props.schema, {[props.id]: txt});
+      props?.validate(props.schema, {[props.id]: txt});
     setState(s => ({
       ...s,
       value: txt,
     }));
   };
-  console.log(state.err, 'state.errstate.err');
+  console.log(state?.err, 'state.errstate.err');
   const [showPassword, setShowPassword] = useState(false);
   function handleIconPress() {
     setShowPassword(!showPassword);
@@ -126,7 +126,7 @@ const Input = forwardRef((props: InputProps, ref) => {
               : null,
           ]}
           {...props}
-          value={state.value}
+          value={state?.value}
           onChangeText={onChangeText}
           maxLength={maxLength}
           placeholderTextColor={placeholderTextColor}
@@ -156,7 +156,7 @@ const Input = forwardRef((props: InputProps, ref) => {
           </ButtonView>
         )}
       </View>
-      {state.isErr && <Text style={styles.err}>{state.err}</Text>}
+      {state?.isErr && <Text style={styles.err}>{state?.err}</Text>}
     </View>
   );
 });

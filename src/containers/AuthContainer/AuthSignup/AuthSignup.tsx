@@ -282,28 +282,39 @@ const LoginForm = ({refForm}: ILoginFormProps) => {
           return (
             <>
               <Input
-                 {...SCHEMAS.email('parentEmail')}
+                 {...SCHEMAS.text('parentId')}
                 placeholder="Enter your Email"
+                value='test@test.com'
                 returnKeyType={'next'}
                 placeholderTextColor={'#fff'}
                 rightIcon={<Email/>}
+              />
+                 <Input
+                 {...SCHEMAS.text('parentName')}
+                placeholder="Enter your Parent Name"
+                value='Ahmed'
+                returnKeyType={'next'}
+                placeholderTextColor={'#fff'}
               />
              <Input
               {...SCHEMAS.password('password')}
                 placeholder="Enter your password"
                 returnKeyType={'next'}
+                value='1234'
                 secureTextEntry={true}
                 isPassword={true}
                 placeholderTextColor={'#fff'}
               />
               <Input
-                 {...SCHEMAS.password('Confirmpassword')}
+                 {...SCHEMAS.password('confirmPassword')}
                 placeholder="Confirm password"
                 returnKeyType={'done'}
+                value='1234'
                 secureTextEntry={true}
                 isPassword={true}
                 placeholderTextColor={'#fff'}
               />
+              
             </>
           );
         }}

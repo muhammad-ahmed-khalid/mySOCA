@@ -52,7 +52,7 @@ import SpinnerLoader from '@Component/SmallLoader';
 import Header from '@Component/AppHeader';
 
 const HomeScreen = ({route}) => {
-  const {player_reg_no: PlayerID, Player_Name} = route?.params?.item;
+  const {player_reg_no: PlayerID, Player_Name} = route?.params?.item || {};
 
   const {playerData, playerLoading} = useHomeScreenContainer(PlayerID);
   console.log(playerData, 'playerDataplayerDataplayerData');
