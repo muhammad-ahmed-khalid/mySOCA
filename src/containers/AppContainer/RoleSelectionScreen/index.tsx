@@ -7,8 +7,13 @@ import H1 from "@Component/Headings/H1";
 import Metrics from "@Utility/Metrics";
 import { Colors } from "@Theme/Colors";
 import Fonts from "@Theme/Fonts";
+import { navigate } from "@Service/navigationService";
+import NavigationRoutes from "@Navigator/NavigationRoutes";
+import { getItem } from "@Service/storageService";
+import { STORAGE_KEYS } from "@Constants/queryKeys";
 
 const RoleSelectionScreen = () => {
+    const getUserRoles = getItem(STORAGE_KEYS.GET_USER);
     const [selectedRole, setSelectedRole] = useState(null);
 
     const handleRoleSelection = (role) => {
@@ -19,9 +24,9 @@ const RoleSelectionScreen = () => {
         <ImageBackground
             source={RoleSelectionSvg}
             resizeMode="cover"
-            style={{flex:1}}
+            style={{ flex: 1 }}
         >
-            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{alignItems:'center',marginTop:Metrics.verticalScale(100)}}>
+            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ alignItems: 'center', marginTop: Metrics.verticalScale(100) }}>
                 <LOGOSVG />
                 <RoleButtonView
                     role="Parent"
@@ -29,7 +34,18 @@ const RoleSelectionScreen = () => {
                     selected={selectedRole === "Parent"}
                     onPress={() => handleRoleSelection("Parent")}
                 />
-                <RoleButtonView
+                {getUserRoles?.map((item, index) => {
+                    return (
+                        <RoleButtonView
+                            key={index}
+                            role={item?.role}
+                            icon={item?.role == "coach" ? <CoachSvg /> : <ManagerSvg />}
+                            selected={selectedRole == item?.role}
+                            onPress={() => handleRoleSelection(item?.role)}
+                        />
+                    );
+                })}
+                {/* <RoleButtonView
                     role="Coach"
                     icon={<CoachSvg />}
                     selected={selectedRole === "Coach"}
@@ -40,20 +56,26 @@ const RoleSelectionScreen = () => {
                     icon={<ManagerSvg />}
                     selected={selectedRole === "Manager"}
                     onPress={() => handleRoleSelection("Manager")}
-                />
+                /> */}
                 <ButtonView
-                    style={{alignItems:"center",backgroundColor:Colors.DARK_BLUE, padding:15,marginTop:Metrics.verticalScale(60),borderRadius:Metrics.smallMargin,width:'70%'}}
+                    style={{ alignItems: "center", backgroundColor: Colors.DARK_BLUE, padding: 15, marginTop: Metrics.verticalScale(60), borderRadius: Metrics.smallMargin, width: '70%' }}
                     onPress={() => {
                         if (selectedRole) {
                             // Continue with the selected role
                             console.log("Continuing with role:", selectedRole);
+                            if (selectedRole == "Parent") {
+                                navigate(NavigationRoutes.APP_STACK.BOTTOM_TABS)
+                            }
+                            if (selectedRole == "coach") {
+                                navigate(NavigationRoutes.APP_STACK.COACH_HOME)
+                            }
                         } else {
                             // Handle case where no role is selected
                             console.log("Please select a role");
                         }
                     }}
                 >
-                    <H4 text="Continue" style={{   ...Fonts.Bold(Fonts.Size.medium, Colors.DARK_BLACK),}}/>
+                    <H4 text="Continue" style={{ ...Fonts.Bold(Fonts.Size.medium, Colors.DARK_BLACK), }} />
                 </ButtonView>
             </ScrollView>
         </ImageBackground>
@@ -62,9 +84,9 @@ const RoleSelectionScreen = () => {
 
 const RoleButtonView = ({ role, icon, selected, onPress }) => {
     return (
-        <ButtonView style={{flexDirection:'row',alignItems:'center',marginTop:Metrics.verticalScale(50),padding:20, borderWidth: selected ? 1 : 0, borderColor: selected ? Colors.DARK_BLUE : 'transparent',borderRadius:selected ? 20 :null}} onPress={onPress}>
+        <ButtonView style={{ flexDirection: 'row', alignItems: 'center', marginTop: Metrics.verticalScale(50), padding: 20, borderWidth: selected ? 1 : 0, borderColor: selected ? Colors.DARK_BLUE : 'transparent', borderRadius: selected ? 20 : null }} onPress={onPress}>
             {icon}
-            <H1 text={role} style={{...Fonts.Regular(Fonts.Size.xxxLarge, Colors.WHITE),marginHorizontal:Metrics.baseMargin}}/>
+            <H1 text={role} style={{ ...Fonts.Regular(Fonts.Size.xxxLarge, Colors.WHITE), marginHorizontal: Metrics.baseMargin }} />
         </ButtonView>
     );
 };

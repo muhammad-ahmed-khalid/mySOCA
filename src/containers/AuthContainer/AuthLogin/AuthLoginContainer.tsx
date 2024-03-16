@@ -1,6 +1,6 @@
-import {login} from '@Api/Auth';
-import {useMutation} from '@tanstack/react-query';
-import React, {useCallback, useContext} from 'react';
+import {getUserRoles, login} from '@Api/Auth';
+import {useMutation, useQuery} from '@tanstack/react-query';
+import React, {useCallback, useContext, useState} from 'react';
 import {AuthLoginResponse} from './types';
 import loginContext from '@Context/loginContext';
 import {LoginContext} from '@Context/loginContext/types';
@@ -11,14 +11,40 @@ import {setItem} from '@Service/storageService';
 
 export default function useAuthLoginContainer() {
   const refForm = React.useRef();
-  const {setUserAuthentication, setIsAuth} = useContext(
+  const {setUserAuthentication, setIsAuth, setIsShowRoles} = useContext(
     loginContext,
   ) as LoginContext;
+
+  const [parentID, setParentID] = useState("")
+
+  const {data: selectionPlayerData} = useQuery(
+    [STORAGE_KEYS.GET_ROLES],
+    () => getUserRoles({parentID}),
+    {
+      enabled: parentID ? true : false,
+      onSuccess: data => {
+        console.log(data, 'data OF USER ROLES');
+        if(data?.data?.length > 0){
+          setIsShowRoles(true)
+          const parentID = data?.data[0]?.id_parent_or_coach
+          setItem(STORAGE_KEYS.PARENTID, parentID);
+          setUserAuthentication(data?.data)
+        }
+        else{
+          setIsShowRoles(false)
+          setUserAuthentication(true)
+        }
+      },
+    },
+  );
+
+
   const {mutate: loginMutation, isLoading: loginUserLoading} = useMutation(login, {
     onSuccess: (data: AuthLoginResponse, payload) => {
+      setParentID(data?.parentId)
       //todo set context is auth true
-      setItem(STORAGE_KEYS.PARENTID, data?.parentId);
-      setUserAuthentication(data);
+      setItem(STORAGE_KEYS.TOKEN, data?.token);
+      // setUserAuthentication(data);
     },
   });
   const handleOnForgotPassord = useCallback(() => {

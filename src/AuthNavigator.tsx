@@ -9,6 +9,8 @@ import {navigationRef} from './services/navigationService';
 export default function AuthNavigator() {
   const {isAuth} = useStartupContainer();
 
+  console.log(isAuth, "isAuthisAuthisAuthisAuth")
+
   return (
     <NavigationContainer ref={navigationRef}>
       {isAuth ? <AppStack /> : <AuthStack />}

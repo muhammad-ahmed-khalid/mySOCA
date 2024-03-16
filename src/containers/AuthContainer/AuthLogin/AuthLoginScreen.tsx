@@ -80,6 +80,7 @@ const LoginForm = ({refForm}: ILoginFormProps) => {
                 placeholder="Enter your Email"
                 returnKeyType={'next'}
                 placeholderTextColor={'#fff'}
+                value='zohaib'
                 rightIcon={<Email/>}
               />
               <Input
@@ -88,6 +89,7 @@ const LoginForm = ({refForm}: ILoginFormProps) => {
                 returnKeyType={'done'}
                 secureTextEntry={true}
                 isPassword={true}
+                value='1234'
                 placeholderTextColor={'#fff'}
               />
             </>
