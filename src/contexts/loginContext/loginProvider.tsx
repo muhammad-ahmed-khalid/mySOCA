@@ -12,7 +12,6 @@ import {queryClient} from '@Api/Client';
 export default function LoginProvider(props: LoginProviderType) {
   const {children} = props;
   const [isAuth, setIsAuth] = useState(false);
-  const [isShowRoles, setIsShowRoles] = useState(false);
   const [authUser, setAuthUser] = useState<any | null>(null);
 
   React.useLayoutEffect(() => {
@@ -44,8 +43,8 @@ export default function LoginProvider(props: LoginProviderType) {
     setIsAuth(false);
     removeItem(STORAGE_KEYS.TOKEN);
     removeItem(STORAGE_KEYS.GET_USER);
+    removeItem(STORAGE_KEYS.ROLES_LIST);
     queryClient.removeQueries();
-    setIsShowRoles(false)
   };
 
   const providerValues: LoginContextType = {
@@ -54,8 +53,6 @@ export default function LoginProvider(props: LoginProviderType) {
     setIsAuth,
     setUserAuthentication,
     handleLogoutUser,
-    isShowRoles,
-    setIsShowRoles,
   };
 
   return (

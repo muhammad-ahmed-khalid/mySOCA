@@ -22,6 +22,26 @@ export const getPlayer = async (params: any) => {
   return data;
 };
 
+export const getFmailyPlayers = async (params: any) => {
+  console.log(params, "params getFmailyPlayers")
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_ALL_PLAYERS_DATA}/${params.playerId}`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getAllFaqs = async () => {
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.FAQS}`,
+    method: API_CONFIG.GET,
+    showLoader: false,
+  });
+  return data;
+};
+
 export const getTier = async (params: any) => {
   const {data} = await apiRequest({
     url: SERVICE_CONFIG_URLS.PLAYER.GET_TIER,

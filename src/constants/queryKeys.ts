@@ -1,5 +1,8 @@
 export const STORAGE_KEYS = {
   GET_USER: 'getUserDetails',
+  GET_PARENT_USER_DETAILS: 'getParentUserDetails',
+  GET_FAMILY_PLAYERS: 'getFamilyPlayers',
+  GET_FAQS: 'getFaqs',
   TOKEN: 'TOKEN',
   GET_PLAYER:'getPlayer',
   GET_ALL_PLAYERS_DATA:'getAllPlayerData',
@@ -11,5 +14,6 @@ export const STORAGE_KEYS = {
   GET_PERFORMANCE_DATA:'getPerformanceData',
   GET_PLAYER_ID:'getPlayerId',
   GET_PAYMENT:'getPayment',
-  GET_ROLES:"getRoles"
+  GET_ROLES:"getRoles",
+  ROLES_LIST:"rolesList",
 };

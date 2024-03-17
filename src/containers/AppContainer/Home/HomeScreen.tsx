@@ -1,61 +1,40 @@
 import {
-  AwardSvg,
-  ChevronSvg,
-  HomeAddress,
-  HomeBackgroundgSvg,
-  HomeJpeg,
   ImageBackgroundPNG,
-  LogoutSvg,
   PerformanceButtonSvg,
-  PlayerPNG,
-  RightArrowLarge,
-  SOCAPng,
+  boy
 } from '@Asset/logo';
 import ButtonView from '@Component/ButtonView';
 import FlatListHandler from '@Component/FlatlistHandler';
-import H4 from '@Component/Headings/H4';
 import H5 from '@Component/Headings/H5';
 import H6 from '@Component/Headings/H6';
 import H7 from '@Component/Headings/H7';
 import {
-  TransactionList,
   playerFamilyData,
-  yearData,
+  yearData
 } from '@Constants/dummyData';
-import {Colors} from '@Theme/Colors';
+import { Colors } from '@Theme/Colors';
 import Fonts from '@Theme/Fonts';
 import Metrics from '@Utility/Metrics';
-import React, {useContext, useEffect} from 'react';
+import React from 'react';
 import {
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
   Image,
   ImageBackground,
+  ScrollView,
+  StyleSheet,
+  View
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Svg, Circle} from 'react-native-svg';
 
-import useHomeScreenContainer from './HomeScreenContainer';
-import H2 from '@Component/Headings/H2';
-import NavigationRoutes from '@Navigator/NavigationRoutes';
-import {navigate} from '@Service/navigationService';
-import H1 from '@Component/Headings/H1';
-import CircularProgress from 'react-native-circular-progress-indicator';
-import SemiCircleProgress from '@Component/SemiCircleProgress/SemiCircleProgress';
-import H3 from '@Component/Headings/H3';
-import {getItem, setItem} from '@Service/storageService';
-import {STORAGE_KEYS} from '@Constants/queryKeys';
-import SpinnerLoader from '@Component/SmallLoader';
 import Header from '@Component/AppHeader';
+import NavigationRoutes from '@Navigator/NavigationRoutes';
+import { navigate } from '@Service/navigationService';
+import useHomeScreenContainer from './HomeScreenContainer';
+import { getItem } from '@Service/storageService';
+import { STORAGE_KEYS } from '@Constants/queryKeys';
 
 const HomeScreen = ({route}) => {
   const {player_reg_no: PlayerID, Player_Name} = route?.params?.item || {};
 
-  const {playerData, playerLoading} = useHomeScreenContainer(PlayerID);
-  console.log(playerData, 'playerDataplayerDataplayerData');
+  const {playerData, playerLoading,getFamilyplayerData,getFamilyplayerDataLoading} = useHomeScreenContainer(PlayerID);
 
   const {Tier, RewardPoints, Months, Attendance, Amount, CashRewards} =
     playerData?.data || {};
@@ -92,23 +71,23 @@ const HomeScreen = ({route}) => {
             borderRadius: 10,
             marginTop: Metrics.baseMargin,
           }}>
-          <Image source={item.png} />
+          <Image source={boy} />
           <View style={{marginHorizontal: Metrics.baseMargin}}>
-            <H5 text={item?.name} style={{color: Colors.WHITE}} />
+            <H5 text={item?.Player_Name} style={{color: Colors.WHITE}} />
             <View style={{flexDirection: 'row'}}>
               <H7 text="Championships " style={{color: Colors.ICE_BLUE}} />
-              <H7 text={item?.Championships} style={{color: Colors.WHITE}} />
+              <H7 text={"02"} style={{color: Colors.WHITE}} />
             </View>
             <View style={{flexDirection: 'row'}}>
               <H7 text="Leagues " style={{color: Colors.ICE_BLUE}} />
-              <H7 text={item?.Leagues} style={{color: Colors.WHITE}} />
+              <H7 text={"15"} style={{color: Colors.WHITE}} />
             </View>
             <View style={{flexDirection: 'row'}}>
               <H7 text="Tourneys " style={{color: Colors.ICE_BLUE}} />
-              <H7 text={item?.Tourneys} style={{color: Colors.WHITE}} />
+              <H7 text={"22"} style={{color: Colors.WHITE}} />
             </View>
             <ButtonView
-            onPress={()=>navigate(NavigationRoutes.APP_STACK.PERFORMANCE)}
+            onPress={()=>navigate(NavigationRoutes.APP_STACK.PERFORMANCE,{playerData: item})}
               style={{
                 alignSelf: 'flex-end',
                 marginTop: Metrics.verticalScale(-20),
@@ -139,7 +118,7 @@ const HomeScreen = ({route}) => {
         <View>
           <FlatListHandler
             renderItem={renderItem}
-            data={playerFamilyData}
+            data={getFamilyplayerData?.data || {}}
             keyExtractor={item => item?.id}
             horizontal
           />

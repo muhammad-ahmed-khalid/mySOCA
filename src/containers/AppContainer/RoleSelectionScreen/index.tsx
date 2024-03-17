@@ -13,7 +13,7 @@ import { getItem } from "@Service/storageService";
 import { STORAGE_KEYS } from "@Constants/queryKeys";
 
 const RoleSelectionScreen = () => {
-    const getUserRoles = getItem(STORAGE_KEYS.GET_USER);
+    const getUserRoles = getItem(STORAGE_KEYS.ROLES_LIST);
     const [selectedRole, setSelectedRole] = useState(null);
 
     const handleRoleSelection = (role) => {
@@ -45,18 +45,6 @@ const RoleSelectionScreen = () => {
                         />
                     );
                 })}
-                {/* <RoleButtonView
-                    role="Coach"
-                    icon={<CoachSvg />}
-                    selected={selectedRole === "Coach"}
-                    onPress={() => handleRoleSelection("Coach")}
-                />
-                <RoleButtonView
-                    role="Manager"
-                    icon={<ManagerSvg />}
-                    selected={selectedRole === "Manager"}
-                    onPress={() => handleRoleSelection("Manager")}
-                /> */}
                 <ButtonView
                     style={{ alignItems: "center", backgroundColor: Colors.DARK_BLUE, padding: 15, marginTop: Metrics.verticalScale(60), borderRadius: Metrics.smallMargin, width: '70%' }}
                     onPress={() => {
@@ -92,3 +80,4 @@ const RoleButtonView = ({ role, icon, selected, onPress }) => {
 };
 
 export default RoleSelectionScreen;
+

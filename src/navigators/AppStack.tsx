@@ -1,18 +1,17 @@
 import AppHeader from '@Component/Header/AppHeader';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Colors} from '@Theme/Colors';
+import { STORAGE_KEYS } from '@Constants/queryKeys';
+import { getItem } from '@Service/storageService';
+import { Colors } from '@Theme/Colors';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NavigationRoutes from './NavigationRoutes';
-import useStartupContainer from '@Container/startupContainer/StartupContainer';
 
 const Stack = createNativeStackNavigator();
 
 export default function AppStack() {
-  const {isShowRoles} = useStartupContainer();
-  console.log(isShowRoles, "isShowRolesisShowRolesisShowRoles")
+ const getUserRoles = getItem(STORAGE_KEYS.ROLES_LIST)
   return (
     <Stack.Navigator
-      initialRouteName={isShowRoles ? NavigationRoutes.APP_STACK.ROLE_SELECTION : NavigationRoutes.APP_STACK.PLAYER_SELECTION}
-      // initialRouteName={NavigationRoutes.APP_STACK.BOTTOM_TABS}
+      initialRouteName={(getUserRoles[0]?.role == "coach" || getUserRoles[0]?.role == "manager") ? NavigationRoutes.APP_STACK.ROLE_SELECTION : NavigationRoutes.APP_STACK.BOTTOM_TABS}
       screenOptions={{
         header: props => {
           let state = props.navigation.getState();
@@ -30,6 +29,13 @@ export default function AppStack() {
           backgroundColor: Colors.WHITE_FOUR,
         },
       }}>
+            <Stack.Screen
+        options={{title: 'Role Selection', headerShown: false}}
+        name={NavigationRoutes.APP_STACK.ROLE_SELECTION}
+        getComponent={() =>
+          require('@Container/AppContainer/RoleSelectionScreen').default
+        }
+      />
       <Stack.Screen
         options={{title: 'Bottom Tabs', headerShown: false}}
         name={NavigationRoutes.APP_STACK.BOTTOM_TABS}
@@ -141,13 +147,7 @@ export default function AppStack() {
           require('@Container/AppContainer/Faqs/Faqs').default
         }
       />
-            <Stack.Screen
-        options={{title: 'Role Selection', headerShown: false}}
-        name={NavigationRoutes.APP_STACK.ROLE_SELECTION}
-        getComponent={() =>
-          require('@Container/AppContainer/RoleSelectionScreen').default
-        }
-      />
+        
     </Stack.Navigator>
   );
 }

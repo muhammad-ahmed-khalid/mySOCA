@@ -4,6 +4,7 @@ const common = 'common';
 const driver = 'driver';
 const auth = 'auth'
 const roles = "roles"
+const players = "players"
 export const SERVICE_CONFIG_URLS = {
   AUTH: {
     LOGIN: `${auth}/login`,
@@ -21,8 +22,10 @@ export const SERVICE_CONFIG_URLS = {
     USER_DETAILS: `${student}/personal/profile`,
     GET_LANGUAGES: `${student}/preference/languages`,
     UPDATE_LANGUAGE: `${student}/preference/language`,
+    FAQS: `/faqs`,
     GET_PLAYER:`player/`,
     GET_PLAYER_SELECTION:`players/`,
+    GET_ALL_PLAYERS_DATA: `${players}`,
     GET_TIER:`/tiers`,
     GET_REDEEM:`redeemable/`,
     GET_ACTIVITY:'player/activity/',

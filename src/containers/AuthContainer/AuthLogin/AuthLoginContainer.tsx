@@ -25,13 +25,12 @@ export default function useAuthLoginContainer() {
       onSuccess: data => {
         console.log(data, 'data OF USER ROLES');
         if(data?.data?.length > 0){
-          setIsShowRoles(true)
+          setItem(STORAGE_KEYS.ROLES_LIST, data?.data)
           const parentID = data?.data[0]?.id_parent_or_coach
           setItem(STORAGE_KEYS.PARENTID, parentID);
           setUserAuthentication(data?.data)
         }
         else{
-          setIsShowRoles(false)
           setUserAuthentication(true)
         }
       },
@@ -42,9 +41,8 @@ export default function useAuthLoginContainer() {
   const {mutate: loginMutation, isLoading: loginUserLoading} = useMutation(login, {
     onSuccess: (data: AuthLoginResponse, payload) => {
       setParentID(data?.parentId)
-      //todo set context is auth true
       setItem(STORAGE_KEYS.TOKEN, data?.token);
-      // setUserAuthentication(data);
+      setItem(STORAGE_KEYS.GET_PARENT_USER_DETAILS, data?.parentId);
     },
   });
   const handleOnForgotPassord = useCallback(() => {

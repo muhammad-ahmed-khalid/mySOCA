@@ -38,28 +38,28 @@ export const TransactionList = [
 export const FaqsList = [
   {
     id: 0,
-    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
-    desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+    Question: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    Answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
   },
   {
     id: 1,
-    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
-    desc: `Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor`,
+    Question: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    Answer: `Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor`,
   },
   {
     id: 2,
-    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
-    desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+    Question: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    Answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
   },
   {
     id: 3,
-    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
-    desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+    Question: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    Answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
   },
   {
     id: 4,
-    label: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
-    desc: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
+    Question: 'Solor sit amet, consectetur adipiscing elit eiusmod tempor incididunt',
+    Answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor  consequat aute irure dolor',
   },
 ];
 
