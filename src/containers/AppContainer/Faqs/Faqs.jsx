@@ -1,43 +1,31 @@
 import {
-    LayoutAnimation,
-    SafeAreaView,
-    StyleSheet,
-    Text,
-    View,
-    ScrollView,
-  } from 'react-native';
-  import React from 'react';
-  import H2 from '@Component/Headings/H2';
-  import Metrics from '@Utility/Metrics';
-  import FlatListHandler from '@Component/FlatlistHandler';
-  import {FaqsList} from '@Constants/dummyData';
-  import Fonts from '@Theme/Fonts';
-  import {Colors} from '@Theme/Colors';
-  import {
-    AwardGoldSvg,
-    AwardPlatinumSvg,
-    AwardSilverSvg,
-    AwardSvg,
-    FaqsIcon,
-    FaqsIcon2,
-    RewardIcon,
-  } from '@Asset/logo';
-  import H6 from '@Component/Headings/H6';
-  import H7 from '@Component/Headings/H7';
-  import ButtonView from '@Component/ButtonView';
-  import H5 from '@Component/Headings/H5';
-  import H1 from '@Component/Headings/H1';
-  import LinearGradient from 'react-native-linear-gradient';
-  import SpinnerLoader from '@Component/SmallLoader';
-import useTierContainer from '../Tiers/TierContainer';
+  FaqsIcon,
+  FaqsIcon2
+} from '@Asset/logo';
 import Header from '@Component/AppHeader';
+import ButtonView from '@Component/ButtonView';
+import FlatListHandler from '@Component/FlatlistHandler';
+import H6 from '@Component/Headings/H6';
+import SpinnerLoader from '@Component/SmallLoader';
+import { Colors } from '@Theme/Colors';
+import Fonts from '@Theme/Fonts';
+import Metrics from '@Utility/Metrics';
+import React from 'react';
+import {
+  LayoutAnimation,
+  ScrollView,
+  StyleSheet,
+  View
+} from 'react-native';
+import useFaqsContainer from './FaqsContainer';
   
   const Faqs = () => {
-    const {getTierData, isLoading} = useTierContainer();
+    const {getFaqsData,getFaqsDataLoading} = useFaqsContainer();
     // Create an array of boolean values to represent the open/close state for each FAQ item
     const [isOpenArray, setIsOpenArray] = React.useState(
-      Array(FaqsList.length).fill(false),
+      Array(getFaqsData?.data?.length).fill(false),
     );
+
   
     const handleTogglePress = index => {
       // Create a copy of the isOpenArray and toggle the state for the clicked FAQ item
@@ -60,13 +48,8 @@ import Header from '@Component/AppHeader';
       LayoutAnimation.configureNext(customLayoutAnimation);
     };
     const renderItem = ({item, index}) => {
-        console.log(item,'itemitemitemitemitem');
       const isDetails = isOpenArray[index]; // Get the open/close state for this FAQ item
-      console.log(item, 'This is item');
-      const {label, desc} = item || {};
-  
-      let tierSvg;
-  
+      const {Question, Answer} = item || {};
       // Conditionally set the SVG component based on the tier
     //   if (Tier === 'Gold') {
     //     tierSvg = <AwardGoldSvg style={{height: 20, width: 20}} />;
@@ -102,9 +85,8 @@ import Header from '@Component/AppHeader';
             }}>
             <View
             >
-
               <H6
-                text={label}
+                text={Question}
                 style={{color: Colors.TEXT_COLOR, marginHorizontal: 2, borderBottomWidth: isDetails ? 1 : 0, paddingBottom: isDetails ? 10 : 0,borderColor:Colors.TEXT_COLOR}}
               />
             </View>
@@ -113,14 +95,14 @@ import Header from '@Component/AppHeader';
           </ButtonView>
           {isDetails && (
             <View>
-              {desc && (
+              {Answer && (
                 <H6
                   style={{
                     ...Fonts.Medium(Fonts.Size.small, Colors.WHITE_THREE),
                     marginTop: Metrics.baseMargin,
                     lineHeight: 30,
                   }}
-                  text={desc}
+                  text={Answer}
                 />
               )}
             </View>
@@ -131,7 +113,7 @@ import Header from '@Component/AppHeader';
     return (
       <>
    <Header title="General FAQs"/>
-        {isLoading ? (
+        {getFaqsDataLoading ? (
           <SpinnerLoader size={'large'} color={'#09203F'} />
         ) : (
           <ScrollView style={{backgroundColor:Colors.APP_BACKGROUND,flex:1}}> 
@@ -141,7 +123,8 @@ import Header from '@Component/AppHeader';
               }}>
               <View style={{marginTop: Metrics.doubleBaseMargin}}>
                 <FlatListHandler
-                  data={FaqsList}
+                  // data={FaqsList}
+                  data={getFaqsData?.data}
                   keyExtractor={item => item?.id}
                   renderItem={renderItem}
                 />
