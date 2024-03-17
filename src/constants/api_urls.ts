@@ -24,6 +24,7 @@ export const SERVICE_CONFIG_URLS = {
     UPDATE_LANGUAGE: `${student}/preference/language`,
     FAQS: `/faqs`,
     GET_PLAYER:`player/`,
+    GET_ANNOUNCEMENTS: `/announcements`, // announcements
     GET_PLAYER_SELECTION:`players/`,
     GET_ALL_PLAYERS_DATA: `${players}`,
     GET_TIER:`/tiers`,

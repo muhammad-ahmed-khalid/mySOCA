@@ -18,6 +18,7 @@ import React from 'react';
 import {
   Image,
   ImageBackground,
+  Linking,
   ScrollView,
   StyleSheet,
   View
@@ -31,7 +32,16 @@ import useHomeScreenContainer from './HomeScreenContainer';
 const HomeScreen = ({route}) => {
   const {player_reg_no: PlayerID, Player_Name} = route?.params?.item || {};
 
-  const {playerData, playerLoading,getFamilyplayerData,getFamilyplayerDataLoading} = useHomeScreenContainer(PlayerID);
+  const {
+    playerData, 
+    playerLoading,
+    getFamilyplayerData,
+    getFamilyplayerDataLoading,
+    getAllAnnouncements,
+    getAllAnnouncementsLoading
+  } = useHomeScreenContainer(PlayerID);
+
+  console.log(getAllAnnouncements, "getAllAnnouncementsgetAllAnnouncementsgetAllAnnouncements")
 
   const {Tier, RewardPoints, Months, Attendance, Amount, CashRewards} =
     playerData?.data || {};
@@ -55,6 +65,10 @@ const HomeScreen = ({route}) => {
       </View>
     );
   };
+
+const handlePressRegisterEvent = () => {
+  Linking.openURL(getAllAnnouncements?.data?.[0]?.url_to_show)
+}
 
   const renderItem = ({item}: any) => {
     return (
@@ -214,10 +228,11 @@ const HomeScreen = ({route}) => {
            <View style={{flexDirection:'row'}}>
            <H5
             style={{color: Colors.WHITE}}
-              text="Evolution Championship
-(Spring 2024)"
+              text={getAllAnnouncements?.data?.[0]?.Announcement}
             />
-            <ButtonView style={{backgroundColor:Colors.ICE_BLUE,paddingHorizontal:Metrics.smallMargin,paddingVertical:Metrics.baseMargin,borderRadius:10}}>
+            <ButtonView 
+            onPress={() => handlePressRegisterEvent()}
+            style={{backgroundColor:Colors.ICE_BLUE,paddingHorizontal:Metrics.smallMargin,paddingVertical:Metrics.baseMargin,borderRadius:10}}>
             <H6
             style={{color: Colors.BUTTON_LIGHT_GREY}}
               text="Register Now"
@@ -227,10 +242,10 @@ const HomeScreen = ({route}) => {
 
              <View style={{flexDirection: 'row',marginTop:Metrics.baseMargin}}>
                   <H7
-                    text="Last Date of Registration: "
+                    text={getAllAnnouncements?.data?.[0]?.Details}
                     style={{color: Colors.ICE_BLUE,}}
                   />
-                  <H7 text="20 Feb, 2024" style={{color: Colors.WHITE,}} />
+                  {/* <H7 text="20 Feb, 2024" style={{color: Colors.WHITE,}} /> */}
                 </View>
           </ImageBackground>
         </View>

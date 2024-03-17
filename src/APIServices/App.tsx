@@ -22,6 +22,15 @@ export const getPlayer = async (params: any) => {
   return data;
 };
 
+export const getAnnouncements = async () => {
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_ANNOUNCEMENTS}`,
+    method: API_CONFIG.GET,
+    showLoader: false,
+  });
+  return data;
+};
+
 export const getFmailyPlayers = async (params: any) => {
   console.log(params, "params getFmailyPlayers")
   const {data} = await apiRequest({

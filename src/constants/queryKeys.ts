@@ -6,6 +6,7 @@ export const STORAGE_KEYS = {
   TOKEN: 'TOKEN',
   GET_PLAYER:'getPlayer',
   GET_ALL_PLAYERS_DATA:'getAllPlayerData',
+  GET_ANNOUNCEMENTS: "getAnnouncements",
   PARENTID:'getParentId',
   GET_TIER:'getTier',
   GET_REDEEM:'getRedeem',
