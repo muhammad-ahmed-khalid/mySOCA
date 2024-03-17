@@ -1,37 +1,48 @@
-import { FlatList, ImageBackground, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Header from '@Component/AppHeader'
 import { ImageBackgroundPNG } from '@Asset/logo'
-import Metrics from '@Utility/Metrics'
-import { Colors } from '@Theme/Colors'
-import H5 from '@Component/Headings/H5'
+import Header from '@Component/AppHeader'
 import ButtonView from '@Component/ButtonView'
+import FlatListHandler from '@Component/FlatlistHandler'
+import H5 from '@Component/Headings/H5'
 import H6 from '@Component/Headings/H6'
 import H7 from '@Component/Headings/H7'
-import FlatListHandler from '@Component/FlatlistHandler'
-import H1 from '@Component/Headings/H1'
+import SpinnerLoader from '@Component/SmallLoader'
+import { Colors } from '@Theme/Colors'
+import Metrics from '@Utility/Metrics'
+import React from 'react'
+import { ImageBackground, Linking, StyleSheet, View } from 'react-native'
+import useHomeScreenContainer from '../Home/HomeScreenContainer'
 
 const Announcement = () => {
+  const {
+    getAllAnnouncements,
+    getAllAnnouncementsLoading
+  } = useHomeScreenContainer();
+
+  const handlePressRegisterEvent = (url) => {
+    Linking.openURL(url)
+  }
+
+  const renderItem = ({item}: any) => {
+    return(
+      <AnnouncementComp Announcement={item?.Announcement} Details={item?.Details} url={() => handlePressRegisterEvent(item?.url_to_show)}/>
+    )
+  }
+
   return (
     <View style={{backgroundColor:Colors.APP_BACKGROUND,flex:1}}>
         <Header title="Announcements"/>
-        <ScrollView style={{marginHorizontal:Metrics.baseMargin}} showsVerticalScrollIndicator={false}>
-
-        <H7 text="23 Feb, 2024" style={{color:Colors.ICE_BLUE,marginTop:Metrics.baseMargin}}/>
-            <AnnouncementComp/>
-          <H7 text="24 Feb, 2024" style={{color:Colors.ICE_BLUE,marginTop:Metrics.baseMargin}}/>
-          <AnnouncementComp/>
-          <AnnouncementComp/>
-          <H7 text="26 Feb, 2024" style={{color:Colors.ICE_BLUE,marginTop:Metrics.baseMargin}}/>
-          <AnnouncementComp/>
-          <AnnouncementComp/>
-
-          </ScrollView>
+        {getAllAnnouncementsLoading ?  <SpinnerLoader size={'large'} color={'#09203F'} /> :
+        <FlatListHandler
+            renderItem={renderItem}
+            data={getAllAnnouncements?.data || {}}
+            keyExtractor={item => item?.id}
+          />
+        }
     </View>
   )
 }
 
-const AnnouncementComp=()=>{
+const AnnouncementComp=({Announcement,Details,url}:any)=>{
     return(
         <ImageBackground
         source={ImageBackgroundPNG}
@@ -40,10 +51,11 @@ const AnnouncementComp=()=>{
        <View style={{flexDirection:'row'}}>
        <H5
         style={{color: Colors.WHITE}}
-          text="Evolution Championship
-(Spring 2024)"
+          text={Announcement}
         />
-        <ButtonView style={{backgroundColor:Colors.ICE_BLUE,paddingHorizontal:Metrics.smallMargin,paddingVertical:Metrics.baseMargin,borderRadius:10}}>
+        <ButtonView 
+        onPress={url}
+        style={{backgroundColor:Colors.ICE_BLUE,paddingHorizontal:Metrics.smallMargin,paddingVertical:Metrics.baseMargin,borderRadius:10}}>
         <H6
         style={{color: Colors.BUTTON_LIGHT_GREY}}
           text="Register Now"
@@ -53,10 +65,10 @@ const AnnouncementComp=()=>{
 
          <View style={{flexDirection: 'row',marginTop:Metrics.baseMargin}}>
               <H7
-                text="Last Date of Registration: "
+                text={Details}
                 style={{color: Colors.ICE_BLUE,}}
               />
-              <H7 text="20 Feb, 2024" style={{color: Colors.WHITE,}} />
+              {/* <H7 text="20 Feb, 2024" style={{color: Colors.WHITE,}} /> */}
             </View>
       </ImageBackground>
     )
