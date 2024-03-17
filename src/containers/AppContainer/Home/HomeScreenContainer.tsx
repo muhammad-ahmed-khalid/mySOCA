@@ -1,10 +1,10 @@
-import {getFmailyPlayers, getPlayer, getUserDetails} from '@Api/App';
-import {STORAGE_KEYS} from '@Constants/queryKeys';
+import { getFmailyPlayers, getPlayer } from '@Api/App';
+import { STORAGE_KEYS } from '@Constants/queryKeys';
 import loginContext from '@Context/loginContext';
-import {LoginContext} from '@Context/loginContext/types';
+import { LoginContext } from '@Context/loginContext/types';
 import { getItem } from '@Service/storageService';
-import {useQuery} from '@tanstack/react-query';
-import {useContext} from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { useContext } from 'react';
 
 export default function useHomeScreenContainer(PlayerID) {
   const {setUserAuthentication} = useContext(loginContext) as LoginContext;

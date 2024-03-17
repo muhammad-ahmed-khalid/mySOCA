@@ -9,7 +9,6 @@ import H5 from '@Component/Headings/H5';
 import H6 from '@Component/Headings/H6';
 import H7 from '@Component/Headings/H7';
 import {
-  playerFamilyData,
   yearData
 } from '@Constants/dummyData';
 import { Colors } from '@Theme/Colors';
@@ -28,8 +27,6 @@ import Header from '@Component/AppHeader';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
 import { navigate } from '@Service/navigationService';
 import useHomeScreenContainer from './HomeScreenContainer';
-import { getItem } from '@Service/storageService';
-import { STORAGE_KEYS } from '@Constants/queryKeys';
 
 const HomeScreen = ({route}) => {
   const {player_reg_no: PlayerID, Player_Name} = route?.params?.item || {};
