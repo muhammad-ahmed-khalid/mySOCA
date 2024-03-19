@@ -206,6 +206,7 @@ import ManagerSvg from './ManagerSvg.svg'
 import ParentSvg from './ParentSvg.svg'
 import MalePlayer from './MalePlayerSvg.png'
 import FemalePlayer from './FemalePlayerSvg.png'
+import MisRewards from './MisRewards.svg'
 
 export {
   PresentIcon,
@@ -412,5 +413,6 @@ CancelSmallIcon,
   ParentSvg,
   ManagerSvg,
   MalePlayer,
-  FemalePlayer
+  FemalePlayer,
+  MisRewards
 };

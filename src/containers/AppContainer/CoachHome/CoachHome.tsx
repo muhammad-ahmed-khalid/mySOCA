@@ -4,17 +4,23 @@ import TopTabs from '@Component/Tabs/TopTabs'
 import { coachTabs } from '@Constants/dummyData'
 import Header from '@Component/AppHeader'
 import { Colors } from '@Theme/index'
+import useCoachContainer from './CoachContainer'
 
-const CoachHome = () => {
+const CoachHome = ({route}) => {
+  const {parentId}=route?.params|| {}
+  const {coachData,coachBatch}=useCoachContainer(parentId)
+  const coachParam=coachBatch?.data[0]
+  const {Coach_name}=coachBatch?.data[0]||{}
+  
   return (
     <View style={{flex: 1, backgroundColor: Colors.Colors.APP_BACKGROUND}}>
          <Header
         title="Home"
         backButton={false}
         subText={'Welcome Back'}
-        desc={"Peter Parker"}
+        desc={Coach_name}
       />
-         <TopTabs component={coachTabs} />
+         <TopTabs component={coachTabs} coachBatch={coachParam}/>
     </View>
   )
 }

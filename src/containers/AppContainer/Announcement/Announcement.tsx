@@ -48,7 +48,7 @@ const AnnouncementComp=({Announcement,Details,url}:any)=>{
         source={ImageBackgroundPNG}
         resizeMode="cover"
         style={{height: 100, marginTop: Metrics.baseMargin,padding:Metrics.baseMargin}}>
-       <View style={{flexDirection:'row'}}>
+     <View style={{flexDirection:'row',justifyContent:'space-between',width:'100%',alignItems:'center'}}>
        <H5
         style={{color: Colors.WHITE}}
           text={Announcement}

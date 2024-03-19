@@ -15,7 +15,9 @@ import { STORAGE_KEYS } from "@Constants/queryKeys";
 const RoleSelectionScreen = () => {
     const getUserRoles = getItem(STORAGE_KEYS.ROLES_LIST);
     const [selectedRole, setSelectedRole] = useState(null);
-
+    const parentId = getItem(STORAGE_KEYS.PARENTID);
+    console.log(parentId,'parentIdparentIdparentIdparentIdparentId');
+    
     const handleRoleSelection = (role) => {
         setSelectedRole(role);
     };
@@ -55,7 +57,7 @@ const RoleSelectionScreen = () => {
                                 navigate(NavigationRoutes.APP_STACK.BOTTOM_TABS)
                             }
                             if (selectedRole == "coach") {
-                                navigate(NavigationRoutes.APP_STACK.COACH_HOME)
+                                navigate(NavigationRoutes.APP_STACK.COACH_HOME,{parentId})
                             }
                         } else {
                             // Handle case where no role is selected

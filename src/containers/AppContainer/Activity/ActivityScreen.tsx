@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
 import FlatListHandler from '@Component/FlatlistHandler';
-import {TransactionList} from '@Constants/dummyData';
+import {SessionData, TransactionList} from '@Constants/dummyData';
 import Metrics from '@Utility/Metrics';
 import H7 from '@Component/Headings/H7';
 import H5 from '@Component/Headings/H5';
@@ -15,146 +15,111 @@ import {DATE_FORMATS} from '@Utility/DateUtils';
 import CustomFlatListSeperator from '@Component/CustomFlatListSeperator/CustomFlatListSeperator';
 import LinearGradient from 'react-native-linear-gradient';
 import H4 from '@Component/Headings/H4';
-import {DropDownIcon} from '@Asset/logo';
+import {DropDownIcon, EarnedSvg, MisRewardSvg, MisRewards} from '@Asset/logo';
 import SpinnerLoader from '@Component/SmallLoader';
+import Header from '@Component/AppHeader';
+import H2 from '@Component/Headings/H2';
 
 const ActivityScreen = ({route}) => {
-  const {PlayerID, RewardPoints, Months} = route?.params;
-  const {getActivityData, isLoading} = useActivityContainer(PlayerID);
-  const playerData = getActivityData?.data || {};
-
-  console.log(
-    getActivityData,
-    'getActivityDatagetActivityDatagetActivityDatagetActivityData',
+  const renderItem = ({ item }) => (
+    <View style={styles.row}>
+      <Text style={styles.cell}>{item.Date}</Text>
+      <Text style={styles.cell}>{item.Session}</Text>
+      <Text style={styles.cell}>{item.Duration}</Text>
+      <Text style={styles.cell}>{item.Duration}</Text>
+    </View>
   );
-  const dataArray = Object.entries(playerData)
-    ?.map(([key, value]) => ({
-      key,
-      value,
-    }))
-    .slice(2);
-
-  const renderItem = ({item}: any) => {
-    return (
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginVertical: Metrics.verticalScale(20),
-        }}>
-        <H5 text={item.key} />
-        <H5 text={item.value} />
-      </View>
-    );
-  };
 
   return (
-    <>
-      <LinearGradient
-        colors={['#09203F', '#537895']}
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 0}}
-        style={{
-          backgroundColor: '#374051',
-          // alignItems: 'center',
-          paddingBottom: Metrics.scale(30),
-          // paddingTop: Metrics.verticalScale(50),
-          // height: '75%',
-          borderBottomLeftRadius: Metrics.scale(20),
-          borderBottomRightRadius: Metrics.scale(20),
-        }}>
-        <View
-          style={{
-            marginHorizontal: 20,
-            marginTop: Metrics.verticalScale(50),
-          }}>
-          <H1 text="Account Activity" style={{color: 'white'}} />
-          <View
-            style={{
-              flexDirection: 'row',
-              marginTop: Metrics.doubleBaseMargin,
-              justifyContent: 'space-between',
-            }}>
-            <View>
-              <H5
-                text={`TOTAL POINTS`}
-                style={{
-                  // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                  // alignSelf: 'flex-start',
-                  color: 'white',
-                  // marginHorizontal: Metrics.scale(20),
-                }}
-              />
+  <View style={{flex:1,backgroundColor:Colors.APP_BACKGROUND,}}>
+    <Header title={"Player Account Activity"}/>
+    <View style={{marginHorizontal:20}}>
 
-              <H1
-                text={`${RewardPoints}`}
-                style={{
-                  // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                  // alignSelf: 'flex-start',
-                  color: Colors.WHITE,
-                  // paddingHorizontal: 10,
-                  // marginHorizontal: Metrics.scale(20),
-                }}
-              />
+    <View style={{flexDirection:'row',alignSelf:'center',marginTop:Metrics.doubleBaseMargin}}>
+    <View
+        style={{
+          alignItems: 'center',
+          marginTop: Metrics.baseMargin,
+          padding: Metrics.scale(40),
+          marginHorizontal: Metrics.smallMargin,
+          borderRadius: 10,
+          paddingVertical: Metrics.doubleBaseMargin,
+          backgroundColor:Colors.FAMILY_BACKGROUND
+        }}>
+        <EarnedSvg />
+        <H7 text={"Cash Rewards"} style={{color: Colors.ICE_BLUE}} />
+        <H6 text={'$300.00'} style={{color: Colors.WHITE}} />
+
+      </View>
+      <View
+        style={{
+          alignItems: 'center',
+          marginTop: Metrics.baseMargin,
+          padding: Metrics.scale(40),
+          marginHorizontal: Metrics.smallMargin,
+          borderRadius: 10,
+          paddingVertical: Metrics.doubleBaseMargin,
+          backgroundColor:Colors.FAMILY_BACKGROUND
+        }}>
+        <MisRewards />
+        
+        <H7 text={"Mis Rewards"} style={{color: Colors.ICE_BLUE}} />
+        <H6 text={'$300.00'} style={{color: Colors.WHITE}} />
+      </View>
+      </View>
+      <H2 text="Transaction History" style={styles.coachingTxt} />
+      <View style={styles.playerWrapper}>
+                <FlatListHandler
+                    data={SessionData}
+                    renderItem={renderItem}
+                    ListHeaderComponent={() => (
+                        <View style={styles.row}>
+                          <Text style={styles.heading}>Date</Text>
+                          <Text style={styles.heading}>Transaction</Text>
+                          <Text style={styles.heading}>Type</Text>
+                          <Text style={styles.heading}>Points</Text>
+                        </View>
+                      )}
+                />
             </View>
-            <View>
-              <H5
-                text={`MONTHS THIS YEAR`}
-                style={{
-                  // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                  // alignSelf: 'flex-start',
-                  color: 'white',
-                  // marginHorizontal: Metrics.scale(20),
-                }}
-              />
-              <H1
-                text={`${Months}`}
-                style={{
-                  // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-                  // alignSelf: 'flex-start',
-                  color: Colors.WHITE,
-                  alignSelf: 'center',
-                  // paddingHorizontal: 10,
-                  // marginHorizontal: Metrics.scale(20),
-                }}
-              />
-            </View>
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginTop: Metrics.baseMargin,
-            }}>
-            <H5 text="Last 12 Months" style={{color: Colors.WHITE}} />
-            {/* <DropDownIcon style={{marginHorizontal: Metrics.smallMargin}} /> */}
-          </View>
-        </View>
-      </LinearGradient>
-      <ScrollView style={{}}>
-        {isLoading ? (
-          <SpinnerLoader size={'large'} color={'#09203F'} />
-        ) : (
-          <View
-            style={{
-              marginHorizontal: 20,
-              marginTop: Metrics.verticalScale(20),
-            }}>
-            <FlatListHandler
-              renderItem={renderItem}
-              data={dataArray}
-              keyExtractor={item => item?.id}
-              ItemSeparatorComponent={() => {
-                return <CustomFlatListSeperator />;
-              }}
-            />
-          </View>
-        )}
-      </ScrollView>
-    </>
+    </View>
+  </View>
+    
+ 
   );
 };
 
 export default ActivityScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  playerWrapper: {
+    backgroundColor: Colors.FAMILY_BACKGROUND,
+    paddingVertical: Metrics.scale(16),
+    borderRadius: 16,
+    marginTop:Metrics.doubleBaseMargin
+},
+
+row: {
+  flexDirection: 'row',
+  // borderBottomWidth: 1,
+  // borderColor: '#ccc',
+  paddingVertical: 10,
+},
+heading: {
+  flex: 1,
+  fontWeight: 'bold',
+  textAlign: 'center',
+  color:Colors.DARK_BLUE
+},
+cell: {
+  flex: 1,
+  textAlign: 'center',
+  color:Colors.WHITE,
+  height:'150%'
+},
+coachingTxt: {
+  ...Fonts.SemiBold(Fonts.Size.xSmall, '#98D8FA'),
+  marginTop: Metrics.doubleBaseMargin,
+  marginBottom:Metrics.verticalScale(15)
+},
+});

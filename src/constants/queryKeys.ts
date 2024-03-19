@@ -17,4 +17,8 @@ export const STORAGE_KEYS = {
   GET_PAYMENT:'getPayment',
   GET_ROLES:"getRoles",
   ROLES_LIST:"rolesList",
+  GET_COACH_INFO:'getCoachInfo',
+  GET_PARENT_DATA:'getParentData',
+  COACH_BATCH:'getCoachBatch',
+  COACH_ACTIVITY:'getCoachActivity'
 };

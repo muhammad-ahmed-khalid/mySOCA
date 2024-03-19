@@ -38,9 +38,12 @@ const HomeScreen = ({route}) => {
     getFamilyplayerData,
     getFamilyplayerDataLoading,
     getAllAnnouncements,
-    getAllAnnouncementsLoading
+    getAllAnnouncementsLoading,
+    parentData
   } = useHomeScreenContainer(PlayerID);
-
+const ParentName=parentData?.map((elem)=>elem?.Parent_Name)
+console.log(getFamilyplayerData?.data[0]?.player_reg_no,'getFamilyplayerDatagetFamilyplayerDatagetFamilyplayerData');
+  const {saved_crt_yr,earned_crt_yr,Avlbl_Redeem,missed_rwds_crt_yr}=parentData||{}
   console.log(getAllAnnouncements, "getAllAnnouncementsgetAllAnnouncementsgetAllAnnouncements")
 
   const {Tier, RewardPoints, Months, Attendance, Amount, CashRewards} =
@@ -116,7 +119,7 @@ const handlePressRegisterEvent = () => {
         title="Home"
         backButton={false}
         subText={'Welcome Back'}
-        desc={Player_Name}
+        desc={ParentName}
       />
       <View
         style={{
@@ -135,13 +138,23 @@ const handlePressRegisterEvent = () => {
           />
         </View>
         <View style={{marginTop: Metrics.baseMargin}}>
+          <View style={{flexDirection:"row",justifyContent:'space-between'}}>
           <H6 text="This year you" style={{color: Colors.TEXT_COLOR}} />
+     <ButtonView onPress={()=>navigate(NavigationRoutes.APP_STACK.ACTIVITY)}>
+
+          <H7 text='Show full activity' style={{...Fonts.SemiBold(Fonts.Size.xxxSmall, Colors.WHITE),
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.WHITE}}/>
+     </ButtonView>
+          </View>
+
           <FlatListHandler
             renderItem={renderYearItem}
             data={yearData}
             keyExtractor={item => item?.id}
             horizontal
           />
+     
         </View>
         <View>
           <ScrollView horizontal style={{flexDirection: 'row'}}>
@@ -225,7 +238,7 @@ const handlePressRegisterEvent = () => {
             source={ImageBackgroundPNG}
             resizeMode="cover"
             style={{height: 100, marginTop: Metrics.baseMargin,padding:Metrics.baseMargin}}>
-           <View style={{flexDirection:'row'}}>
+           <View style={{flexDirection:'row',justifyContent:'space-between',width:'100%',alignItems:'center'}}>
            <H5
             style={{color: Colors.WHITE}}
               text={getAllAnnouncements?.data?.[0]?.Announcement}
@@ -236,7 +249,7 @@ const handlePressRegisterEvent = () => {
             <H6
             style={{color: Colors.BUTTON_LIGHT_GREY}}
               text="Register Now"
-            />
+          />
             </ButtonView>
            </View>
 

@@ -30,6 +30,12 @@ export const SERVICE_CONFIG_URLS = {
     GET_TIER:`/tiers`,
     GET_REDEEM:`redeemable/`,
     GET_ACTIVITY:'player/activity/',
-    DELETE_ACCOUNT:'user'
+    DELETE_ACCOUNT:'user',
+    PARENT_DATA:'/parent/'
   },
+  COACH:{
+    COACH_INFO:'/coach-info/',
+    COACH_BATCH:'/coach-batch/',
+    COACH_ACTIVITY:'/coach-activites/'
+  }
 };
