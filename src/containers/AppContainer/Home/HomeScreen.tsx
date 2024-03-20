@@ -1,6 +1,10 @@
 import {
+  EarnedSvg,
   ImageBackgroundPNG,
+  MisRewardSvg,
   PerformanceButtonSvg,
+  RedeemedSvg,
+  SavedSvg,
   boy
 } from '@Asset/logo';
 import ButtonView from '@Component/ButtonView';
@@ -28,6 +32,8 @@ import Header from '@Component/AppHeader';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
 import { navigate } from '@Service/navigationService';
 import useHomeScreenContainer from './HomeScreenContainer';
+import { STORAGE_KEYS } from '@Constants/queryKeys';
+import { getItem } from '@Service/storageService';
 
 const HomeScreen = ({route}) => {
   const {player_reg_no: PlayerID, Player_Name} = route?.params?.item || {};
@@ -38,14 +44,33 @@ const HomeScreen = ({route}) => {
     getFamilyplayerData,
     getFamilyplayerDataLoading,
     getAllAnnouncements,
-    getAllAnnouncementsLoading
+    getAllAnnouncementsLoading,
+    parentData
   } = useHomeScreenContainer(PlayerID);
+const ParentName = parentData?.map((elem) => 
+    elem?.Parent_Name
+);
+const saved_crt_yr = parentData?.map((elem) => 
+elem?.saved_crt_yr
+);
+const earned_crt_yr = parentData?.map((elem) => 
+elem?.earned_crt_yr
+);
+const Avlbl_Redeem = parentData?.map((elem) => 
+elem?.Avlbl_Redeem
+);
+const missed_rwds_crt_yr = parentData?.map((elem) => 
+elem?.missed_rwds_crt_yr
+);
+const lns_usg_crt_mth =  parentData?.map((elem) => 
+elem?.lns_usg_crt_mth
+);
 
-  console.log(getAllAnnouncements, "getAllAnnouncementsgetAllAnnouncementsgetAllAnnouncements")
-
-  const {Tier, RewardPoints, Months, Attendance, Amount, CashRewards} =
-    playerData?.data || {};
-
+const pndg_inv_amt=  parentData?.map((elem) => 
+elem?.pndg_inv_amt
+);
+const userData = getItem(STORAGE_KEYS.GET_PARENT_USER_DETAILS)
+  
   const renderYearItem = ({item}: any) => {
     return (
       <View
@@ -111,12 +136,12 @@ const handlePressRegisterEvent = () => {
     );
   };
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor:Colors.APP_BACKGROUND}}>
       <Header
         title="Home"
         backButton={false}
         subText={'Welcome Back'}
-        desc={Player_Name}
+        desc={ParentName}
       />
       <View
         style={{
@@ -135,13 +160,79 @@ const handlePressRegisterEvent = () => {
           />
         </View>
         <View style={{marginTop: Metrics.baseMargin}}>
+          <View style={{flexDirection:"row",justifyContent:'space-between'}}>
           <H6 text="This year you" style={{color: Colors.TEXT_COLOR}} />
-          <FlatListHandler
-            renderItem={renderYearItem}
-            data={yearData}
-            keyExtractor={item => item?.id}
-            horizontal
-          />
+     <ButtonView onPress={()=>navigate(NavigationRoutes.APP_STACK.ACTIVITY,{player_reg_no,earned_crt_yr,missed_rwds_crt_yr})}>
+
+          <H7 text='Show full activity' style={{...Fonts.SemiBold(Fonts.Size.xxxSmall, Colors.WHITE),
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.WHITE}}/>
+     </ButtonView>
+          </View>
+
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View
+        style={{
+          alignItems: 'center',
+          marginTop: Metrics.baseMargin,
+          padding: Metrics.baseMargin,
+          borderWidth: 1,
+          borderColor: Colors.ICE_BLUE,
+          marginHorizontal: Metrics.smallMargin,
+          borderRadius: 10,
+          paddingVertical: Metrics.doubleBaseMargin,
+        }}>
+        <View><SavedSvg /></View>
+        <H6 text={saved_crt_yr} style={{color: Colors.WHITE}} />
+        <H7 text='Saved' style={{color: Colors.ICE_BLUE}} />
+      </View>
+      <View
+        style={{
+          alignItems: 'center',
+          marginTop: Metrics.baseMargin,
+          padding: Metrics.baseMargin,
+          borderWidth: 1,
+          borderColor: Colors.ICE_BLUE,
+          marginHorizontal: Metrics.smallMargin,
+          borderRadius: 10,
+          paddingVertical: Metrics.doubleBaseMargin,
+        }}>
+        <View><EarnedSvg /></View>
+        <H6 text={earned_crt_yr} style={{color: Colors.WHITE}} />
+        <H7 text='Earned' style={{color: Colors.ICE_BLUE}} />
+      </View>
+      <View
+        style={{
+          alignItems: 'center',
+          marginTop: Metrics.baseMargin,
+          padding: Metrics.baseMargin,
+          borderWidth: 1,
+          borderColor: Colors.ICE_BLUE,
+          marginHorizontal: Metrics.smallMargin,
+          borderRadius: 10,
+          paddingVertical: Metrics.doubleBaseMargin,
+        }}>
+        <View><RedeemedSvg /></View>
+        <H6 text={Avlbl_Redeem} style={{color: Colors.WHITE}} />
+        <H7 text='To Redeem' style={{color: Colors.ICE_BLUE}} />
+      </View>
+      <View
+        style={{
+          alignItems: 'center',
+          marginTop: Metrics.baseMargin,
+          padding: Metrics.baseMargin,
+          borderWidth: 1,
+          borderColor: Colors.ICE_BLUE,
+          marginHorizontal: Metrics.smallMargin,
+          borderRadius: 10,
+          paddingVertical: Metrics.doubleBaseMargin,
+        }}>
+        <View><MisRewardSvg /></View>
+        <H6 text={missed_rwds_crt_yr} style={{color: Colors.WHITE}} />
+        <H7 text= 'Mis Rwds' style={{color: Colors.ICE_BLUE}} />
+      </View>
+        </ScrollView>
+     
         </View>
         <View>
           <ScrollView horizontal style={{flexDirection: 'row'}}>
@@ -163,7 +254,7 @@ const handlePressRegisterEvent = () => {
                   <H7 text="Feb, 2024" style={{color: Colors.WHITE}} />
                 </View>
                 <H5
-                  text="300.00"
+                  text={lns_usg_crt_mth}
                   style={{
                     color: Colors.WHITE,
                     marginTop: Metrics.doubleBaseMargin,
@@ -194,7 +285,7 @@ const handlePressRegisterEvent = () => {
                   <H7 text="Feb, 2024" style={{color: Colors.WHITE}} />
                 </View>
                 <H5
-                  text="300.00"
+                  text={pndg_inv_amt}
                   style={{
                     color: Colors.WHITE,
                     marginTop: Metrics.doubleBaseMargin,
@@ -225,7 +316,7 @@ const handlePressRegisterEvent = () => {
             source={ImageBackgroundPNG}
             resizeMode="cover"
             style={{height: 100, marginTop: Metrics.baseMargin,padding:Metrics.baseMargin}}>
-           <View style={{flexDirection:'row'}}>
+           <View style={{flexDirection:'row',justifyContent:'space-between',width:'100%',alignItems:'center'}}>
            <H5
             style={{color: Colors.WHITE}}
               text={getAllAnnouncements?.data?.[0]?.Announcement}
@@ -236,7 +327,7 @@ const handlePressRegisterEvent = () => {
             <H6
             style={{color: Colors.BUTTON_LIGHT_GREY}}
               text="Register Now"
-            />
+          />
             </ButtonView>
            </View>
 
@@ -251,141 +342,7 @@ const handlePressRegisterEvent = () => {
         </View>
       </View>
     </ScrollView>
-    // <SafeAreaView>
-    //   <LinearGradient
-    //     colors={['#09203F', '#537895']}
-    //     start={{x: 0, y: 0}}
-    //     end={{x: 1, y: 0}}
-    //     style={{
-    //       backgroundColor: '#374051',
-    //       alignItems: 'center',
-    //       // paddingBottom: Metrics.scale(20),
-    //       paddingTop: Metrics.verticalScale(30),
-    //       // height: '75%',
-    //       // borderBottomLeftRadius: Metrics.scale(30),
-    //       // borderBottomRightRadius: Metrics.scale(30),
-    //     }}>
-    //     <Image
-    //       source={SOCAPng}
-    //       style={{
-    //         height: 80,
-    //         width: 80,
-    //         marginBottom: Metrics.verticalScale(5),
-    //       }}
-    //     />
 
-    //     {playerLoading ? (
-    //       <SpinnerLoader size={'large'} />
-    //     ) : (
-    //       <>
-    //         <H2
-    //           text={`${Player_Name}`}
-    //           style={{
-    //             // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-    //             alignSelf: 'flex-start',
-    //             color: Colors.WHITE,
-    //             marginHorizontal: Metrics.scale(20),
-    //             marginTop: Metrics.verticalScale(20),
-    //           }}
-    //         />
-    //         <H2
-    //           text={`${Tier}`}
-    //           style={{
-    //             // ...Fonts.SemiBold(Fonts.Size.medium, Colors.WHITE),
-    //             alignSelf: 'flex-start',
-    //             color: Colors.WHITE,
-    //             marginHorizontal: Metrics.scale(20),
-    //           }}
-    //         />
-
-    //         <View
-    //           style={{
-    //             justifyContent: 'center',
-    //             alignItems: 'center',
-    //             marginTop: Metrics.verticalScale(10),
-    //           }}>
-    //           <SemiCircleProgress
-    //             progress={Months}
-    //             strokeWidth={5}
-    //             radius={100}
-    //           />
-    //         </View>
-    //         <View
-    //           style={{
-    //             flexDirection: 'row',
-    //             marginTop: Metrics.verticalScale(40),
-    //             justifyContent: 'space-between',
-    //             width: '100%',
-    //             paddingHorizontal: 15,
-    //           }}>
-    //           <View>
-    //             <H5
-    //               text={`TOTAL POINTS`}
-    //               style={{
-    //                 color: 'white',
-    //               }}
-    //             />
-
-    //             <H2
-    //               text={`${RewardPoints}`}
-    //               style={{
-    //                 color: Colors.WHITE,
-    //                 alignSelf: 'center',
-    //               }}
-    //             />
-    //           </View>
-    //           <View>
-    //             <View style={{alignSelf: 'flex-end'}}>
-    //               <H5
-    //                 text={`CASH REWARDS`}
-    //                 style={{
-    //                   color: 'white',
-    //                 }}
-    //               />
-
-    //               <H2
-    //                 text={`${CashRewards}`}
-    //                 style={{
-    //                   color: Colors.WHITE,
-    //                   alignSelf: 'center',
-    //                 }}
-    //               />
-    //             </View>
-    //             <ButtonView
-    //               onPress={() =>
-    //                 navigate(NavigationRoutes.APP_STACK.ACTIVITY, {
-    //                   PlayerID,
-    //                   RewardPoints,
-    //                   Months,
-    //                 })
-    //               }
-    //               style={{
-    //                 flexDirection: 'row',
-    //                 alignItems: 'center',
-    //                 alignSelf: 'flex-end',
-    //                 marginRight: Metrics.scale(-15),
-    //                 // marginTop: Metrics.baseMargin,
-    //                 marginBottom: Metrics.baseMargin,
-    //               }}>
-    //               <H5
-    //                 text={`Account Activity`}
-    //                 style={{
-    //                   color: 'white',
-    //                 }}
-    //               />
-    //               <ChevronSvg style={{marginHorizontal: Metrics.smallMargin}} />
-    //             </ButtonView>
-    //           </View>
-    //         </View>
-    //         <Image
-    //           source={HomeJpeg}
-    //           resizeMode="stretch"
-    //           style={{height: 200, width: '100%'}}
-    //         />
-    //       </>
-    //     )}
-    //   </LinearGradient>
-    // </SafeAreaView>
   );
 };
 

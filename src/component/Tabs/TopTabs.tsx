@@ -18,10 +18,10 @@ interface ITopTabs {
   isTrip?: boolean;
   handleClose?: any;
   PlayerID?:any
+  coachBatch?:any
 }
 
-const TopTabs = ({component, data, isTrip = false, handleClose,PlayerID}: ITopTabs) => {
-  console.log(PlayerID,'PlayerIDPlayerIDPlayerID');
+const TopTabs = ({component, data, isTrip = false, handleClose,PlayerID,coachBatch}: ITopTabs) => {
   
   const tabBarOptions = React.useMemo(() => {
     return {
@@ -69,7 +69,7 @@ const TopTabs = ({component, data, isTrip = false, handleClose,PlayerID}: ITopTa
               key={`${index}+${name}`}
               name={name}
               component={component}
-              // initialParams={PlayerID}
+              initialParams={coachBatch}
             />
           );
         },

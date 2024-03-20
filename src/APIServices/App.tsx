@@ -73,7 +73,7 @@ export const getRedeem = async (params: any) => {
 
 export const getActivity = async (params: any) => {
   const {data} = await apiRequest({
-    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_ACTIVITY}${params.playerId}`,
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_ACTIVITY}CLB-135`,
     method: API_CONFIG.GET,
     params,
     showLoader: false,
@@ -98,6 +98,68 @@ export const getPayment = async (params: any) => {
     url: `${SERVICE_CONFIG_URLS.PLAYER.GET_PLAYER}payments/${params.playerId}`,
     method: API_CONFIG.GET,
     params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getCoachInfo = async (params: any) => {
+  
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.COACH.COACH_INFO}${params?.parentId}`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getParentDetail = async (params: any) => {
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.PLAYER.PARENT_DATA}${params.parentId}`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getCoachBatch = async (params: any) => {
+  
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.COACH.COACH_BATCH}1`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getCoachActivity = async (params: any) => {
+  
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.COACH.COACH_ACTIVITY}1`,
+    method: API_CONFIG.GET,
+    params,
+    showLoader: false,
+  });
+  return data;
+};
+
+
+export const getAgeGroup = async () => {
+  const {data} = await apiRequest({
+    url: SERVICE_CONFIG_URLS.COACH.AGE_GROUP,
+    method: API_CONFIG.GET,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const getLocation = async () => {
+  const {data} = await apiRequest({
+    url: SERVICE_CONFIG_URLS.COACH.LOCATION,
+    method: API_CONFIG.GET,
     showLoader: false,
   });
   return data;

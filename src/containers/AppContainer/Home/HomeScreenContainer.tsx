@@ -1,4 +1,4 @@
-import { getAnnouncements, getFmailyPlayers, getPlayer } from '@Api/App';
+import { getAnnouncements, getFmailyPlayers, getParentDetail, getPlayer } from '@Api/App';
 import { STORAGE_KEYS } from '@Constants/queryKeys';
 import loginContext from '@Context/loginContext';
 import { LoginContext } from '@Context/loginContext/types';
@@ -40,12 +40,20 @@ export default function useHomeScreenContainer(PlayerID) {
     {cacheTime: 0, staleTime: 0},
   );
 
+ 
+  const {data: parentData} = useQuery(
+    [STORAGE_KEYS.GET_PARENT_DATA],
+    () => getParentDetail({parentId: userData}),
+    {cacheTime: 0, staleTime: 0},
+  );
+
   return {
     playerData,
     playerLoading,
     getFamilyplayerData,
     getFamilyplayerDataLoading,
     getAllAnnouncements,
-    getAllAnnouncementsLoading
+    getAllAnnouncementsLoading,
+    parentData
   };
 }

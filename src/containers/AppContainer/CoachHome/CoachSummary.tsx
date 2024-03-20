@@ -16,20 +16,30 @@ import Fonts from '@Theme/Fonts'
 import Metrics from '@Utility/Metrics'
 import React from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import useCoachContainer from './CoachContainer'
+import { STORAGE_KEYS } from '@Constants/queryKeys'
+import { getItem } from '@Service/storageService'
 
-const CoachSummary = () => {
+const CoachSummary = ({route}) => {
+    const {grp_ssns_hrs,pvt_ssn_hrs}=route?.params || {}
+    const parentId = getItem(STORAGE_KEYS.PARENTID);
+    console.log(route,'routerouterouterouterouterouteroute');
+    
+    const {coachActivityData}=useCoachContainer(parentId)
+    
+    
     return (
         <View style={{ backgroundColor: Colors.APP_BACKGROUND, flex: 1 }}>
             
             <ScrollView
                 contentContainerStyle={{ paddingHorizontal: 15, }}>
-                <TodayPlayerAttendance />
+                <TodayPlayerAttendance groupHour={grp_ssns_hrs} privateHour={pvt_ssn_hrs} coachActivityData={coachActivityData}/>
             </ScrollView>
         </View>
     )
 }
 
-const TodayPlayerAttendance = () => {
+const TodayPlayerAttendance = ({groupHour,privateHour,coachActivityData}) => {
     const [isDeleteAccountVisible, setIsDeleteAccountVisible] =
     React.useState(false);
     const changeDeleteModalVisible = isDelete => {
@@ -41,11 +51,11 @@ const TodayPlayerAttendance = () => {
       };
     const renderItem = ({ item }) => (
         <View style={styles.row}>
-          <Text style={styles.cell}>{item.Date}</Text>
-          <Text style={styles.cell}>{item.Session}</Text>
-          <Text style={styles.cell}>{item.Duration}</Text>
+          <Text style={styles.cell}>{item?.["Session Date"]}</Text>
+          <Text style={styles.cell}>{item?.["Session Type"]}</Text>
+          <Text style={styles.cell}>{item?.Hours}</Text>
          <ButtonView style={styles.btnCell}>
-                <H7 text="View" style={{alignSelf:'center',color:Colors.WHITE,paddingVertical:5,paddingHorizontal:-5}}/>
+                <H7 text={item?.Comments} style={{alignSelf:'center',color:Colors.WHITE,paddingVertical:5,paddingHorizontal:-5}}/>
          </ButtonView>
         </View>
       );
@@ -56,7 +66,7 @@ const TodayPlayerAttendance = () => {
             <View style={{flexDirection:'row',width:'100%',justifyContent:'space-between',marginBottom:-50}}>
             <View style={{paddingHorizontal:Metrics.baseMargin,height:"60%",width:'48%',flexDirection:"row",alignItems:'center',borderWidth:2,borderColor:Colors.DARK_BLUE,borderRadius:15}}>
                 <View>
-                <H3 text="46" style={{color:Colors.WHITE}}/>
+                <H3 text={groupHour} style={{color:Colors.WHITE}}/>
              <H7 text="Groups" style={{color:Colors.DARK_BLUE}}/>   
                 </View>
                 <View>
@@ -67,7 +77,7 @@ const TodayPlayerAttendance = () => {
             </View>
             <View style={{paddingHorizontal:Metrics.baseMargin,height:"60%",width:'48%',flexDirection:"row",alignItems:'center',borderWidth:2,borderColor:Colors.DARK_BLUE,borderRadius:15}}>
                 <View>
-                <H3 text="74" style={{color:Colors.WHITE}}/>
+                <H3 text={privateHour} style={{color:Colors.WHITE}}/>
              <H7 text="Private" style={{color:Colors.DARK_BLUE}}/>   
                 </View>
                 <View>
@@ -78,14 +88,14 @@ const TodayPlayerAttendance = () => {
             </View>
             </View>
     
-            <ButtonView onPress={()=>setIsDeleteAccountVisible(true)} style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.DARK_BLUE,padding:12,borderRadius:20}} >
+            {/* <ButtonView onPress={()=>setIsDeleteAccountVisible(true)} style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',borderWidth:1,borderColor:Colors.DARK_BLUE,padding:12,borderRadius:20}} >
                 <H6 text="06 Feb, Tournament, Team, Game"  style={{color:Colors.WHITE}}/>
                 <FaqsIcon/>
-            </ButtonView>
+            </ButtonView> */}
             <H2 text="Coaching Sessions Details" style={styles.coachingTxt} />
             <View style={styles.playerWrapper}>
                 <FlatListHandler
-                    data={SessionData}
+                    data={coachActivityData?.data}
                     renderItem={renderItem}
                     ListHeaderComponent={() => (
                         <View style={styles.row}>
