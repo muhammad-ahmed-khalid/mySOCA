@@ -73,7 +73,7 @@ export const getRedeem = async (params: any) => {
 
 export const getActivity = async (params: any) => {
   const {data} = await apiRequest({
-    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_ACTIVITY}${params.playerId}`,
+    url: `${SERVICE_CONFIG_URLS.PLAYER.GET_ACTIVITY}CLB-135`,
     method: API_CONFIG.GET,
     params,
     showLoader: false,

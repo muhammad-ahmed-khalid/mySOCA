@@ -21,12 +21,16 @@ import Header from '@Component/AppHeader';
 import H2 from '@Component/Headings/H2';
 
 const ActivityScreen = ({route}) => {
-  const renderItem = ({ item }) => (
+  const {player_reg_no,earned_crt_yr,missed_rwds_crt_yr}=route?.params || {}
+  const {getActivityData} =useActivityContainer(player_reg_no)
+  console.log(earned_crt_yr,'getActivityDatagetActivityDatagetActivityDatagetActivityData');
+  
+  const renderItem = ({ item }:any) => (
     <View style={styles.row}>
-      <Text style={styles.cell}>{item.Date}</Text>
-      <Text style={styles.cell}>{item.Session}</Text>
-      <Text style={styles.cell}>{item.Duration}</Text>
-      <Text style={styles.cell}>{item.Duration}</Text>
+      <Text style={styles.cell}>{item?.['Payment date']=== "" ? "N/A" : item?.['Payment date']}</Text>
+      <Text style={styles.cell}>{item?.['Earned Cash']}</Text>
+      <Text style={styles.cell}>{item?.['Txn Type']}</Text>
+      <Text style={styles.cell}>{item?.['Points earned']}</Text>
     </View>
   );
 
@@ -48,7 +52,7 @@ const ActivityScreen = ({route}) => {
         }}>
         <EarnedSvg />
         <H7 text={"Cash Rewards"} style={{color: Colors.ICE_BLUE}} />
-        <H6 text={'$300.00'} style={{color: Colors.WHITE}} />
+        <H6 text={earned_crt_yr} style={{color: Colors.WHITE}} />
 
       </View>
       <View
@@ -64,13 +68,13 @@ const ActivityScreen = ({route}) => {
         <MisRewards />
         
         <H7 text={"Mis Rewards"} style={{color: Colors.ICE_BLUE}} />
-        <H6 text={'$300.00'} style={{color: Colors.WHITE}} />
+        <H6 text={missed_rwds_crt_yr} style={{color: Colors.WHITE}} />
       </View>
       </View>
       <H2 text="Transaction History" style={styles.coachingTxt} />
       <View style={styles.playerWrapper}>
                 <FlatListHandler
-                    data={SessionData}
+                    data={getActivityData?.data}
                     renderItem={renderItem}
                     ListHeaderComponent={() => (
                         <View style={styles.row}>
