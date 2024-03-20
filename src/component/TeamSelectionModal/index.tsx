@@ -15,6 +15,7 @@ import { DATE_FORMATS } from '@Utility/DateUtils';
 import SimpleModal from '@Component/SimpleModal/SimpleModal';
 import H6 from '@Component/Headings/H6';
 import CustomSelectionModal from '@Component/CustomSelectionModal';
+import useTeamSelectionModalContainer from './TeamSelectionModalContainer';
 
 const tourneyList = [
   {
@@ -83,6 +84,9 @@ const TeamSelectionModal = ({
   primaryBtnTxt = 'yes',
 }: ICustomModal) => {
   const refForm = React.useRef();
+
+  const { getAgeGroupList }  = useTeamSelectionModalContainer();
+  console.log(getAgeGroupList, "getAgeGroupListgetAgeGroupListgetAgeGroupList")
 
   const [isTourneyModalVisible, setIsTourneyModalVisible] = useState(false);
   const [isTeamModalVisible,setIsTeamModalVisible]=useState(false)
@@ -178,9 +182,9 @@ const TeamSelectionModal = ({
       <CustomSelectionModal
         isModalVisible={isTourneyModalVisible}
         handleSelection={handleTourneySelection}
-        title={"Select tourney"}
+        title={"Select Age Group"}
         handleDropOffPress={handleTourneyDrop}
-        modalData={tourneyList}
+        modalData={getAgeGroupList?.data}
       />
          <CustomSelectionModal
         isModalVisible={isTeamModalVisible}

@@ -145,3 +145,13 @@ export const getCoachActivity = async (params: any) => {
   });
   return data;
 };
+
+
+export const getAgeGroup = async () => {
+  const {data} = await apiRequest({
+    url: SERVICE_CONFIG_URLS.COACH.AGE_GROUP,
+    method: API_CONFIG.GET,
+    showLoader: false,
+  });
+  return data;
+};
