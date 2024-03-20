@@ -75,7 +75,13 @@ const TeamSelectionModal = ({
   const handlePressConfirmSelection = () => {
     const selectedDate = refForm?.current?.getInputRef('dob').getValue()
     if(selectedDate && selectedTourney && selectedTeam){
-      console.log("onnnnn")
+      let payload = {
+        dob: selectedDate,
+        tourney: selectedTourney,
+        team: selectedTeam
+      }
+      console.log(payload,"payload")
+      setIsDeleteAccountVisible(false);
     }
   }
 
