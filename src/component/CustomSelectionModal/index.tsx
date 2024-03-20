@@ -44,11 +44,11 @@ const CustomSelectionModal = ({
           <Text style={{ ...Fonts.Medium(Fonts.Size.medium, Colors.DARK_BLUE),alignSelf:'center',marginBottom:Metrics.baseMargin}}>{title}</Text>
           {modalData?.map((item) => (
             <TouchableOpacity
-              key={item?.age_grp_id || item?.id}
+              key={item?.age_grp_id || item?.id || item?.location_id}
               
-              onPress={() => handleSelection(item?.name || item["Coaching Age Group"])}>
+              onPress={() => handleSelection(item?.name || item["Coaching Age Group"] || item["Coaching Locations"])}>
                 
-              <Text style={{ ...Fonts.Medium(Fonts.Size.small, Colors.WHITE),marginVertical:Metrics.smallMargin}}>{item?.name || item["Coaching Age Group"]}</Text>
+              <Text style={{ ...Fonts.Medium(Fonts.Size.small, Colors.WHITE),marginVertical:Metrics.smallMargin}}>{item?.name || item["Coaching Age Group"] || item["Coaching Locations"]}</Text>
             </TouchableOpacity>
           ))}
         </View>

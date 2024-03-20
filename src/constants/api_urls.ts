@@ -38,5 +38,6 @@ export const SERVICE_CONFIG_URLS = {
     COACH_BATCH:'/coach-batch/',
     COACH_ACTIVITY:'/coach-activites/',
     AGE_GROUP:'/age-group',
+    LOCATION: '/location'
   }
 };

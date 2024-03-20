@@ -155,3 +155,12 @@ export const getAgeGroup = async () => {
   });
   return data;
 };
+
+export const getLocation = async () => {
+  const {data} = await apiRequest({
+    url: SERVICE_CONFIG_URLS.COACH.LOCATION,
+    method: API_CONFIG.GET,
+    showLoader: false,
+  });
+  return data;
+};

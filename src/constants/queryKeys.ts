@@ -21,5 +21,6 @@ export const STORAGE_KEYS = {
   GET_PARENT_DATA:'getParentData',
   COACH_BATCH:'getCoachBatch',
   COACH_ACTIVITY:'getCoachActivity',
-  GET_AGE_GROUP:'getAgeGroup'
+  GET_AGE_GROUP:'getAgeGroup',
+  GET_LOCATION: 'getLocation',
 };
