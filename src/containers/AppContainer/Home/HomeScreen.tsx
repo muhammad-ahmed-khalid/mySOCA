@@ -71,25 +71,8 @@ elem?.pndg_inv_amt
 );
 const userData = getItem(STORAGE_KEYS.GET_PARENT_USER_DETAILS)
   
-  const renderYearItem = ({item}: any) => {
-    return (
-      <View
-        style={{
-          alignItems: 'center',
-          marginTop: Metrics.baseMargin,
-          padding: Metrics.baseMargin,
-          borderWidth: 1,
-          borderColor: Colors.ICE_BLUE,
-          marginHorizontal: Metrics.smallMargin,
-          borderRadius: 10,
-          paddingVertical: Metrics.doubleBaseMargin,
-        }}>
-        <View>{item?.svg}</View>
-        <H6 text={item?.cash} style={{color: Colors.WHITE}} />
-        <H7 text={item?.label} style={{color: Colors.ICE_BLUE}} />
-      </View>
-    );
-  };
+console.log(getFamilyplayerData,'getFamilyplayerDatagetFamilyplayerDatagetFamilyplayerData');
+
 
 const handlePressRegisterEvent = () => {
   Linking.openURL(getAllAnnouncements?.data?.[0]?.url_to_show)
@@ -111,16 +94,16 @@ const handlePressRegisterEvent = () => {
           <View style={{marginHorizontal: Metrics.baseMargin}}>
             <H5 text={item?.Player_Name} style={{color: Colors.WHITE}} />
             <View style={{flexDirection: 'row'}}>
-              <H7 text="Championships " style={{color: Colors.ICE_BLUE}} />
-              <H7 text={"02"} style={{color: Colors.WHITE}} />
+              <H7 text="Total Runs: " style={{color: Colors.ICE_BLUE}} />
+              <H7 text={item?.Runs} style={{color: Colors.WHITE}} />
             </View>
             <View style={{flexDirection: 'row'}}>
-              <H7 text="Leagues " style={{color: Colors.ICE_BLUE}} />
-              <H7 text={"15"} style={{color: Colors.WHITE}} />
+              <H7 text="Total Wickets: " style={{color: Colors.ICE_BLUE}} />
+              <H7 text={item?.['Total Wkts']} style={{color: Colors.WHITE}} />
             </View>
             <View style={{flexDirection: 'row'}}>
-              <H7 text="Tourneys " style={{color: Colors.ICE_BLUE}} />
-              <H7 text={"22"} style={{color: Colors.WHITE}} />
+              <H7 text="Total Catches: " style={{color: Colors.ICE_BLUE}} />
+              <H7 text={item?.['Total Catches']} style={{color: Colors.WHITE}} />
             </View>
             <ButtonView
             onPress={()=>navigate(NavigationRoutes.APP_STACK.PERFORMANCE,{playerData: item})}
@@ -162,7 +145,7 @@ const handlePressRegisterEvent = () => {
         <View style={{marginTop: Metrics.baseMargin}}>
           <View style={{flexDirection:"row",justifyContent:'space-between'}}>
           <H6 text="This year you" style={{color: Colors.TEXT_COLOR}} />
-     <ButtonView onPress={()=>navigate(NavigationRoutes.APP_STACK.ACTIVITY,{player_reg_no,earned_crt_yr,missed_rwds_crt_yr})}>
+     <ButtonView onPress={()=>navigate(NavigationRoutes.APP_STACK.ACTIVITY,{getFamilyplayerData,earned_crt_yr,missed_rwds_crt_yr})}>
 
           <H7 text='Show full activity' style={{...Fonts.SemiBold(Fonts.Size.xxxSmall, Colors.WHITE),
     borderBottomWidth: 1,

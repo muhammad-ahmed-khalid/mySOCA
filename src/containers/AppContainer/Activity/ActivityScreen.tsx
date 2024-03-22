@@ -21,10 +21,11 @@ import Header from '@Component/AppHeader';
 import H2 from '@Component/Headings/H2';
 
 const ActivityScreen = ({route}) => {
-  const {player_reg_no,earned_crt_yr,missed_rwds_crt_yr}=route?.params || {}
+  const {getFamilyplayerData,earned_crt_yr,missed_rwds_crt_yr}=route?.params || {}
+  const {player_reg_no}=getFamilyplayerData?.data[0]
   const {getActivityData} =useActivityContainer(player_reg_no)
-  console.log(earned_crt_yr,'getActivityDatagetActivityDatagetActivityDatagetActivityData');
-  
+  console.log(player_reg_no,'getActivityDatagetActivityDatagetActivityDatagetActivityData');
+ 
   const renderItem = ({ item }:any) => (
     <View style={styles.row}>
       <Text style={styles.cell}>{item?.['Payment date']=== "" ? "N/A" : item?.['Payment date']}</Text>
