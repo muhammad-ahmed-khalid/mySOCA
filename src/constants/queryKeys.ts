@@ -23,4 +23,5 @@ export const STORAGE_KEYS = {
   COACH_ACTIVITY:'getCoachActivity',
   GET_AGE_GROUP:'getAgeGroup',
   GET_LOCATION: 'getLocation',
+  GET_COACH_ATTENDACNE_LIST: 'getCoachAttendacneList'
 };

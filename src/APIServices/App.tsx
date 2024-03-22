@@ -164,3 +164,24 @@ export const getLocation = async () => {
   });
   return data;
 };
+
+export const getCoachAttendanceList = async (params) => {
+  console.log(params, "params OF getCoachAttendanceList")
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.COACH.GET_COACH_ATTENDANCE_LIST}/${params.coachId}`,
+    method: API_CONFIG.GET,
+    showLoader: false,
+  });
+  return data;
+};
+
+export const updateCoachAttendanceList = async (params) => {
+  console.log(params, "params OF updateCoachAttendanceList")
+  const {data} = await apiRequest({
+    url: `${SERVICE_CONFIG_URLS.COACH.GET_COACH_ATTENDANCE_LIST}/${params.playerId}/${params.coachId}`,
+    method: API_CONFIG.PUT,
+    showLoader: false,
+    params: {attendance: params?.attendance},
+  });
+  return data;
+};
