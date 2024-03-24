@@ -14,6 +14,7 @@ export const SERVICE_CONFIG_URLS = {
     REQUEST_OTP: `${driver}/tokens/request-otp`,
     VERIFY_OTP: `${driver}/tokens/verify-otp`,
     PRIVACY_POLICY: `${driver}/personal/privacy-policy`,
+    FORGOT_PASSWORD: `${auth}/forget`
   },
   PLAYER: {
     REQUEST_OTP: `${student}/tokens/request-otp`,
