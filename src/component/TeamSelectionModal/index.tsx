@@ -120,7 +120,7 @@ const TeamSelectionModal = ({
                 </TouchableOpacity>
              
                 <ButtonView onPress={handlePressConfirmSelection} style={{alignItems:"center",backgroundColor:Colors.DARK_BLUE, padding:10,marginTop:Metrics.doubleBaseMargin,borderRadius:Metrics.smallMargin}}>
-                    <H4 text="Confirmaa Selection" style={{...Fonts.Bold(Fonts.Size.medium, Colors.DARK_BLACK),}}/>
+                    <H4 text="Confirm Selection" style={{...Fonts.Bold(Fonts.Size.medium, Colors.DARK_BLACK),}}/>
                 </ButtonView>
               </>
             );
